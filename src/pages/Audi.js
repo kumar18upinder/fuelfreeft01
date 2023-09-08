@@ -6,7 +6,6 @@ import Footer from "../components/footer";
 import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Audibanner from "../pages/images/Audibanner.jpeg";
-import $ from "jquery";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 
@@ -35,13 +34,7 @@ export const Audi = ({ handleclick }) => {
       visitCount();
     }
   }, []);
-  let goTologin = () => {
-    toast.warning("Please Login");
-    setTimeout(() => {
-      navigate("/login");
-    }, 1000);
-    return { _id: null };
-  };
+ 
   // main product
   const navigate = useNavigate();
   const [cycleList, setCycleList] = useState({});
@@ -67,7 +60,7 @@ export const Audi = ({ handleclick }) => {
     let pId = productID;
     try {
       let Addtofavorite = await axios.post(
-        `https://app.fuelfree.in/favorite/add/${userId}/${pId}`,
+        `https://app.fuelfree.in/favorite/add${userId}/${pId}`,
         {
           headers: {
             Accept: "application/json",
@@ -203,7 +196,6 @@ export const Audi = ({ handleclick }) => {
                       ></input>
                       <label>{data.productPriceK}and below</label>
                     </div>
-                    //  =================================
                   ))}
               </div>
             </div>
@@ -256,7 +248,7 @@ export const Audi = ({ handleclick }) => {
                           </Link>
                           <img
                             alt="cycle"
-                            src={`https://app.fuelfree.in/${data.productImage}`}
+                            src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
                           ></img>
                           <div className="Cartitle">
                             <h5>{data.productName}</h5>
@@ -269,14 +261,14 @@ export const Audi = ({ handleclick }) => {
                             </Link>
                             {localStorage.getItem("product") ? (
                               <Link
-                                to={`/compare-electric-vehicles/${data._id}`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                               >
                                 Compare Now
                               </Link>
                             ) : (
                               <Link
-                                to={`/compare-electric-vehicles/:id`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                                 onClick={() => handleclick(data)}
                               >
@@ -315,14 +307,14 @@ export const Audi = ({ handleclick }) => {
                             </Link>
                             {localStorage.getItem("product") ? (
                               <Link
-                                to={`/semifinalCompare/${data._id}`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                               >
                                 Compare Now
                               </Link>
                             ) : (
                               <Link
-                                to={`/semifinalCompare/:id`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                                 onClick={() => handleclick(data)}
                               >

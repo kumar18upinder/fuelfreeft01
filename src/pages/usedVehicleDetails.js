@@ -126,9 +126,15 @@ const UsedVehicleDetails = () => {
     <div id="product_page_id">
       <Header />
       <div className="tanker">
+      <h4 className="storepage-heading-main-outer">
+                  {usedVehicleDetail && usedVehicleDetail.vehicleName}
+                </h4>
+
         <div className="charging-cls">
-          <div className="dealer-banner">
+        
+          <div className="dealer-banner-used">
             <img
+            className="img-dealer-user"
               src={`https://app.fuelfree.in/${
                 usedVehicleDetail && usedVehicleDetail.Image
               }`}
@@ -137,63 +143,17 @@ const UsedVehicleDetails = () => {
               } used-vehicle `}
             />
           </div>
+
+
+
+
+          
           <div className="charging-page">
-            <div>
-              <div className="store-para1">
-                <h4 className="storepage-heading">
-                  {usedVehicleDetail && usedVehicleDetail.vehicleName}
-                </h4>
-                <div class="container">
-                  <table class="table table-bordered">
-                    <tbody>
-                      <tr>
-                        <td>Seller Name</td>
-                        <td>
-                          {usedVehicleDetail && usedVehicleDetail.sellerName}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Vehicle Type</td>
-                        <td>
-                          {usedVehicleDetail && usedVehicleDetail.vehicleType}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Current Price</td>
-                        <td>
-                          {usedVehicleDetail && usedVehicleDetail.currentPrice}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Contact No.</td>
-                        <td>
-                          {usedVehicleDetail && usedVehicleDetail.contactNo}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Minimum Bid</td>
-                        <td>
-                          {usedVehicleDetail && usedVehicleDetail.minimumBid}
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Number of Bids:</td>
-                        <td>{usedVehicleDetail && usedVehicleDetail.bids}</td>
-                      </tr>
-                      <tr>
-                        <td>Description</td>
-                        <td>
-                          {usedVehicleDetail &&
-                            usedVehicleDetail.productDescription}
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  {usedVehicleDetail &&
+          {usedVehicleDetail &&
                   usedVehicleDetail.participateInAuction === true ? (
                     <>
-                    <div className="auc-details mb-5">                    
-                     <div className="auction-details">
+                    <div className="auc-details-new">                    
+                     <div className="auction-details-new">
                         <h3>
                           {usedVehicleDetail && usedVehicleDetail.vehicleName}
                         </h3>
@@ -248,12 +208,70 @@ const UsedVehicleDetails = () => {
                       </p>
                     </div>
                   )}
-                </div>
-              </div>
-            </div>
+                
+            <div>
+              <div className="store-para1">
+                
+               
           </div>
         </div>
       </div>
+      
+      </div>
+      <div class="container">
+                  <div class="table-outer-main">
+                    <div>
+                    <div className="detail-all-outer">
+                        <div className="used-detail-box">
+                        <h1 className="used-detail-heading"> Name</h1>
+                        <p>
+                          {usedVehicleDetail && usedVehicleDetail.sellerName}
+                        </p>
+                        </div>
+                  
+
+                      <div className="used-detail-box">
+                        <h1 className="used-detail-heading" >vehicle Type</h1>
+                        <p>
+                          {usedVehicleDetail && usedVehicleDetail.vehicleType}
+                        </p>
+                     </div>
+                     <div className="used-detail-box">
+                        <h1 className="used-detail-heading">Price</h1> 
+                        <p>
+                          {usedVehicleDetail && usedVehicleDetail.currentPrice}
+                          </p>
+                          </div>
+                          <div className="used-detail-box">
+                        <h1 className="used-detail-heading">Contact No.</h1>
+                        <p>
+                          {usedVehicleDetail && usedVehicleDetail.contactNo}
+                        </p>
+                        </div>
+                      <div className="used-detail-box">
+                        <h1 className="used-detail-heading">Minimum Bid</h1>
+                        <p>
+                          {usedVehicleDetail && usedVehicleDetail.minimumBid}
+                        </p>
+                      </div>
+                      <div className="used-detail-box">
+                        <h1 className="used-detail-heading">Number of Bids:</h1>
+                        <p>{usedVehicleDetail && usedVehicleDetail.bids}</p>
+                        </div>
+                      <div className="used-detail-box">
+                        <h1 className="used-detail-heading">Description</h1>
+                        <p>
+                          {usedVehicleDetail &&
+                            usedVehicleDetail.productDescription}
+                        </p>
+                        </div>
+                        </div>
+                        
+                     </div>
+              </div>
+            </div>
+      </div>
+    
       <Footer />
     </div>
   );

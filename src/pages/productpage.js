@@ -12,11 +12,9 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { useRef } from "react";
 import { BiDownload } from "react-icons/bi";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 import "react-toastify/dist/ReactToastify.css";
-import ReactImageMagnify from 'react-image-magnify';
-
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -27,12 +25,9 @@ import { AiFillTwitterCircle } from "react-icons/ai";
 import { RiWhatsappFill } from "react-icons/ri";
 import { IoIosShareAlt } from "react-icons/io";
 import { FaStar, FaRegStar } from "react-icons/fa";
-import car from "../pages/images/car1.jpg"
+import ImageSlider from "../pages/imagesliderproductpage";
 
 const Productpage = () => {
-
-
-
   //visitor count
   let userdata = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
@@ -57,9 +52,10 @@ const Productpage = () => {
     if (localStorage.getItem("user")) {
       visitCount();
     }
-  }, []);
+  }, [userId]);
 
-  // main product
+  // ====================================model box image===============================
+
   const sectionRef = useRef(null);
   function scrollToSection() {
     sectionRef.current.scrollIntoView({ behavior: "smooth" });
@@ -84,12 +80,8 @@ const Productpage = () => {
 
   useEffect(() => {
     getCarList();
-  }, []);
+  }, [id]);
 
-// const goToLogin = () => {
-//    if(user === "null")
-//    Navigate('/login')
-// }
   const user = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
     : NaN;
@@ -101,9 +93,7 @@ const Productpage = () => {
   };
 
   const validationSchema = yup.object({
-    rating: yup
-      .number()
-      .required("Rating is required"),
+    rating: yup.number().required("Rating is required"),
     review: yup.string(),
   });
   const StarRating = ({ rating, onClick }) => {
@@ -175,9 +165,9 @@ const Productpage = () => {
 
   useEffect(() => {
     getReviewList();
-  }, []);
+  }, [id]);
 
-  // ================ star ========
+  // ================== star ==================
 
   const renderRatingStars = (rating) => {
     const filledStars = Math.floor(rating);
@@ -212,12 +202,11 @@ const Productpage = () => {
     let data = await resultDetails.data;
     let details = data.productDetails;
     setDetails(details);
-    handleHtmlChange(details)
   }
 
   useEffect(() => {
     getProductdetails();
-  }, []);
+  }, [id]);
 
   const gologin = () => {
     if (!localStorage.getItem("user")) {
@@ -242,42 +231,18 @@ const Productpage = () => {
     link.click();
   };
 
-  const [loanAmount, setLoanAmount] = useState(0);
-  const [interestRate, setInterestRate] = useState(0);
-  const [loanTerm, setLoanTerm] = useState(0);
-  const [downPayment, setDownPayment] = useState(0);
+  // ++++++++++++++++++++++++++++++++++Share URL++++++++++++++++++++++++++++++++++
+  const MAX_TEXT_LENGTH = 100;
 
-  const handleLoanAmountChange = (event) => {
-    setLoanAmount(Number(event.target.value));
-  };
+  const shareUrl = `https://fuelfree.in/products/${data.productName}/${data.VehicleType}/${data._id}`;
+  const text = `${data.productName}\n${data.description}`;
+  const truncatedText =
+    text.length > MAX_TEXT_LENGTH
+      ? `${text.slice(0, MAX_TEXT_LENGTH)}...`
+      : text;
 
-  const handleInterestRateChange = (event) => {
-    setInterestRate(Number(event.target.value));
-  };
-
-  const handleLoanTermChange = (event) => {
-    setLoanTerm(Number(event.target.value));
-  };
-
-  const handleDownPaymentChange = (event) => {
-    setDownPayment(Number(event.target.value));
-  };
-
-
-  // Calculate the monthly EMI
-  const calculateEMI = () => {
-    const principal = loanAmount - downPayment;
-    const monthlyInterestRate = interestRate / 1200;
-    const termInMonths = loanTerm * 12;
-    const emi =
-      (principal *
-        monthlyInterestRate *
-        Math.pow(1 + monthlyInterestRate, termInMonths)) /
-      (Math.pow(1 + monthlyInterestRate, termInMonths) - 1);
-    return emi.toFixed(2);
-  };
-
- 
+  const imageUrl = `https://app.fuelfree.in/${data && data.productImage[0]}`;
+  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => {
@@ -288,36 +253,78 @@ const Productpage = () => {
     setIsHovered(false);
   };
 
-  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  const MAX_TEXT_LENGTH = 100;
-
-  const shareUrl = `https://fuelfree.in/products/${data.productName}/${data.VehicleType}/${data._id}`;
-  const text = `${data.productName}\n${data.description}`;
-  const truncatedText =
-    text.length > MAX_TEXT_LENGTH
-      ? `${text.slice(0, MAX_TEXT_LENGTH)}...`
-      : text;
-
-  const imageUrl = `https://app.fuelfree.in/${data && data.productImage}`;
-      
-  const [htmlCode, setHtmlCode] = useState(`${data && data.addHtmlCode}`);
-        
-  const [cssCode, setCssCode] = useState('');
-  const handleHtmlChange = (event) => {
-    setHtmlCode(event.target.value);
+  //calculate EMI
+  const [emiData, setEMIData] = useState({});
+  const [financerlist, setFinancerlist] = useState([]);
+  const [selectFinancer, setSelectFinancer] = useState("");
+  useEffect(() => {
+    const getFinancerlist = async () => {
+      try {
+        const response = await axios.get(
+          `https://app.fuelfree.in/finance/list`,
+          {
+            headers: {
+              Accept: "application/json",
+            },
+          }
+        );
+        const result = await response.data;
+        const financerlistData = result.List;
+        setFinancerlist(financerlistData);
+      } catch (error) {
+        console.log("Error in fetching Financerlist", error);
+      }
+    };
+    getFinancerlist();
+  }, []);
+  const [loanAmount, setLoanAmount] = useState(data?.productPrice);
+  const EMIvalues = {
+    vehicleType: "",
+    months: "",
+    downPayment: "",
   };
+  const validationEMISchema = yup.object().shape({
+    vehicleType: yup.string().required(),
+    months: yup.string().matches(/^\d+$/).required(),
+    downPayment: yup.string().matches(/^\d+$/).required(),
+  });
+  const handleEMICalculation = async (values) => {
+    let EMIdata = {
+      ...values,
+      loanAmount: data?.productPrice,
+    };
+    let Fid = selectFinancer
+      ? selectFinancer
+      : toast.error("Please Select Financer Name");
+    const loanAmount = data?.productPrice;
+    const downPayment = values.downPayment;
 
-  const handleCssChange = (event) => {
-    setCssCode(event.target.value);
+    // Check if down payment is less than loan amount
+    if (downPayment >= loanAmount) {
+      toast.error("Down payment must be less than the loan amount.");
+      return;
+    }
+    try {
+      let response = await axios.post(
+        `https://app.fuelfree.in/EMI/calculateEMI/${Fid}`,
+        EMIdata,
+        {
+          headers: {
+            Accept: "application/json",
+          },
+        }
+      );
+      const resultEMI = await response.data;
+      setEMIData(resultEMI);
+    } catch (error) {
+      console.log(error);
+    }
   };
-
-
-  const catImageUrl="./pa"
-
 
   return (
     <div id={data?._id}>
       <Header />
+      <ToastContainer />
       <Helmet>
         <link
           rel="apple-touch-icon"
@@ -375,48 +382,23 @@ const Productpage = () => {
                           data && data._id
                         }`}
                       >
-                        <AiFillTwitterCircle /> <span>Twitter</span>
+                        <AiFillTwitterCircle />
+                        <span>Twitter</span>
                       </TwitterShareButton>
                       <WhatsappShareButton
                         url={shareUrl}
                         title={truncatedText}
                         separator=" - "
                       >
-                        <RiWhatsappFill /> <span>WhatsApp</span>
+                        <RiWhatsappFill />
+                        <span>WhatsApp</span>
                       </WhatsappShareButton>
                     </div>
                   </div>
 
-<div className="product-main-img-detail">
-  
-                  <ReactImageMagnify {...{
-    smallImage: {
-        alt: 'Wristwatch by Ted Baker London',
-        isFluidWidth: true,
-        src: (`https://app.fuelfree.in/${
-          data && data.productImage
-        }`),
-    },
-    largeImage: {
-        src: (`https://app.fuelfree.in/${
-          data && data.productImage
-        }`),
-        width: 1200,
-        height: 1800,
-    }
-}} />
-</div>
-     
-                  {/* <div className="product-main-img-detail">
-                    <img
-                      alt={`${data && data.productName} image`}
-                      className="product_D_img"
-                      src={`https://app.fuelfree.in/${
-                        data && data.productImage
-                      }`}
-                    />
-                    <span></span>
-                  </div> */}
+                  <div className="product-main-img-detail">
+                    <ImageSlider productImage={data && data.productImage} />
+                  </div>
                   <div className="produt-title-n-dtail">
                     <h2 className="kona-head">{data && data.productName}</h2>
 
@@ -434,24 +416,24 @@ const Productpage = () => {
                     <div className="top-sapectfication">
                       <div className="sapectfication-outer">
                         <div className="sapectfication-outer-content bordr-right">
-                          <p>{data && data.topSpeed}</p>
+                          <p>{data && data.topSpeed} km/h</p>
                           <p className="top-cat-spc-p">Top Speed</p>
                         </div>
 
                         <div className="sapectfication-outer-content bordr-right">
-                          <p>{data && data.batteryWarrantyYears}</p>
+                          <p>{data && data.batteryWarrantyYears} yrs</p>
                           <p className="top-cat-spc-p">
-                            Battery Warranty(Years)
+                            Battery Warranty
                           </p>
                         </div>
 
                         <div className="sapectfication-outer-content bordr-right">
-                          <p>{data && data.chargingTime}</p>
+                          <p>{data && data.chargingTime} hrs</p>
                           <p className="top-cat-spc-p">Charging Time</p>
                         </div>
 
                         <div className="sapectfication-outer-content bordr-right">
-                          <p>{data && data.DrivingRange}</p>
+                          <p>{data && data.DrivingRange} kms</p>
                           <p className="top-cat-spc-p">Driving Range</p>
                         </div>
                       </div>
@@ -459,9 +441,11 @@ const Productpage = () => {
 
                     <div className="Product-page-btns">
                       <Link
-                        to={`/book-your-test-drive/${data && data.productName}/${
-                          data && data.VehicleType
-                        }/${data && data.Brand}/${data && data.city}`}
+                        to={`/book-your-test-drive/${
+                          data && data.productName
+                        }/${data && data.VehicleType}/${data && data.Brand}/${
+                          data && data.city
+                        }`}
                         onClick={gologin}
                         class="btn btn-primary enquire-btn mt-2"
                       >
@@ -479,11 +463,11 @@ const Productpage = () => {
                       </Link>
                       <br></br>
                       <Link
-                        to={`/buy-electric-vehicle/${data && data.productName}/${
-                          data && data.productPrice
-                        }/${data && data.VehicleType}/${data && data.Brand}/${
-                          data && data.city
-                        }`}
+                        to={`/buy-electric-vehicle/${
+                          data && data.productName
+                        }/${data && data.productPrice}/${
+                          data && data.VehicleType
+                        }/${data && data.Brand}/${data && data.city}`}
                         onClick={gologin}
                         class="btn btn-primary enquire-btn mt-2"
                       >
@@ -519,7 +503,9 @@ const Productpage = () => {
             <div class="variantcard">
               <div className="varientimg">
                 <img
-                  src={`https://app.fuelfree.in/${data && data.productImage}`}
+                  src={`https://app.fuelfree.in/${
+                    data && data.productImage[0]
+                  }`}
                 />
               </div>
               <div class="varianttitle">
@@ -662,7 +648,7 @@ const Productpage = () => {
               ""
             )}
 
-            {data && data.brochure ? (
+            {/* {data && data.brochure ? (
               <div className="product-dist-sp">
                 <div className="content-type-productpage">
                   <strong>Brochure:</strong>
@@ -684,8 +670,28 @@ const Productpage = () => {
               </div>
             ) : (
               ""
+            )} */}
+            {data && data.brochure && (
+              <div className="product-dist-sp">
+                <div className="content-type-productpage">
+                  <strong>Brochure:</strong>
+                </div>
+                <div className="col-md-8" style={{ display: "flex" }}>
+                  <embed
+                    src={`https://app.fuelfree.in/${data.brochure}`}
+                    type="application/pdf"
+                    width="40%"
+                    height="20px"
+                    className="brocher-embed"
+                  />
+                  <BiDownload
+                    target="_blank"
+                    className="download-broucher"
+                    onClick={handleDownloadBrochure}
+                  />
+                </div>
+              </div>
             )}
-
             {data && data.frontBrakeType ? (
               <div className="product-dist-sp">
                 <div className="content-type-productpage">
@@ -740,6 +746,7 @@ const Productpage = () => {
             ) : (
               ""
             )}
+
             <div className="product-dist-sp">
               <div className="content-type-productpage">
                 <strong>Charger Included:</strong>
@@ -935,7 +942,6 @@ const Productpage = () => {
           <div className="row pt-3 px-2">
             <div className="col-md-3 pr-border">
               <h4 className="p-desc-weight p-des">Add Review</h4>
-
               <Formik
                 initialValues={defaultValues}
                 validationSchema={validationSchema}
@@ -945,7 +951,8 @@ const Productpage = () => {
                   <Field name="rating">
                     {({ field }) => (
                       <>
-                        <StarRating className="star-rating"
+                        <StarRating
+                          className="star-rating"
                           rating={selectedRating}
                           onClick={handleRatingClick}
                         />
@@ -959,7 +966,7 @@ const Productpage = () => {
                     type="text"
                     name="review"
                     placeholder="Review"
-                    className="form-control margin-review" 
+                    className="form-control margin-review"
                   />
                   <p className="text-danger">
                     <ErrorMessage name="review" />
@@ -997,77 +1004,125 @@ const Productpage = () => {
             Calculate Your EMI For This Product
           </h3>
         </div>
+        <div className="financer-name-list">
+          <select
+            className="select-financer"
+            value={selectFinancer}
+            onChange={(e) => setSelectFinancer(e.target.value)}
+            required="required"
+          >
+            <option value="">---Select a financer---</option>
+            {financerlist &&
+              financerlist.map((financer) => (
+                <option key={financer._id} value={financer._id}>
+                  {financer.firmName}
+                </option>
+              ))}
+          </select>
+        </div>
         <section id="emi-calculater" ref={sectionRef}>
-          <div className="tanker" id="emi-id">
-            <div className="emi-cal-c">
-              <label htmlFor="loanAmount">Loan Amount (in ₹):</label>
-              <div className="flex-direction">
-                <input
-                  type="number"
-                  id="loanAmount"
-                  value={loanAmount}
-                  onChange={handleLoanAmountChange}
-                />
-              </div>
-            </div>
-            <div className="emi-cal-c">
-              <div className="flex-direction">
-                <label htmlFor="interestRate">Interest Rate (in %):</label>
-                <input
-                  type="number"
-                  id="interestRate"
-                  step="0.01"
-                  onChange={handleInterestRateChange}
-                />
-              </div>
-            </div>
-            <div className="emi-cal-c">
-              <div className="flex-direction">
-                <label htmlFor="loanTerm">Loan Term (in years):</label>
-                <input
-                  type="number"
-                  id="loanTerm"
-                  onChange={handleLoanTermChange}
-                />
-              </div>
-            </div>
-            <div className="emi-cal-c">
-              <label htmlFor="downPayment">Down Payment (in ₹):</label>
-              <div className="flex-direction">
-                {/* <button onClick={handleDownPaymentDecrease}>-</button> */}
-                <input
-                  type="number"
-                  id="downPayment"
-                  value={downPayment}
-                  onChange={handleDownPaymentChange}
-                />
-                {/* <button onClick={handleDownPaymentIncrease}>+</button> */}
-              </div>
+          <div className="emi-cal-c">
+            <div className="flex-direction">
+              <label htmlFor="interestRate" className="emi-label">
+                Loan Amount (in ₹):
+              </label>
+              <input
+                type="text"
+                value={loanAmount || data.productPrice || ""}
+                onChange={(event) => setLoanAmount(event.target.value)}
+                className="form-control loan-input"
+                required
+              />
             </div>
           </div>
-          <div className="emi-calculation">
-            <p className="emi-calculation-p">EMI: ₹{calculateEMI()}</p>
-          </div>
+          <Formik
+            initialValues={EMIvalues}
+            validationSchema={validationEMISchema}
+            onSubmit={handleEMICalculation}
+          >
+            <Form>
+              <div className="tanker" id="emi-id">
+                <div className="emi-cal-c">
+                  <label htmlFor="loanAmount" className="emi-label">
+                    Vehicle Type:
+                  </label>
+                  <div className="flex-direction">
+                    <Field
+                      as="select"
+                      className="vehicle-input"
+                      name="vehicleType"
+                      id="vehicleType"
+                    >
+                      <option value="">---Select a field---</option>
+                      <option value="two_wheeler">Two Wheeler</option>
+                      <option value="three_wheeler">Three Wheeler</option>
+                      <option value="four_wheeler">Four Wheeler</option>
+                    </Field>
+                    <p className="text-danger text-center">
+                      <ErrorMessage name="vehicleType" />
+                    </p>
+                  </div>
+                </div>
+
+                <div className="emi-cal-c">
+                  <div className="flex-direction">
+                    <label htmlFor="loanTerm" className="emi-label">
+                      Loan Term (in months):
+                    </label>
+                    <Field
+                      type="text"
+                      name="months"
+                      placeholder="Months"
+                      className="form-control"
+                    />
+                    <p className="text-danger text-center">
+                      <ErrorMessage name="months" />
+                    </p>
+                  </div>
+                </div>
+                <div className="emi-cal-c">
+                  <label htmlFor="downPayment" className="emi-label">
+                    Down Payment (in ₹):
+                  </label>
+                  <div className="flex-direction">
+                    <Field
+                      type="text"
+                      name="downPayment"
+                      placeholder="Down Payment"
+                      className="form-control"
+                    />
+                    <p className="text-danger text-center">
+                      <ErrorMessage name="downPayment" />
+                    </p>
+                  </div>
+                </div>
+                <button type="submit" className="emi-submit-btn">
+                  Submit
+                </button>
+              </div>
+            </Form>
+          </Formik>
+          {emiData && (
+            <div className="emi-data-result">
+              <div className="emi-data">
+                <span className="emi-range">EMI Range:</span>
+                <br />
+                <span className="emi-range">
+                  ₹ {emiData.emiLow ? emiData.emiLow : "(0)"} - ₹{" "}
+                  {emiData.emiHigh ? emiData.emiHigh : "(0)"}
+                </span>
+              </div>
+              <span className="emi-range">
+                <span className="emi-range">Interest Rate Range:</span>
+                <br />
+                {emiData.emidata?.interestRateRange
+                  ? emiData.emidata.interestRateRange
+                  : "(0 - 0)"}
+              </span>
+            </div>
+          )}
         </section>
       </div>
-      {/* <div>
-      <div className="code-editor">
-        <h2>HTML</h2>
-        <p>{data?.addHtmlCode}</p>
-        <textarea value={htmlCode} onChange={handleHtmlChange} />
-      </div>
-
-      <div className="code-editor">
-        <h2>CSS</h2>
-        <p>{data?.addCssCode}</p>
-        <textarea value={cssCode} onChange={handleCssChange} />
-      </div>
-
-      <div className="live-preview">
-        <div dangerouslySetInnerHTML={{ __html: htmlCode }} />
-        <style>{cssCode}</style>
-      </div>
-    </div> */}
       <Footer />
     </div>
   );

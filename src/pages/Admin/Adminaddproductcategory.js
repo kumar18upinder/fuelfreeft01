@@ -97,7 +97,7 @@ function AddNewProd() {
               className="mobile-cotegory-content"
               style={{ background: "#bfe6c1" }}
             >
-              <Link to="/E-auto-add"></Link>
+              <Link to="/auto-add"></Link>
               <img src={comapreauto} alt="capmare-icon"></img>
               <h3> E-auto</h3>
             </div>

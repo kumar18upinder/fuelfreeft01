@@ -45,9 +45,23 @@ function Approvedagency() {
         },
       }
     );
-    window.location.reload();
+    // window.location.reload();
     let result = await res.data;
+    console.log(result,"oooo");
   };
+  const handlePaid = async (paid, _id) => {
+    let res = await axios.patch(
+      `https://app.fuelfree.in/admin/agency/paid/${_id}?paid=${paid}`,
+      {
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    );
+    let result = await res.data;
+    console.log("nhh", result);
+  };
+  
   //search
   const [count,setcount]=useState('')
   const [list,setlist]=useState('')
@@ -79,6 +93,15 @@ function Approvedagency() {
     { value: 'Rajgarh', label: 'Rajgarh' },
   ];
   const [selectedOption, setSelectedOption] = useState(null);
+
+  const updatePrmotion=async(_id)=>{
+    let res=await axios.patch(`https://app.fuelfree.in/vendor/promotionLevel/${_id}`,{
+      headers:{
+        "Accept":"application/json"
+      }
+    })
+     window.location.reload('')
+  }
   return (
     <div id="admin-page-id">
       <Adminsidebar />
@@ -130,6 +153,12 @@ function Approvedagency() {
                         <button onClick={() => Approve("false", data._id)}>
                           Ignore
                         </button>
+                        <button onClick={() => updatePrmotion(data._id)}>
+                           Promote
+                        </button>
+                        <button onClick={() => handlePaid("true",data._id)}>
+                           Paid
+                        </button>
                       </tr>
                     ) : (
                       ""
@@ -158,6 +187,12 @@ function Approvedagency() {
                         </Link>
                         <button onClick={() => Approve("false", data._id)}>
                           Ignore
+                        </button>
+                        <button onClick={() => updatePrmotion(data._id)}>
+                           Promote
+                        </button>
+                        <button onClick={() => handlePaid("true",data._id)}>
+                           Paid
                         </button>
                       </tr>
                     ) : (

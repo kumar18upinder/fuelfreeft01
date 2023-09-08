@@ -73,8 +73,14 @@
 .loc-css {
   text-align: center;
   font-size: 25px;
-  margin-top: 2%;
   font-weight: 500;
+}
+div#dealer-serch-input-id {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2% 5%;
+  margin-bottom: 0;
 }
 h3.firm-name-main {
   text-align: center;
@@ -430,4 +436,9 @@ a.google-find {
     word-break: break-word;
     overflow: scroll;
 }
+}
+
+.mapDealer{
+  width: 100%;
+  display: block;
 }

@@ -143,6 +143,8 @@ function News() {
   // ====================tabs close
 
   ///pagination
+
+ 
   
   return (
     <div id="news-page-id">

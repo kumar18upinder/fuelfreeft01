@@ -1,0 +1,100 @@
+/* button {
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+  } */
+  button.active {
+    font-size: 13px;
+    color: orange;
+    background: darkblue;
+    letter-spacing: 1px;
+}
+select.label-main {
+  padding: 10px 7px;
+  width: 234px;
+  margin-top: 25px;
+}
+.dropdown-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.search-btn-main{
+  float: left;
+  margin-top: 20px;
+}
+
+.flex-outer-brand-filter{
+  display: flex;
+  flex-direction: column;
+}
+
+.search-btn-outer {
+  padding: 10px 95px;
+  background: darkblue;
+  font-size: 19px;
+  color: orange;
+  font-weight: 700;
+  letter-spacing: 1px;
+  float: left;
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+.heading-home-filtermain {
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  text-align: center;
+  width: 26%;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.outer-filter {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 27%;
+  font-weight: 600;
+}
+  .left-margin{
+    margin-left: 200px;
+  }
+  button.active:hover {
+    font-size: 13px;
+    color: orange;
+    background: darkblue;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* Add your other styles here */
+
+/* Custom Checkbox Styles */
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid orange;
+  border-radius: 50%;
+  margin-right: 5px;
+  cursor: pointer;
+  vertical-align: middle;
+  position: relative;
+}
+.form-first {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 27%;
+}
+
+input[type="checkbox"]:checked {
+  background-color: darkblue;
+}
+
+/* Add your other styles here */
+
+  

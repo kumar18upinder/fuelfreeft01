@@ -56,7 +56,7 @@ const Adminchargingstation = () => {
       <Adminsidebar />
       <div className="admin-dashboard">
         <div className="admin-title">
-          <h3>Charging Staion</h3>
+          <h3>Charging Station</h3>
         </div>
         <Link to="/approvedchargingstation" className="Approved">
           <button>Approved Dealer</button>

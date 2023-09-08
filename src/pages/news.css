@@ -77,13 +77,6 @@ button.news-tabs.active {
   width: 100%;
   margin: 0% 1%;
 }
-.news-content-text {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-}
 .news-content-img img {
   width: 645px;
   height: 263px;
@@ -94,6 +87,7 @@ button.news-tabs.active {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  width: 100%;
 }
 .news-see-more-butn {
   width: 100%;

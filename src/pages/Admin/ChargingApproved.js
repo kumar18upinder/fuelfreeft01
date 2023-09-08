@@ -55,13 +55,13 @@ const Approvedchargingstation = () => {
       <div className="admin-dashboard">
         <div className="admin-dashboard-outer-list">
           <div className="admin-title">
-            <h3>Charging Staion</h3>
+            <h3>Charging Station</h3>
           </div>
           <Link to="/adminchargingstation" className="Approved">
             <button>All charging Dealer</button>
           </Link>
           <table className="tabledata-charge">
-            <div>
+            <div>                
               <tr>
                 <th> Vender name </th>
                 <th>City</th>

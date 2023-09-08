@@ -1,40 +1,35 @@
 import "./header.css";
 import $ from "jquery";
 import axios from "axios";
+import ModalBox from "./modalBox";
+import { BiRupee } from "react-icons/bi";
 import logo from "../pages/images/logo.png";
 import { BsFacebook } from "react-icons/bs";
+import { IoIosWallet } from "react-icons/io";
+import WalletModalBox from "./walletModalBox";
 import "react-toastify/dist/ReactToastify.css";
+import { AiOutlineHeart } from "react-icons/ai";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { MdNotifications } from "react-icons/md";
 import { RiInstagramFill } from "react-icons/ri";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import config from "../utils/config";
-import ModalBox from "./modalBox";
-import { IoIosWallet } from "react-icons/io";
-import { AiOutlineHeart } from "react-icons/ai";
-import { BiRupee } from "react-icons/bi";
 import DealerListModalBox from "./dealerListModalBox";
-import WalletModalBox from "./walletModalBox";
-import ChargingModelBox from "./testingpages/chargingModelBox";
 import ExchangeVendorModalBox from "./exchangeVendorModalBox";
+import ChargingModelBox from "./testingpages/chargingModelBox";
+import { useUnreadNotification } from "./UnreadNotificationContext";
 
-
-function Header() {
-  const [dataType, setDataType] = useState("");
+function Header({unreadCount}) {
   const [activeMenu, setActiveMenu] = useState(null);
-
   const handleMenuClick = (menu) => {
     setActiveMenu(activeMenu === menu ? null : menu);
   };
 
-  let user = localStorage.getItem("user") ?JSON.parse(localStorage.getItem("user"))  : "";
-  let walletbalance = user ? user.walletBalance : "";
+  let user = localStorage.getItem("user")
+    ? JSON.parse(localStorage.getItem("user"))
+    : "";
   let id = user ? user._id : "";
-
-  const [cycleList, setCycleList] = useState({});
-  let cycleType = cycleList.List;
-
-  const [searchResults, setSearchResults] = useState([]);
+  const [dataType, setDataType] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [results, setResults] = useState([]);
 
@@ -49,14 +44,29 @@ function Header() {
           },
         }
       );
-      let cycleData = await resultCycle.data.Data;
-      const { products, news } = resultCycle.data.Data;
+      const { products, news, agency, charging, service, usedVehicle, offers } =
+        resultCycle.data.Data;
       if (products.length > 0) {
         setResults(products);
         setDataType("product");
       } else if (news.length > 0) {
         setResults(news);
         setDataType("news");
+      } else if (agency.length > 0) {
+        setResults(agency);
+        setDataType("agency");
+      } else if (charging.length > 0) {
+        setResults(charging);
+        setDataType("charging");
+      } else if (service.length > 0) {
+        setResults(service);
+        setDataType("service");
+      } else if (usedVehicle.length > 0) {
+        setResults(usedVehicle);
+        setDataType("usedVehicle");
+      } else if (offers.length > 0) {
+        setResults(offers);
+        setDataType("offers");
       } else {
         setResults([]);
         setDataType("");
@@ -74,9 +84,15 @@ function Header() {
   const toggleClass = () => {
     setIsopensearch(!isopensearch);
   };
+  let timer;
   const handleSearchInputChange = (event) => {
     const query = event.target.value;
-    setSearchQuery(query);
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      setSearchQuery(query);
+    }, 1000);
   };
 
   $(document).ready(function () {
@@ -112,11 +128,6 @@ function Header() {
     $offCanvasNavSubMenu.slideUp();
     $(".sub-menu").parent("li").addClass("menu-item-has-children");
   });
-
-  const [toggleState, setToggleState] = useState(1);
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
 
   /// gologin ////
   let navigate = useNavigate();
@@ -165,47 +176,42 @@ function Header() {
 
   ///////charging Modal/////
   const [ischargingOpen, setIschargingOpen] = useState(false);
-  const [selectchargintitem, setchargingitem] = useState("");
 
   const openchargingModal = (item) => {
     setIschargingOpen(true);
-    setchargingitem(item);
   };
 
   const closechargingModal = () => {
     setIschargingOpen(false);
   };
 
-    ///////charging Modal/////
-    const [isexchangeOpen, setIsexchangeOpen] = useState(false);
-    const [selectexchangeitem, setexchangeitem] = useState("");
-  
-    const openexchangeModal = (item) => {
-      setIsexchangeOpen(true);
-      setexchangeitem(item);
-    };
-  
-    const closeExchangeModal = () => {
-      setIsexchangeOpen(false);
-    };
+  ///////exchange Modal/////
+  const [isexchangeOpen, setIsexchangeOpen] = useState(false);
 
-   //userDetails
- const [userdetails,setuserdetails]=useState('')
+  const openexchangeModal = (item) => {
+    setIsexchangeOpen(true);
+  };
 
- const usrDetails=async()=>{
-       let res=await axios.get(`https://app.fuelfree.in/user/details/${id}`,{
-         headers:{
-           "Accept":"application/json"
-         }
-       })
-       let data=await res.data
-       let details=await data.Details
-       setuserdetails(details)
- }
- useEffect(()=>{
-     usrDetails()
- },[])
-   
+  const closeExchangeModal = () => {
+    setIsexchangeOpen(false);
+  };
+
+  //userDetails
+  const [userdetails, setuserdetails] = useState("");
+
+  const usrDetails = async () => {
+    let res = await axios.get(`https://app.fuelfree.in/user/details/${id}`, {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    let data = await res.data;
+    let details = await data.Details;
+    setuserdetails(details);
+  };
+  useEffect(() => {
+    usrDetails();
+  }, []);
 
   // ===========================endsyticky header================================
   return (
@@ -231,37 +237,6 @@ function Header() {
                     className={`myTable ${isopensearch ? "open-search" : ""}`}
                   >
                     <div className="myTable-inner">
-                      <li>
-                        <Link to="/electric-cycle">
-                          Cycle<span>In Collection</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/electric-scooter">
-                          Scooters <span>In Collection</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/electric-bike">
-                          bike <span>In Collection</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/electric-auto">
-                          Eauto <span>In Collection</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/electric-loading">
-                          Loading Vehicle <span>In Collection</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/electric-car">
-                          Car <span>In Collection</span>
-                        </Link>
-                      </li>
-
                       {results.length > 0 && dataType === "product" && (
                         <ul>
                           {results.map((result) => (
@@ -297,6 +272,85 @@ function Header() {
                           ))}
                         </ul>
                       )}
+
+                      {results.length > 0 && dataType === "agency" && (
+                        <ul>
+                          {results.map((result) => (
+                            <li key={result._id}>
+                              <Link
+                                target="_parent"
+                                to={`/dealer-store-page/${result._id}`}
+                              >
+                                {result.name ? result.name : result.firmName}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {results.length > 0 && dataType === "charging" && (
+                        <ul>
+                          {results.map((result) => (
+                            <li key={result._id}>
+                              <Link
+                                target="_parent"
+                                to={`/chargingDetails/${result._id}`}
+                              >
+                                {result.name ? result.name : result.firmName}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {results.length > 0 && dataType === "service" && (
+                        <ul>
+                          {results.map((result) => (
+                            <li key={result._id}>
+                              <Link
+                                target="_parent"
+                                to={`/serviceDetails/${result._id}`}
+                              >
+                                {result.name ? result.name : result.firmName}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {results.length > 0 && dataType === "offers" && (
+                        <ul>
+                          {results.map((result) => (
+                            <li key={result._id}>
+                              <Link
+                                target="_parent"
+                                to={`/offers/${result.VehicleType}`}
+                              >
+                                {result.offerHeading
+                                  ? result.offerHeading
+                                  : result.offerText}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {results.length > 0 && dataType === "usedVehicle" && (
+                        <ul>
+                          {results.map((result) => (
+                            <li key={result._id}>
+                              <Link
+                                target="_parent"
+                                to={`/used-vehicle-details/${result._id}`}
+                              >
+                                {result.vehicleName
+                                  ? result.vehicleName
+                                  : result.minimumBid}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                       {results.length === 0 && <p>No results found.</p>}
                     </div>
                     <div
@@ -304,6 +358,14 @@ function Header() {
                       onClick={toggleClass}
                     ></div>
                   </ul>
+                </div>
+                <div className="header-main-btn">
+                  <Link className="notification-icon" to={"/notification"}>
+                    <MdNotifications />
+                    {unreadCount > 0 && (
+                      <span className="notification-badge">{unreadCount}</span>
+                    )}
+                  </Link>
                 </div>
                 <div className="header-main-btn">
                   <Link to="/book-your-free-consultation" className="main-btn">
@@ -343,9 +405,7 @@ function Header() {
                         <Link to="/electric-car">Car</Link>
                       </li>
                       <li>
-                        <Link to="/electric-loading">
-                          Loading vehicle
-                        </Link>
+                        <Link to="/electric-loading">Loading vehicle</Link>
                       </li>
                       <li>
                         <Link to="/electric-bus">Buses</Link>
@@ -403,21 +463,19 @@ function Header() {
                     <ChargingModelBox
                       isOpen={ischargingOpen}
                       closeModal={closechargingModal}
-                      selectedItem={setchargingitem}
                     />
                   )}
                   {isexchangeOpen && (
                     <ExchangeVendorModalBox
                       isOpen={isexchangeOpen}
                       closeModal={closeExchangeModal}
-                      selectedItem={setexchangeitem}
-                    /> 
+                    />
                   )}
                   <li>
-                    <Link to="/offers">Offers</Link>
+                    <Link to="/offers/:vt">Offers</Link>
                   </li>
                   <li>
-                    <Link to="/membership">Membership</Link>
+                    <Link to="/compare-product">Compare</Link>
                   </li>
                   <li>
                     <Link to="">Brands</Link>
@@ -425,9 +483,7 @@ function Header() {
                       <li>
                         <Link to="/audi">Audi</Link>
                       </li>
-                      <li>
-                        <Link to="/eicher">Eicher</Link>
-                      </li>
+
                       <li>
                         <Link to="/kia">Kia</Link>
                       </li>
@@ -446,9 +502,9 @@ function Header() {
                       <li>
                         <Link to="/volvo">Volvo</Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <Link to="/mercedesbenz">Mercedes Benz</Link>
-                      </li>
+                      </li> */}
                       <li>
                         <Link to="/tata">Tata</Link>
                       </li>
@@ -458,18 +514,18 @@ function Header() {
                       <li>
                         <Link to="/komaki">Komaki</Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <Link to="/speego">Speego</Link>
-                      </li>
-                      <li>
+                      </li> */}
+                      {/* <li>
                         <Link to="/pureev">Pure EV</Link>
-                      </li>
+                      </li> */}
                       <li>
                         <Link to="/hero">Hero</Link>
                       </li>
-                      <li>
+                      {/* <li>
                         <Link to="/mg">MG</Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </li>
 
@@ -488,7 +544,7 @@ function Header() {
                         <Link to="/solar-vehicle">Solar Vehicle</Link>
                       </li>
                       <li>
-                        <Link to="/electric-rentalvehicles">
+                        <Link to="/electric-rental-vehicles">
                           Rental Electric Vehicles
                         </Link>
                       </li>
@@ -572,6 +628,7 @@ function Header() {
                       setIsWalletOpen={setIsWalletOpen}
                       closeWalletModal={closeWalletModal}
                     />
+                    
                     <Link
                       to={"/wishlist"}
                       onClick={gologin}
@@ -581,18 +638,17 @@ function Header() {
                     </Link>
 
                     <li>
-                     
-        {user ? (
-          <p className="usrnme-text">
-            <Link to="/profile">
-              <span>{user&&user.userName}</span>
-            </Link>
-          </p>
-        ) : (
-          <Link to="/login">
-            <i className="bi bi-person-circle"></i>
-          </Link>
-        )}
+                      {user ? (
+                        <p className="usrnme-text">
+                          <Link to="/profile">
+                            <span>{user && user.userName}</span>
+                          </Link>
+                        </p>
+                      ) : (
+                        <Link to="/login">
+                          <i className="bi bi-person-circle"></i>
+                        </Link>
+                      )}
                     </li>
                   </ul>
                 </div>
@@ -627,17 +683,17 @@ function Header() {
                     closeWalletModal={closeWalletModal}
                   />
                   <li>
-                  {user ? (
-          <p className="usrnme-text">
-            <Link to="/profile">
-              <span>{user&&user.userName}</span>
-            </Link>
-          </p>
-        ) : (
-          <Link to="/login">
-            <i className="bi bi-person-circle"></i>
-          </Link>
-        )}
+                    {user ? (
+                      <p className="usrnme-text-mobile">
+                        <Link to="/profile">
+                          <span>{user && user.userName}</span>
+                        </Link>
+                      </p>
+                    ) : (
+                      <Link to="/login">
+                        <i className="bi bi-person-circle"></i>
+                      </Link>
+                    )}
                   </li>
                   <li>
                     <Link className="toggle-bar navbar-mobile-open">
@@ -655,7 +711,7 @@ function Header() {
                   onChange={handleSearchInputChange}
                 ></input>
                 <ul className={`myTable ${isopensearch ? "open-search" : ""}`}>
-                  <div className="myTable-inner">
+                  {/* <div className="myTable-inner">
                     <li>
                       <Link to="/electric-cycle">
                         <b>Cycle</b>
@@ -698,7 +754,7 @@ function Header() {
                                 result.productName
                                   ? result.productName
                                   : result.MainHeading
-                              }/${result._id}/${result.VehicleType}`}
+                              }/${result.VehicleType}/${result._id}`}
                             >
                               {result.productName
                                 ? result.productName
@@ -724,8 +780,152 @@ function Header() {
                       </ul>
                     )}
                     {results.length === 0 && <p>No results found.</p>}
-                  </div>
+                  </div> */}
+                  <div className="myTable-inner">
+                    {/* <li>
+                        <Link to="/electric-cycle">
+                          Cycle<span>In Collection</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/electric-scooter">
+                          Scooters <span>In Collection</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/electric-bike">
+                          bike <span>In Collection</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/electric-auto">
+                          Eauto <span>In Collection</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/electric-loading">
+                          Loading Vehicle <span>In Collection</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/electric-car">
+                          Car <span>In Collection</span>
+                        </Link>
+                      </li> */}
 
+                    {results.length > 0 && dataType === "product" && (
+                      <ul>
+                        {results.map((result) => (
+                          <li key={result._id}>
+                            <Link
+                              target="_parent"
+                              to={`/products/${
+                                result.productName
+                                  ? result.productName
+                                  : result.MainHeading
+                              }/${result.VehicleType}/${result._id}`}
+                            >
+                              {result.productName
+                                ? result.productName
+                                : result.MainHeading}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {results.length > 0 && dataType === "news" && (
+                      <ul>
+                        {results.map((result) => (
+                          <li key={result._id}>
+                            <Link
+                              target="_parent"
+                              to={`/news-details/${result._id}`}
+                            >
+                              {result.MainHeading}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {results.length > 0 && dataType === "agency" && (
+                      <ul>
+                        {results.map((result) => (
+                          <li key={result._id}>
+                            <Link
+                              target="_parent"
+                              to={`/vendorDetails/${result._id}`}
+                            >
+                              {result.name ? result.name : result.firmName}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {results.length > 0 && dataType === "charging" && (
+                      <ul>
+                        {results.map((result) => (
+                          <li key={result._id}>
+                            <Link
+                              target="_parent"
+                              to={`/chargingDetails/${result._id}`}
+                            >
+                              {result.name ? result.name : result.firmName}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {results.length > 0 && dataType === "service" && (
+                      <ul>
+                        {results.map((result) => (
+                          <li key={result._id}>
+                            <Link
+                              target="_parent"
+                              to={`/serviceDetails/${result._id}`}
+                            >
+                              {result.name ? result.name : result.firmName}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {results.length > 0 && dataType === "offers" && (
+                      <ul>
+                        {results.map((result) => (
+                          <li key={result._id}>
+                            <Link target="_parent" to={`/fuelfree-offer/:vt`}>
+                              {result.offerHeading
+                                ? result.offerHeading
+                                : result.offerText}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {results.length > 0 && dataType === "usedVehicle" && (
+                      <ul>
+                        {results.map((result) => (
+                          <li key={result._id}>
+                            <Link
+                              target="_parent"
+                              to={`/used-vehicle-details/${result._id}`}
+                            >
+                              {result.vehicleName
+                                ? result.vehicleName
+                                : result.minimumBid}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    {results.length === 0 && <p>No results found.</p>}
+                  </div>
                   <div
                     className="blank-div-to-close"
                     onClick={toggleClass}
@@ -739,6 +939,12 @@ function Header() {
           <div className="mobile-navigation">
             <div className="wishlist-mob">
               <p className="close-navbar-mobile-wishlist">
+              <Link className="notification-icon" to={"/notification"}>
+                    <MdNotifications />
+                    {unreadCount > 0 && (
+                      <span className="notification-badge">{unreadCount}</span>
+                    )}
+                  </Link>
                 <Link
                   to={"/wishlist"}
                   onClick={gologin}
@@ -836,12 +1042,12 @@ function Header() {
                       </Link>
                     </li>
                     <li>
-                        <Link onClick={() => openexchangeModal("Item 1")}>
-                          Exchange Vehicle
-                        </Link>
-                      </li>
+                      <Link onClick={() => openexchangeModal("Item 1")}>
+                        Exchange Vehicle
+                      </Link>
+                    </li>
                     <li>
-                      <Link to="/electric-rentalvehicles">Rental Services</Link>
+                      <Link to="/rental-vehicle-vendor">Rental Services</Link>
                     </li>
                   </ul>
                 </li>
@@ -856,18 +1062,16 @@ function Header() {
                   <ChargingModelBox
                     isOpen={ischargingOpen}
                     closeModal={closechargingModal}
-                    selectedItem={setchargingitem}
                   />
                 )}
-                 {isexchangeOpen && (
-                    <ExchangeVendorModalBox
-                      isOpen={isexchangeOpen}
-                      closeModal={closeExchangeModal}
-                      selectedItem={setexchangeitem}
-                    /> 
-                  )}
+                {isexchangeOpen && (
+                  <ExchangeVendorModalBox
+                    isOpen={isexchangeOpen}
+                    closeModal={closeExchangeModal}
+                  />
+                )}
                 <li>
-                  <Link to="/offers">Offers</Link>
+                  <Link to="/offers/:vt">Offers</Link>
                 </li>
                 <li
                   className={`mobile-linnnks ${
@@ -944,17 +1148,21 @@ function Header() {
                       <Link to="/solar-vehicle">Solar Vehicle</Link>
                     </li>
                     <li>
-                      <Link to="/electric-rentalvehicles">Rental Electric Vehicles</Link>
+                      <Link to="/electric-rental-vehicles">
+                        Rental Electric Vehicles
+                      </Link>
                     </li>
                   </ul>
                 </li>
 
                 <li>
-                    <Link to="/membership">Membership</Link>
-                  </li>
+                  <Link to="/compare-product">Compare</Link>
+                </li>
 
                 <li>
-                  <Link to="/book-your-free-consultation">Free Consultation</Link>
+                  <Link to="/book-your-free-consultation">
+                    Free Consultation
+                  </Link>
                 </li>
               </ul>
             </nav>

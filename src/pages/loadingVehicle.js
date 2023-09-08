@@ -371,7 +371,7 @@ function LoadingVehicle({ handleclick }) {
 
                             <img
                               alt={`${data.productName} image`}
-                              src={`https://app.fuelfree.in/${data.productImage}`}
+                              src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
                             />
 
                             <div class="Cartitle">
@@ -385,14 +385,14 @@ function LoadingVehicle({ handleclick }) {
                               </Link>
                               {localStorage.getItem("product") ? (
                                 <Link
-                                  to={`/compare-electric-vehicles/${data._id}`}
+                                  to={`/compare-product`}
                                   class="view-offer-a"
                                 >
                                   Compare Now
                                 </Link>
                               ) : (
                                 <Link
-                                  to={`/compare-electric-vehicles/:id`}
+                                  to={`/compare-product`}
                                   class="view-offer-a"
                                   onClick={() => handleclick(data)}
                                 >
@@ -433,14 +433,14 @@ function LoadingVehicle({ handleclick }) {
                               </Link>
                               {localStorage.getItem("product") ? (
                                 <Link
-                                  to={`/semifinalCompare/${data._id}`}
+                                  to={`/compare-product`}
                                   class="view-offer-a"
                                 >
                                   Compare Now
                                 </Link>
                               ) : (
                                 <Link
-                                  to={`/semifinalCompare/:id`}
+                                  to={`/compare-product`}
                                   class="view-offer-a"
                                   onClick={() => handleclick(data)}
                                 >

@@ -23,7 +23,7 @@ function EnquiryForm() {
       Email,
       Message,
       Date,
-      time
+      time,
     }
     try{
       let result = await axios.post('https://app.fuelfree.in/consult/Add', item, {
@@ -55,7 +55,6 @@ function EnquiryForm() {
         <div className='EnquiryAll'>
           <div className='Enquiryformouter'>
             <div className='enquiry-form'>
-            {/* <form className="enquiry-form"> */}
               <h2>Free Consultation</h2>
               <input type="text" value={Name} placeholder="Name" onChange={(e) => setName(e.target.value)} />
               <input type="Number" value={PhoneNo} placeholder="Phone" onChange={(e) => setPhoneNo(e.target.value)} />
@@ -66,7 +65,6 @@ function EnquiryForm() {
               <button onClick={userenquiry}>
                 Submit
               </button>
-            {/* </form> */}
             </div>
           </div> 
           <div className='EnquiryContent'>

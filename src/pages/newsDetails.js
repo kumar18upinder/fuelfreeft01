@@ -8,7 +8,6 @@ import NewsList from "./newsList";
 function NewsDetails() {
   const [newsdetailsList, setnewsdetailsList] = useState({});
   let data = newsdetailsList.value;
-
   const { id } = useParams();
 
   async function getnewsdetailsList() {

@@ -21,6 +21,8 @@ const SolarAddProduct = () => {
 
   const defaultValues = {
     VehicleType: "solar",
+    upcomingVehicle: "",
+    recentLaunches: "",
     productName: "",
     Brand: "",
     variant: "",
@@ -190,6 +192,41 @@ const SolarAddProduct = () => {
                       <p className="text-danger">
                         <ErrorMessage name="VehicleType" />
                       </p>
+
+
+                      <div className="admin-input">
+                        <label>upcomingVehicle</label>
+                        <Field
+                          as="select"
+                          className="form-control"
+                          name="upcomingVehicle"
+                          id="chargerIncluded"
+                        >
+                          <option>--upcomingVehicle(Y/N)--</option>
+                          <option value="true">Yes</option>
+                          <option value="false">No</option>
+                        </Field>
+                        <p className="text-danger">
+                          <ErrorMessage name="chargerIncluded" />
+                        </p>
+                      </div>
+
+                      <div className="admin-input">
+                        <label>recentLaunches</label>
+                        <Field
+                          as="select"
+                          className="form-control"
+                          name="recentLaunches"
+                          id="chargerIncluded"
+                        >
+                          <option>--recentLaunche(Y/N)--</option>
+                          <option value="true">Yes</option>
+                          <option value="false">No</option>
+                        </Field>
+                        <p className="text-danger">
+                          <ErrorMessage name="chargerIncluded" />
+                        </p>
+                      </div>
 
                       <label>Vehicle Name</label>
                       <Field

@@ -2,7 +2,7 @@ import axios from "axios";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Form, Field, Formik, ErrorMessage } from "formik";
 import { MultiSelect } from "react-multi-select-component";
@@ -11,7 +11,7 @@ const BikeAddProduct = () => {
   const [P_id, setpid] = useState();
 
   const [pic, setPic] = useState("");
-  const [brochure, setBrochure] = useState("")
+  const [brochure, setBrochure] = useState("");
 
   const addUserPic = (e) => {
     setPic(e.target.files[0]);
@@ -21,9 +21,10 @@ const BikeAddProduct = () => {
     setBrochure(e.target.files[0]);
   };
 
-
   const defaultValues = {
     VehicleType: "Ev-bikes",
+    upcomingVehicle: "",
+    recentLaunches: "",
     productName: "",
     Brand: "",
     variant: "",
@@ -56,93 +57,128 @@ const BikeAddProduct = () => {
     city: "",
   };
 
-  const validationSchema =yup.object().shape({
-    VehicleType:yup.string().required("vehicle type is required"),
-    productName:yup.string().required("Vehicle Name is required"),
-    Brand:yup.string().required("Company/Brand is required"),
-    variant:yup.string().required("Variant is required"),
-    productPrice:yup.number().positive("Please Enter Positive number").required("Ex-show Room Price is required"),
-    displaySize:yup.number().positive("Please Enter Positive number").required("Display Size is required"),
-    frontSuspension:yup.string().matches(/[A-Za-z]/, "Must be a alphabet").required("Front Suspension is required"),
-    rearSuspension:yup.string().matches(/[A-Za-z]/, "Must be a alphabet").required("Rear Suspension is required"),
-    chargerIncluded:yup.string().required("Charger Included is required"),
-    bluetoothCompatibility:yup.string().required("Bluetooth Compatibility is required"),
-    display:yup.string().required("Display is required"),
-    distanceToEmpty:yup.string().required("Distance to Empty is required"),
-    tyreType:yup.string().required("Tyre type is required"),
-    frontBrakeType:yup.string().required("Front Brake Type is required"),
-    rearBrakeType:yup.string().required("Rare Brake Type is required"),
-    DrivingRange:yup.number().required("Driving Range is required"),
-    chargingTime:yup.number().positive("Please Enter Positive number").required("Charging Time is required"),
-    batteryVoltage:yup.number().positive("Please Enter Positive number").required("Battery Voltage is required"),
-    batterySize:yup.number().positive("Please Enter Positive number").required("Battery Size is required"),
-    topSpeed:yup.number().positive("Please Enter Positive number").required("Top Speed is required"),
-    ABS:yup.string().required("Anti-Lock Braking System  is required"),
-    AEB:yup.string().required("Automatic Emergency Braking is required"),
-     reverseAssist: yup.string().required("Reverse Assist is required"),
-    speakers:yup.number().positive("Please Enter Positive number").required("Speaker number is required"),
-    GPSNavigationSystem:yup.string().required("GPS Navigation System is required"),
-    batteryWarrantyYears:yup.number().positive("Please Enter Positive number").required("Battery Warranty(years) is required"),
-    batteryWarrantyKM: yup.number().positive("Please Enter Positive number").required("Battery Warranty(KM) is required"),
+  const validationSchema = yup.object().shape({
+    VehicleType: yup.string().required("vehicle type is required"),
+    productName: yup.string().required("Vehicle Name is required"),
+    Brand: yup.string().required("Company/Brand is required"),
+    variant: yup.string().required("Variant is required"),
+    productPrice: yup
+      .number()
+      .positive("Please Enter Positive number")
+      .required("Ex-show Room Price is required"),
+    displaySize: yup
+      .number()
+      .positive("Please Enter Positive number")
+      .required("Display Size is required"),
+    frontSuspension: yup
+      .string()
+      .matches(/[A-Za-z]/, "Must be a alphabet")
+      .required("Front Suspension is required"),
+    rearSuspension: yup
+      .string()
+      .matches(/[A-Za-z]/, "Must be a alphabet")
+      .required("Rear Suspension is required"),
+    chargerIncluded: yup.string().required("Charger Included is required"),
+    bluetoothCompatibility: yup
+      .string()
+      .required("Bluetooth Compatibility is required"),
+    display: yup.string().required("Display is required"),
+    distanceToEmpty: yup.string().required("Distance to Empty is required"),
+    tyreType: yup.string().required("Tyre type is required"),
+    frontBrakeType: yup.string().required("Front Brake Type is required"),
+    rearBrakeType: yup.string().required("Rare Brake Type is required"),
+    DrivingRange: yup.number().required("Driving Range is required"),
+    chargingTime: yup
+      .number()
+      .positive("Please Enter Positive number")
+      .required("Charging Time is required"),
+    batteryVoltage: yup
+      .number()
+      .positive("Please Enter Positive number")
+      .required("Battery Voltage is required"),
+    batterySize: yup
+      .number()
+      .positive("Please Enter Positive number")
+      .required("Battery Size is required"),
+    topSpeed: yup
+      .number()
+      .positive("Please Enter Positive number")
+      .required("Top Speed is required"),
+    ABS: yup.string().required("Anti-Lock Braking System  is required"),
+    AEB: yup.string().required("Automatic Emergency Braking is required"),
+    reverseAssist: yup.string().required("Reverse Assist is required"),
+    speakers: yup
+      .number()
+      .positive("Please Enter Positive number")
+      .required("Speaker number is required"),
+    GPSNavigationSystem: yup
+      .string()
+      .required("GPS Navigation System is required"),
+    batteryWarrantyYears: yup
+      .number()
+      .positive("Please Enter Positive number")
+      .required("Battery Warranty(years) is required"),
+    batteryWarrantyKM: yup
+      .number()
+      .positive("Please Enter Positive number")
+      .required("Battery Warranty(KM) is required"),
     description: yup.string().required("Description is required"),
     metaDescription: yup.string().required("Description is required"),
     city: yup.string().required("City is required"),
   });
 
-   //for multiple vendors
-   const [det, setdet] = useState([]);
-   const [selected, setSelected] = useState([]);
-   const getid = selected.map((data) => {
-     let a = {
-       id: data.value,
-     };
-     return a;
-   });
-   const getData = [];
-   for (let i = 0; i < selected.length; i++) {
-     getData.push(selected[i].value);
-   }
-  
-   const getdata = async () => {
-     const res = await axios.get(
-       "https://app.fuelfree.in/vendor/agency/list",
-       {
-         headers: {
-           Accept: "application/json",
-         },
-       }
-     );
-     let result = await res.data;
-     let delerList = await result.List;
-     const deledetails = delerList.map((data) => {
-       let a = {
-         label: data.name,
-         value: data._id,
-       };
-       return a;
-     });
-     setdet(deledetails);
-   };
-   useEffect(() => {
-     getdata();
-   }, []);
+  //for multiple vendors
+  const [det, setdet] = useState([]);
+  const [selected, setSelected] = useState([]);
+  const getid = selected.map((data) => {
+    let a = {
+      id: data.value,
+    };
+    return a;
+  });
+  const getData = [];
+  for (let i = 0; i < selected.length; i++) {
+    getData.push(selected[i].value);
+  }
 
+  const getdata = async () => {
+    const res = await axios.get("https://app.fuelfree.in/vendor/agency/list", {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    let result = await res.data;
+    let delerList = await result.List;
+    const deledetails = delerList.map((data) => {
+      let a = {
+        label: data.name,
+        value: data._id,
+      };
+      return a;
+    });
+    setdet(deledetails);
+  };
+  useEffect(() => {
+    getdata();
+  }, []);
 
-  const handleSubmit = async(items) => {
+  const handleSubmit = async (items) => {
     let carObj = {
       ...items,
       productImage: pic,
-      brochure: brochure
+      brochure: brochure,
     };
 
     const response = await axios.post(
-       `https://app.fuelfree.in/product/create/${getData}`
-       , carObj, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "multipart/form-data",
-      },
-    });
+      `https://app.fuelfree.in/product/create/${getData}`,
+      carObj,
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
     let result = await response.data;
     let Product = result.productData;
     let P_id = Product._id;
@@ -156,18 +192,18 @@ const BikeAddProduct = () => {
       toast.error("Unable to add product");
     }
   };
-  
+
   return (
     <>
       <ToastContainer />
-      <label style={{color:"black"}}>Select Vendor Name</label>
-          <MultiSelect
-            options={det}
-            value={selected}
-            onChange={setSelected}
-            labelledBy="Select"
-            checkbox
-          />
+      <label style={{ color: "black" }}>Select Vendor Name</label>
+      <MultiSelect
+        options={det}
+        value={selected}
+        onChange={setSelected}
+        labelledBy="Select"
+        checkbox
+      />
       <div id="admin-page-id-cycle">
         <div className="admin-dashboard-cycle">
           <div className="admin-dashboard-outer-cycle">
@@ -194,6 +230,40 @@ const BikeAddProduct = () => {
                       <p className="text-danger">
                         <ErrorMessage name="VehicleType" />
                       </p>
+
+                      <div className="admin-input">
+                        <label>upcomingVehicle</label>
+                        <Field
+                          as="select"
+                          className="form-control"
+                          name="upcomingVehicle"
+                          id="chargerIncluded"
+                        >
+                          <option>--upcomingVehicle(Y/N)--</option>
+                          <option value="true">Yes</option>
+                          <option value="false">No</option>
+                        </Field>
+                        <p className="text-danger">
+                          <ErrorMessage name="chargerIncluded" />
+                        </p>
+                      </div>
+
+                      <div className="admin-input">
+                        <label>recentLaunches</label>
+                        <Field
+                          as="select"
+                          className="form-control"
+                          name="recentLaunches"
+                          id="chargerIncluded"
+                        >
+                          <option>--recentLaunche(Y/N)--</option>
+                          <option value="true">Yes</option>
+                          <option value="false">No</option>
+                        </Field>
+                        <p className="text-danger">
+                          <ErrorMessage name="chargerIncluded" />
+                        </p>
+                      </div>
 
                       <label>Vehicle Name</label>
                       <Field
@@ -356,7 +426,9 @@ const BikeAddProduct = () => {
                         <option value="tube">Tube</option>
                         <option value="tubeless">Tubeless</option>
                         <option value="radial">Radial</option>
-                        <option value="tubelessradial">Tubeless and Radial</option>
+                        <option value="tubelessradial">
+                          Tubeless and Radial
+                        </option>
                       </Field>
                       <p className="text-danger">
                         <ErrorMessage name="tyreType" />
@@ -390,7 +462,7 @@ const BikeAddProduct = () => {
                         as="select"
                         className="form-control"
                         name="rearBrakeType"
-                        id="rearBrakeType" 
+                        id="rearBrakeType"
                       >
                         <option>--Select a field--</option>
                         <option value="disc">Disc</option>
@@ -418,7 +490,6 @@ const BikeAddProduct = () => {
                         <ErrorMessage name="DrivingRange" />
                       </p>
 
-                     
                       <label>BatterySize(in KWH)</label>
                       <Field
                         type="number"
@@ -463,7 +534,7 @@ const BikeAddProduct = () => {
                         <ErrorMessage name="topSpeed" />
                       </p>
                     </div>
-                
+
                     <div className="admin-input">
                       <label>Anti-Lock Braking System</label>
                       <Field
@@ -583,7 +654,8 @@ const BikeAddProduct = () => {
                         type="file"
                         name="brochure"
                         className="add-pic"
-                        onChange={addUserbrochure} accept="application/pdf, application/vnd.ms-excel" 
+                        onChange={addUserbrochure}
+                        accept="application/pdf, application/vnd.ms-excel"
                       />
                     </div>
 
@@ -594,7 +666,8 @@ const BikeAddProduct = () => {
                         type="file"
                         name="productImage"
                         className="add-pic"
-                        onChange={addUserPic} accept="image/x-png,image/gif,image/jpeg,image/jpg"
+                        onChange={addUserPic}
+                        accept="image/x-png,image/gif,image/jpeg,image/jpg"
                       />
                     </div>
 
@@ -627,14 +700,12 @@ const BikeAddProduct = () => {
                       </p>
                     </div>
 
-                    <button  className="cycle-submit"
-                      type="submit"
-                    >
-                     Submit
+                    <button className="cycle-submit" type="submit">
+                      Submit
                     </button>
                     {P_id ? (
                       <Link to={`/bike-variant-add/${P_id}`}>
-                        <button  className="cycle-submit">Add Variant</button>
+                        <button className="cycle-submit">Add Variant</button>
                       </Link>
                     ) : (
                       ""

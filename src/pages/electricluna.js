@@ -19,18 +19,18 @@ function Electricluna({ handleclick }) {
   let eautotype = eautolist.type;
 
   // remove duplicate
- const [duplicate, setduplicate] = useState("");
- const filterByBrand =
- eautotype &&
- eautotype.map((data) => {
-     return data.Brand;
-   });
- const uniqueArrayofBrand =
-   filterByBrand &&
-   filterByBrand.filter((value, index, self) => {
-     const trimmedValue = value.trim();
-     return self.findIndex((item) => item.trim() === trimmedValue) === index;
-   });
+  const [duplicate, setduplicate] = useState("");
+  const filterByBrand =
+    eautotype &&
+    eautotype.map((data) => {
+      return data.Brand;
+    });
+  const uniqueArrayofBrand =
+    filterByBrand &&
+    filterByBrand.filter((value, index, self) => {
+      const trimmedValue = value.trim();
+      return self.findIndex((item) => item.trim() === trimmedValue) === index;
+    });
   async function getEautoList() {
     let resultEauto = await axios.get("https://app.fuelfree.in/product/Luna", {
       headers: {
@@ -84,29 +84,28 @@ function Electricluna({ handleclick }) {
     }
   };
 
- 
   const [isActive, setIsActive] = useState(false);
 
-const toggleClass = () => {
-  setIsActive(!isActive);
-};
-const toggleClas = () => {
-  setIsActive(!isActive);
-};
-const [cycleproduct, setcycleproduct] = useState("");
-   //pagination
-   const [currentPage, setCurrentPage] = useState(1);
-   const [totalPages, setTotalPages] = useState(0);
-   const [products, setProducts] = useState([]);
-  
-   const handlePageChange = (pageNumber) => {
-     setCurrentPage(pageNumber);
-   };
-  
-   const lastProductIndex = currentPage * 9;
-   const firstProductIndex = lastProductIndex - 9;
-   const currentProducts = products.slice(firstProductIndex, lastProductIndex);
-//filter
+  const toggleClass = () => {
+    setIsActive(!isActive);
+  };
+  const toggleClas = () => {
+    setIsActive(!isActive);
+  };
+  const [cycleproduct, setcycleproduct] = useState("");
+  //pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [products, setProducts] = useState([]);
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const lastProductIndex = currentPage * 9;
+  const firstProductIndex = lastProductIndex - 9;
+  const currentProducts = products.slice(firstProductIndex, lastProductIndex);
+  //filter
   const [Brand, setBrand] = useState("");
   const [Price, setPrice] = useState("");
   const [Range, setrange] = useState("");
@@ -151,28 +150,27 @@ const [cycleproduct, setcycleproduct] = useState("");
   useEffect(() => {
     getfilter();
   }, [Brand, Price, Range]);
-  
+
   const bikePrices = [
     { productPrice: "70000", productPriceK: "70k" },
     { productPrice: "100000", productPriceK: "100k" },
-    { productPrice: "120000",productPriceK: "120k" },
+    { productPrice: "120000", productPriceK: "120k" },
     { productPrice: "150000", productPriceK: "150k" },
-    { productPrice: "200000",productPriceK: "200k" },
+    { productPrice: "200000", productPriceK: "200k" },
   ];
   const DrivingRange = [
-    { DrivingRange: "50"},
+    { DrivingRange: "50" },
     { DrivingRange: "70" },
     { DrivingRange: "100" },
     { DrivingRange: "130" },
     { DrivingRange: "150" },
   ];
-    
+
   const [activeMenu, setActiveMenu] = useState(null);
-  
+
   const handleMenuClick = (menu) => {
     setActiveMenu(activeMenu === menu ? null : menu);
   };
-  
 
   return (
     <div>
@@ -207,100 +205,107 @@ const [cycleproduct, setcycleproduct] = useState("");
       </div>
       <div className="tanker">
         <section id="product-cotegory-outer-ot">
-        <div className="product-cot-filter">
-              <div
-                className={`product-cot-filter-content ${activeMenu === 'menu' ? 'open-filter' : ''}`}
-                // className="product-cot-filter-content open-filter"
-                id="brand-filter"
+          <div className="product-cot-filter">
+            <div
+              className={`product-cot-filter-content ${
+                activeMenu === "menu" ? "open-filter" : ""
+              }`}
+              // className="product-cot-filter-content open-filter"
+              id="brand-filter"
+            >
+              <button
+                className="btn-to-open-filtr"
+                onClick={() => handleMenuClick("menu")}
               >
-                <button className="btn-to-open-filtr" onClick={() => handleMenuClick('menu')}>
-                  Filter by Brand <span>&gt;</span>
-                </button>
+                Filter by Brand <span>&gt;</span>
+              </button>
 
-                <div class="filter-content-outer">
-                  <input
-                    className="fiter-input-filter "
-                    id="fiter-brad-cot"
-                    placeholder="Search brand"
-                  ></input>
+              <div class="filter-content-outer">
+                <input
+                  className="fiter-input-filter "
+                  id="fiter-brad-cot"
+                  placeholder="Search brand"
+                ></input>
 
-                  {uniqueArrayofBrand &&
-                    uniqueArrayofBrand.map((data) => (
-                      <div className="filter-content">
-                        <input
-                          name="brand"
-                          type="radio"
-                          value={data}
-                          onClick={() => setbrand(data)}
-                        ></input>
-                        <label>{data}</label>
-                      </div>
-                    ))}
-                </div>
-                {/* <button className="see-changes" onClick={getfilter}>
-                See changes
-              </button> */}
+                {uniqueArrayofBrand &&
+                  uniqueArrayofBrand.map((data) => (
+                    <div className="filter-content">
+                      <input
+                        name="brand"
+                        type="radio"
+                        value={data}
+                        onClick={() => setbrand(data)}
+                      ></input>
+                      <label>{data}</label>
+                    </div>
+                  ))}
               </div>
-              {/* ============================================================ */}
-              <div
-               className={`product-cot-filter-content ${activeMenu === 'menu1' ? 'open-filter' : ''}`}
-              >
-                <button className="btn-to-open-filtr" onClick={() => handleMenuClick('menu1')}>
-                  Filter by price<span>&gt;</span>
-                </button>
-                <div class="filter-content-outer">
-                  {bikePrices &&
-                    bikePrices.map((data) => (
-                      // ======================================
-                      <div className="filter-content">
-                        <input
-                          name="brand"
-                          type="radio"
-                          onClick={() =>
-                            setprice(data.productPrice || data.productPrice)
-                          }
-                          value={data.productPrice}
-                        ></input>
-                        <label>{data.productPriceK}and below</label>
-                      </div>
-                      //  =================================
-                    ))}
-                </div>
-              </div>
-              {/* =================================================== */}
-              <div 
-              className={`product-cot-filter-content ${activeMenu === 'menu3' ? 'open-filter' : ''}`}
-              >
-                <button className="btn-to-open-filtr" onClick={() => handleMenuClick('menu3')}>
-                  Filter by Driving Range:<span>&gt;</span>
-                </button>
-                <div class="filter-content-outer">
-                  {DrivingRange &&
-                    DrivingRange.map((data) => (
-                      <div className="filter-content">
-                        <input
-                          name="brand"
-                          type="radio"
-                          onClick={() => setRange(data.DrivingRange)}
-                          value={data.DrivingRange}
-                        ></input>
-                        <label>
-                          {data.DrivingRange} {"    "}and above
-                        </label>
-                      </div>
-                    ))}
-                </div>
-              </div>
-              {/* =================================================================== */}
             </div>
+            {/* ============================================================ */}
+            <div
+              className={`product-cot-filter-content ${
+                activeMenu === "menu1" ? "open-filter" : ""
+              }`}
+            >
+              <button
+                className="btn-to-open-filtr"
+                onClick={() => handleMenuClick("menu1")}
+              >
+                Filter by price<span>&gt;</span>
+              </button>
+              <div class="filter-content-outer">
+                {bikePrices &&
+                  bikePrices.map((data) => (
+                    // ======================================
+                    <div className="filter-content">
+                      <input
+                        name="brand"
+                        type="radio"
+                        onClick={() =>
+                          setprice(data.productPrice || data.productPrice)
+                        }
+                        value={data.productPrice}
+                      ></input>
+                      <label>{data.productPriceK}and below</label>
+                    </div>
+                    //  =================================
+                  ))}
+              </div>
+            </div>
+            {/* =================================================== */}
+            <div
+              className={`product-cot-filter-content ${
+                activeMenu === "menu3" ? "open-filter" : ""
+              }`}
+            >
+              <button
+                className="btn-to-open-filtr"
+                onClick={() => handleMenuClick("menu3")}
+              >
+                Filter by Driving Range:<span>&gt;</span>
+              </button>
+              <div class="filter-content-outer">
+                {DrivingRange &&
+                  DrivingRange.map((data) => (
+                    <div className="filter-content">
+                      <input
+                        name="brand"
+                        type="radio"
+                        onClick={() => setRange(data.DrivingRange)}
+                        value={data.DrivingRange}
+                      ></input>
+                      <label>
+                        {data.DrivingRange} {"    "}and above
+                      </label>
+                    </div>
+                  ))}
+              </div>
+            </div>
+            {/* =================================================================== */}
+          </div>
 
           {/* ---------------------------------our cars------------------------------- */}
           <div id="OUR-CARS">
-            {/* <div class="mobile-section-headfing">
-          <span></span>
-          <h3>EV-LUNA</h3>
-          <span></span>
-        </div> */}
             <div className="tanker">
               <div className="OUR-CARS-outer">
                 <div className="cotegotry-overlay-background">
@@ -332,7 +337,7 @@ const [cycleproduct, setcycleproduct] = useState("");
 
                           <img
                             alt={`${data.productName} image`}
-                            src={`https://app.fuelfree.in/${data.productImage}`}
+                            src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
                           />
 
                           <div class="Cartitle">
@@ -346,14 +351,14 @@ const [cycleproduct, setcycleproduct] = useState("");
                             </Link>
                             {localStorage.getItem("product") ? (
                               <Link
-                                to={`/compare-electric-vehicles/${data._id}`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                               >
                                 Compare Now
                               </Link>
                             ) : (
                               <Link
-                                to={`/compare-electric-vehicles/:id`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                                 onClick={() => handleclick(data)}
                               >
@@ -394,14 +399,14 @@ const [cycleproduct, setcycleproduct] = useState("");
                             </Link>
                             {localStorage.getItem("product") ? (
                               <Link
-                                to={`/semifinalCompare/${data._id}`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                               >
                                 Compare Now
                               </Link>
                             ) : (
                               <Link
-                                to={`/semifinalCompare/:id`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                                 onClick={() => handleclick(data)}
                               >
@@ -416,7 +421,7 @@ const [cycleproduct, setcycleproduct] = useState("");
               </div>
             </div>
             <div className="pagination-products-all">
-        <ResponsivePagination
+              <ResponsivePagination
                 current={currentPage}
                 total={totalPages}
                 onPageChange={handlePageChange}
@@ -424,8 +429,8 @@ const [cycleproduct, setcycleproduct] = useState("");
             </div>
           </div>
         </section>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

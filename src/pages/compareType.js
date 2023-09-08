@@ -51,7 +51,7 @@ function CompareType() {
     navigate("/electric-cycle");
   };
   const gotoscooter = () => {
-    navigate("/electric-scooters");
+    navigate("/electric-scooter");
   };
   const gotocars = () => {
     navigate("/electric-car");
@@ -64,6 +64,9 @@ function CompareType() {
   };
   const gotobus = () => {
     navigate("/electric-bus");
+  };
+  const gotoLuna = () => {
+    navigate("/electric-luna");
   };
   const  gotologistic = () => {
     navigate("/electric-logistics");
@@ -86,6 +89,8 @@ function CompareType() {
       gotobus();
     }else if(V_type === "Ev-logistics"){
             gotologistic();
+    }else if(V_type==='Ev-Luna'){
+      gotoLuna()
     }
   }, []);
 
@@ -113,6 +118,7 @@ function CompareType() {
                 {V_type === "Ev-rickshaw" ? gotoauto() : ""}
                 {V_type === "Ev-buses" ? gotobus() : ""}
                 {V_type === "Ev-logistics" ? gotologistic() : ""}
+                {V_type === "Ev-Luna" ? gotoLuna() : ""}
               </>
             ) : (
               <>
@@ -124,6 +130,7 @@ function CompareType() {
                 {SecondType === "Ev-loading" ? gotoloading() : ""}
                 {SecondType === "Ev-rickshaw" ? gotoauto() : ""}
                 {SecondType === "Ev-buses" ? gotobus() : ""}
+                {SecondType === "Ev-Luna" ? gotoLuna() : ""}
               </>
             )}
           </div>

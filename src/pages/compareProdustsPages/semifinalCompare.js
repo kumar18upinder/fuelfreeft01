@@ -36,7 +36,6 @@ function SemifinalCompare() {
   const remove = () => {
     localStorage.removeItem("product");
   };
-
   return (
     <div id="semifinalCompare">
       <Header />
@@ -45,28 +44,40 @@ function SemifinalCompare() {
       </div>
       <div className="copmpare-item-flex-outer">
         <div className="camapare-vehicle">
-          <div className="compare-img" id="first_vs">
+        <div className="compare-img" id="first_vs">
             <img
               className="comp-img"
-              src={`https://app.fuelfree.in/${First_P && First_P.productImage}`}
+              src={`https://app.fuelfree.in/${First_P&&First_P.productImage.length>0?First_P.productImage[0]:null}`}
               alt="Compare-img1"
             ></img>
             {First_P && First_P.VehicleType === "Ev-bikes" ? (
-              <Link className="add-compare" to={"/electric-bike"} onClick={remove}>
+              <Link
+                className="add-compare"
+                to={"/electric-bike"}
+                onClick={remove}
+              >
                 ADD
               </Link>
             ) : (
               ""
             )}
             {First_P && First_P.VehicleType === "Ev-bikes" ? (
-              <Link className="remove-comapre" to={"/electric-bike"} onClick={remove}>
-                Remove
+              <Link
+                className="remove-comapre"
+                to={"/electric-bike"}
+                onClick={remove}
+              >
+                x
               </Link>
             ) : (
               ""
             )}
             {First_P && First_P.VehicleType === "Ev-cars" ? (
-              <Link className="add-compare" to={"/electric-car"} onClick={remove}>
+              <Link
+                className="add-compare"
+                to={"/electric-car"}
+                onClick={remove}
+              >
                 ADD
               </Link>
             ) : (
@@ -78,27 +89,39 @@ function SemifinalCompare() {
                 to={"/electric-car"}
                 onClick={remove}
               >
-                Remove
+                x
               </Link>
             ) : (
               ""
             )}
             {First_P && First_P.VehicleType === "Ev-cycles" ? (
-              <Link className="add-compare" to={"/electric-cycle"} onClick={remove}>
+              <Link
+                className="add-compare"
+                to={"/electric-cycle"}
+                onClick={remove}
+              >
                 ADD
               </Link>
             ) : (
               ""
             )}
             {First_P && First_P.VehicleType === "Ev-cycles" ? (
-              <Link className="remove-comapre" to={"/electric-cycle"} onClick={remove}>
-                Remove
+              <Link
+                className="remove-comapre"
+                to={"/electric-cycle"}
+                onClick={remove}
+              >
+                X
               </Link>
             ) : (
               ""
             )}
             {First_P && First_P.VehicleType === "Ev-scooters" ? (
-              <Link className="add-compare" to={"/electric-scooter"} onClick={remove}>
+              <Link
+                className="add-compare"
+                to={"/electric-scooter"}
+                onClick={remove}
+              >
                 ADD
               </Link>
             ) : (
@@ -110,7 +133,7 @@ function SemifinalCompare() {
                 to={"/electric-scooter"}
                 onClick={remove}
               >
-                Remove
+                X
               </Link>
             ) : (
               ""
@@ -132,7 +155,7 @@ function SemifinalCompare() {
                 to={"/electric-loading"}
                 onClick={remove}
               >
-                Remove
+                X
               </Link>
             ) : (
               ""
@@ -154,7 +177,7 @@ function SemifinalCompare() {
                 to={"/electric-logistics"}
                 onClick={remove}
               >
-                Remove
+                X
               </Link>
             ) : (
               ""
@@ -176,21 +199,40 @@ function SemifinalCompare() {
                 to={"/electric-auto"}
                 onClick={remove}
               >
-                Remove
+                X
               </Link>
             ) : (
               ""
             )}
             {First_P && First_P.VehicleType === "Ev-buses" ? (
-              <Link className="add-compare" to={"/electric-bus"} onClick={remove}>
+              <Link
+                className="add-compare"
+                to={"/electric-bus"}
+                onClick={remove}
+              >
                 ADD
               </Link>
             ) : (
               ""
             )}
             {First_P && First_P.VehicleType === "Ev-buses" ? (
-              <Link className="remove-comapre" to={"/electric-bus"} onClick={remove}>
-                Remove
+              <Link
+                className="remove-comapre"
+                to={"/electric-bus"}
+                onClick={remove}
+              >
+                X
+              </Link>
+            ) : (
+              ""
+            )}
+            {First_P && First_P.VehicleType === "Ev-Luna" ? (
+              <Link
+                className="remove-comapre"
+                to={"/electric-luna"}
+                onClick={remove}
+              >
+                X
               </Link>
             ) : (
               ""
@@ -211,59 +253,63 @@ function SemifinalCompare() {
         <div className="camapare-vehicle">
           <div className="compare-img">
             {secondData && secondData.VehicleType === "Ev-bikes" ? (
-              <Link className="remove-comapre" to={"/bike"}>
-                Remove
+              <Link className="remove-comapre" to={"/electric-bike"}>
+                X
               </Link>
             ) : (
               ""
             )}
             {secondData && secondData.VehicleType === "Ev-cars" ? (
               <Link className="remove-comapre" to={"/electric-car"}>
-                Remove
+                X
               </Link>
             ) : (
               ""
             )}
             {secondData && secondData.VehicleType === "Ev-cycles" ? (
               <Link className="remove-comapre" to={"/electric-cycle"}>
-                Remove
+                X
               </Link>
             ) : (
               ""
             )}
             {secondData && secondData.VehicleType === "Ev-logistics" ? (
               <Link className="remove-comapre" to={"/electric-logistics"}>
-                Remove
+                X
               </Link>
             ) : (
               ""
             )}
             {secondData && secondData.VehicleType === "Ev-rickshaw" ? (
               <Link className="remove-comapre" to={"/electric-auto"}>
-                Remove
+                X
               </Link>
             ) : (
               ""
             )}
             {secondData && secondData.VehicleType === "Ev-scooters" ? (
               <Link className="remove-comapre" to={"/electric-scooter"}>
-                Remove
+                X
               </Link>
             ) : (
               ""
             )}
             {secondData && secondData.VehicleType === "Ev-buses" ? (
               <Link className="remove-comapre" to={"/electric-bus"}>
-                Remove
+                X
               </Link>
             ) : (
               ""
             )}
             {secondData && secondData.VehicleType === "Ev-loading" ? (
-              <Link
-                className="remove-comapre"
-                to={"/electric-loading"}
-              >
+              <Link className="remove-comapre" to={"/electric-loading"}>
+                Remove
+              </Link>
+            ) : (
+              ""
+            )}
+            {secondData && secondData.VehicleType === "Ev-Luna" ? (
+              <Link className="remove-comapre" to={"/electric-luna"}>
                 Remove
               </Link>
             ) : (
@@ -272,7 +318,7 @@ function SemifinalCompare() {
             <img
               className="comp-img"
               src={`https://app.fuelfree.in/${
-                secondData && secondData.productImage
+                  secondData&&secondData.productImage.length>0?secondData.productImage[0]:null
               }`}
               alt="Compare-img2"
             ></img>
@@ -303,8 +349,15 @@ function SemifinalCompare() {
               +Add second Product
             </Link>
           )}
-          {P_Id === id ? (
-            <h2>Can Not Compare Same Vehicle</h2>
+          {P_Id === id ||
+          (First_P &&
+            First_P.VehicleType !== (secondData && secondData.VehicleType)) ? (
+            <>
+            {
+              First_P&&secondData?(<h2>Can Not Compare</h2>):""
+            }
+              
+            </>
           ) : (
             <>
               {First_P && secondData ? (

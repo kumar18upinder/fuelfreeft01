@@ -212,6 +212,7 @@
 .view-offer-a:hover {
   background-color: var(--orange);
   color: white;
+  text-decoration: none;
 }
 .view-offer-ab:hover {
   background-color: var(--orange);

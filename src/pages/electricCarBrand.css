@@ -1,6 +1,7 @@
 .logo-car {
   color: #000;
   text-align: center;
+  display: none;
 }
 .electric-vehicle-log-outer {
     display: flex;
@@ -11,6 +12,9 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 0% 0%;
+    display: flex;
+    width: 100%;
+
 }
 .electric-vehicle-logo-name a {
     margin-right: 1%;

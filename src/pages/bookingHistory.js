@@ -30,9 +30,8 @@ function BookingHistory() {
   useEffect(() => {
     getTestDriveList();
   }, []);
-  /////
-
-  ////charging station////
+  
+   ////charging station////
   const [chargingStationlist, setchargingStation] = useState({});
   let chargingStationType = chargingStationlist.List;
 
@@ -234,6 +233,7 @@ function BookingHistory() {
             </button>
 
             <button
+
               className={`book-tabs ${activeTab === "City3" ? "active" : ""}`}
               onClick={() => openCity("City3")}
             >
@@ -276,7 +276,6 @@ function BookingHistory() {
                                 <BsCheck2Circle
                                   title="booked"
                                   className="booked-btn"
-                                  // onClick={() => deleteTestDrive(data._id)}
                                 />
                               </div>
                               <h6>
@@ -291,7 +290,7 @@ function BookingHistory() {
                               <p>
                                 <b>Address:</b> {data.address}
                               </p>
-                              <Link class="view-offer-a">view</Link>
+                              <Link to={`/view-testdrivebooking-details/${data._id}`} class="view-offer-a">view details</Link>
                               <Link
                                 onClick={() => {
                                   const confirmBox = window.confirm(
@@ -315,7 +314,6 @@ function BookingHistory() {
                                 <GiCancel
                                   title="cancelled booking"
                                   className="delete-btn"
-                                  // onClick={() => deleteTestDrive(data._id)}
                                 />
                               </div>
                               <h6>
@@ -460,6 +458,7 @@ function BookingHistory() {
                               <p>
                                 <b>Address:</b> {data.address}
                               </p>
+                              <Link to={`/view-rental-booking-details/${data._id}`} class="view-offer-a">view details</Link>
                               <Link
                                 onClick={() => {
                                   const confirmBox = window.confirm(
@@ -544,7 +543,7 @@ function BookingHistory() {
                               <p>
                                 <b>Address:</b> {data.preferredLocation}
                               </p>
-                              <Link class="view-offer-a">view details</Link>
+                              <Link class="view-offer-a"  to={`/viewbookingdetails/${data._id}`}>view details</Link>
                               <Link
                                 onClick={() => {
                                   const confirmBox = window.confirm(

@@ -55,7 +55,7 @@ function Membership() {
                                     <ul>
                                     <li><i className="fa fa-angle-double-right"></i> Membership Duration <span>1 Month.</span></li>
                                         <li><i className="fa fa-angle-double-right"></i> we Provide <span>Intrested Customers</span> For Test Drive.</li>
-                                        <li><i className="fa fa-angle-double-right"></i> Send 30 High Potential Leads.</li>
+                                        <li><i className="fa fa-angle-double-right"></i> Send <span>30</span> High Potential Leads.</li>
                                         <li><i className="fa fa-angle-double-right"></i> <span>24*7</span> Technical Support.</li>
                                         <li><i className="fa fa-angle-double-right"></i> <span>24*7</span> Marketing Team Available</li>
                                     </ul>

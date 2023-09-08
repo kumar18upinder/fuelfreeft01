@@ -74,7 +74,7 @@ const Wishlist = () => {
                   <h5>{data.productID.productName}</h5>
                   <p> Starting at Rs. {data.productID.productPrice}</p>
                   <Link
-                    to={`/products/${data.productID.productName}/${data.productID._id}/${data.productID.VehicleType}`}
+                    to={`/products/${data.productID.productName}/${data.productID.VehicleType}/${data.productID._id}`}
                     class="view-offer-a"
                   >
                     View

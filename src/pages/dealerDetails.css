@@ -227,3 +227,12 @@ img.fb {
   text-transform: uppercase;
   font-weight: 700;
 }
+
+.to-enter-location input{
+  width: 50%;
+  display: block;
+}
+
+.placeAuto{
+  width: 100%;
+}

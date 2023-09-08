@@ -380,21 +380,6 @@ useEffect(() => {
                         <option value="false">No</option>
                       </Field>
                     </div>
-{/* 
-                    <div className="admin-input">
-                      <label>Headlights</label>
-                      <Field
-                        as="select"
-                        className="form-control"
-                        name="headLight"
-                        id="headLight" required="required"
-                      >
-                        <option>--Headlights--</option>
-                        <option value="led">LED</option>
-                        <option value="halogen">Halogen</option>
-                        <option value="bulb">Bulb</option>
-                      </Field>
-                    </div> */}
 
                     <label>GPS Navigation System</label>
                     <Field

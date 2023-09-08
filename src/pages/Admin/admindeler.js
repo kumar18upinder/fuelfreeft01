@@ -167,13 +167,13 @@ function Amindeler() {
                             <td>{data.city}</td>
                             <td>{data.email}</td>
                             <td>{data.address}</td>
-
-                            <button onClick={() => Approve("true", data._id)}>
-                              Approve
-                            </button>
                             <Link to={`/agency-visit-count/${data._id}`}>
                               <button>See More</button>
                             </Link>
+                            <button onClick={() => Approve("true", data._id)}>
+                              Approve
+                            </button>
+                         
                             <button onClick={() => Approve("false", data._id)}>
                               Ignore
                             </button>

@@ -1,240 +1,67 @@
-import axios from "axios";
-import * as yup from "yup";
-import Adminsidebar from "./adminsidebar";
-import { useNavigate, Link } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import React, { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import { MultiSelect } from "react-multi-select-component";
-import Select from "react-select";
-import { WhatsappShareButton } from "react-share";
-import { RiWhatsappFill } from "react-icons/ri";
-import { IoIosShareAlt } from "react-icons/io";
+import React, { useState } from "react";
+import { saveAs } from "file-saver";
+import XLSX from "xlsx";
+// ... (other imports)
 
 const AdminleadsForm = () => {
-  const navigate = useNavigate();
+  // ... (existing code)
 
-  const defaultValue = {
-    name: "",
-    phoneNo: "",
-    city: "",
-    vehicleType: "",
-  };
-  const validationschema = yup.object().shape({
-    name: yup.string().required("Enter Name"),
-    phoneNo: yup
-      .string()
-      .matches(
-        /^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/,
-        "Must be valid phone number"
-      )
-      .required("Phone number is requried"),
-    city: yup.string().required("City is required"),
-    vehicleType: yup.string().required("Enter Vehicle Type"),
-  });
+  const [excelData, setExcelData] = useState([]);
+  const [excelFile, setExcelFile] = useState(null);
 
-  const [det, setdet] = useState([]);
-  const [selected, setSelected] = useState([]);
-
-  const getData = [];
-  for (let i = 0; i < selected.length; i++) {
-    getData.push(selected[i].value);
-  }
-  const handleSelectCity = async (e) => {
-    const selectedValue = e.value;
-    let res = await axios.get(
-      `https://app.fuelfree.in/vendor/filterByCityCount?city=${selectedValue}`,
-      {
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
-    let result = await res.data;
-    let alldata = await result.search;
-    const deledetails = alldata.map((data) => ({
-      label:
-        data.firmName +
-        "-------->" +
-        data.vehicleDeals +
-        "------------------->" +
-        data.Brand +
-        "------>" +
-        data.leadsCount,
-      city: data.city,
-      value: data._id,
-    }));
-    setdet(deledetails);
+  // Function to export form data to Excel
+  const exportToExcel = () => {
+    const dataToExport = [/* ... Format your data array here ... */];
+    const ws = XLSX.utils.json_to_sheet(dataToExport);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Leads");
+    const blob = XLSX.write(wb, { bookType: "xlsx", type: "blob" });
+    saveAs(blob, "leads.xlsx");
   };
 
-  const formatMessage = (url) => {
-    const formattedData =
-      `Hello, here is your new lead.\n\n` +
-      `Customer-Name=${url.name},\n` +
-      `Customer-Phone Number=${url.phoneNo},\n` +
-      `City=${url.city},\n` +
-      `Interested In=${url.vehicleType}`;
-    return formattedData;
-  };
-
-  const [url, setValues] = useState("");
-
-  const handlesubmit = async (values) => {
-    setValues(JSON.stringify(values));
-    const formattedData = formatMessage(values);
-    setValues(formattedData);
-    let vendorid = getData ? getData : toast.error("first select vendor ");
-
-    const res = await axios.post(
-      `https://app.fuelfree.in/lead/add/${vendorid}`,
-      values,
-      {
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
-    let result = await res.data;
-    if (result.success === "success") {
-      toast.success("Lead sent");
-    } else {
-      toast.error(result.error);
+  // Function to handle Excel file upload
+  const handleExcelUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: "array" });
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet);
+        setExcelData(jsonData);
+        setExcelFile(file);
+      };
+      reader.readAsArrayBuffer(file);
     }
   };
-  const gologinadmin = () => {
-    if (!localStorage.getItem("Admin-Info")) {
-      navigate("/admin");
-    }
-  };
-  useEffect(() => {
-    gologinadmin();
-  }, []);
 
-  const [isHovered, setIsHovered] = useState(false);
-  const handleMouseEnter = () => {
-    setIsHovered(true);
+  // Function to send leads from Excel
+  const sendLeadsFromExcel = () => {
+    // Implement sending leads to selected vendors based on excelData
+    // You can use a similar logic as your handlesubmit function here
   };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
-  const options = [
-    { value: "Indore", label: "Indore" },
-    { value: "Bhopal", label: "Bhopal" },
-    { value: "gwalior", label: "gwalior" },
-    { value: "jabalpur", label: "jabalpur" },
-    { value: "surat", label: "surat" },
-    { value: "Dewas", label: "Dewas" },
-    { value: "Ujjain", label: "Ujjain" },
-    { value: "Vidisha", label: "Vidisha" },
-    { value: "Sehore", label: "Sehore" },
-    { value: "Rajgarh", label: "Rajgarh" },
-  ];
-  const [selectedOption, setSelectedOption] = useState(null);
+  // ... (existing code)
 
   return (
     <div id="admin-page-id">
-      <ToastContainer />
-      <Adminsidebar />
-      <div className="admin-dashboard">
-        <label style={{ color: "white" }}>Select City</label>
-        <Select
-          defaultValue={selectedOption}
-          onChange={handleSelectCity}
-          required
-          options={options}
-        />
-        <div>
-          <label style={{ color: "white" }}>Select Vendor Name</label>
-          <MultiSelect
-            options={det}
-            value={selected}
-            onChange={setSelected}
-            labelledBy="Select"
-            checkbox
-          />
-        </div>
-        <div class="admin-title">
-          <h3>Dealer</h3>
-        </div>
+      {/* ... (existing code) */}
 
-        <Formik
-          className="tanker"
-          initialValues={defaultValue}
-          validationSchema={validationschema}
-          onSubmit={handlesubmit}
-        >
-          <Form>
-            <div>
-              <Field
-                type="text"
-                name="name"
-                placeholder="name"
-                className="form-control"
-              />
-              <p className="text-danger">
-                <ErrorMessage name="name" />
-              </p>
-            </div>
-            <div>
-              <Field
-                type="tel"
-                name="phoneNo"
-                placeholder="phone"
-                className="form-control"
-              />
-              <p className="text-danger">
-                <ErrorMessage name="phoneNo" />
-              </p>
-            </div>
-            <div>
-              <Field
-                type="text"
-                name="city"
-                placeholder="city"
-                className="form-control"
-              />
-              <p className="text-danger">
-                <ErrorMessage name="city" />
-              </p>
-            </div>
-            <div>
-              <Field
-                type="text"
-                name="vehicleType"
-                placeholder="vehicleType"
-                className="form-control"
-              />
-              <p className="text-danger">
-                <ErrorMessage name="vehicleType" />
-              </p>
-            </div>
-            <button type="submit">Submit</button>
-          </Form>
-        </Formik>
-        <div
-          id="share-btunss"
-          className={isHovered ? "hover-effect-show-shre" : ""}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <div className="shre-hover-btnss">
-            {" "}
-            <IoIosShareAlt />
-            <span>click here to share on whatsapp</span>
-          </div>
-          <div 
-          // className="share-on-socialss"
-          >
-            <WhatsappShareButton url={url}>
-              <div className="share-on-socialss">
-                <RiWhatsappFill />
-              </div>
-            </WhatsappShareButton>
-          </div>
+      {/* Export to Excel Button */}
+      <button onClick={exportToExcel}>Export to Excel</button>
+
+      {/* Import from Excel */}
+      <input type="file" accept=".xlsx" onChange={handleExcelUpload} />
+      {excelData.length > 0 && (
+        <div>
+          <p>Data from Excel:</p>
+          <pre>{JSON.stringify(excelData, null, 2)}</pre>
+          <button onClick={sendLeadsFromExcel}>Send Leads from Excel</button>
         </div>
-      </div>
+      )}
+
+      {/* ... (existing code) */}
     </div>
   );
 };

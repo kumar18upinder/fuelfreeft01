@@ -43,7 +43,9 @@ function Adminsidebar() {
             <li>
               <Link to="/amindeler">Ev agency Dealers</Link>
             </li>
-
+            <li>
+              <Link to="/paid-vendor-list">Paid Dealers</Link>
+            </li>
             <li>
               <Link to="/adminchargingstation">Charging Dealer</Link>
             </li>
@@ -92,6 +94,9 @@ function Adminsidebar() {
             </li>
             <li>
               <Link to="/adminofferlist">Offers List</Link>
+            </li>
+            <li>
+              <Link to="/marketing-approve">Marketing Walllah</Link>
             </li>
             <li>
               <Link to="/admin-rental-vehicle-list">Rental Vehicle List</Link>

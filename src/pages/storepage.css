@@ -1,6 +1,28 @@
+.back-to-home a {
+  font-size: 12px;
+  border: 1px solid;
+  padding: 6px;
+  border-radius: 10px;
+}
+.back-to-home svg {
+  margin-right: 8px;
+}
 img.storepage-outer {
     width: 100%;
     height: 550px;
+}
+.back-to-home a {
+  display: flex;
+  align-items: center;
+}
+.back-to-home a {
+  font-size: 13px;
+  border-radius: 10px;
+  border: 1px solid;
+  padding: 4px;
+}
+.back-to-home svg {
+  margin-right: 7px;
 }
 
 .storepage-inner {
@@ -12,6 +34,19 @@ img.storepage-outer {
     position: relative;
     align-items: center;
     justify-content: space-around;
+}
+.vehicle-log-outer {
+  width: 10%;
+    text-align: center;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    width: 100%;
 }
 p.storeheading {
     font-size: 25px;
@@ -39,18 +74,26 @@ a.book-slot {
 }
 /* ////// */
 .dealer-banner{
-    height: 100vh; /* Adjust this value to your desired height */
+    /* Adjust this value to your desired height */
     overflow: hidden;
     background: #f3f3f3;
 }
-.dealer-banner img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+
 
 h6.storepage-heading {
     font-size: 19px;
+}
+.vendor-details{
+  text-align: center;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 40px;
+
+}
+table.table.table-bordered {
+  text-align: center;
+ 
 }
 
 @media only screen and (max-width: 768px) {
@@ -147,8 +190,130 @@ h6.storepage-heading {
   section.dealer-featuring-product {
     background: #f3f3f3;
   }
+  .close-btn-popup{
+    padding: 2px 15px;
+    border-radius: 20px;
+}
+.model-opn-store--after-open{
+  
+    margin: 20% 32%;
+
+}
+  }
 
 
+
+
+
+
+/* ===============================================media================================== */
+
+@media only screen and (max-width: 500px){
+  .store-image-oute {
+    background-color: #f3f3f3;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.vendor-details {
+  text-align: center;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+table.table.table-bordered {
+  background: #f3f3f3;
+}
+.dealer-banner-text {
+  font-size: 60px;
+  width: 30%;
+  margin-left: 3%;
+}
+.store-image-outer {
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+.dealer-header-outer {
+  display: flex;
+  padding: 14px;
+  align-items: stretch;
+  flex-direction: column;
+}
+.dealer-header-link {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.dealer-header-logo {
+  font-size: 30px;
+  font-family: sans-serif;
+  font-weight: 800;
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.contact-store {
+  color: black;
+  font-weight: 600;
+  padding: 5px 25px;
+  border-radius: 17px;
+  margin-top: 20px;
+}
+.dealer-banner-text-p{
+  width: 85%;
+  margin: 0 auto;
+}
+.dealer-banner-text h2 {
+  font-size: 18px !important;
+  text-align: center;
+  margin-bottom: 35px;
+  color: black;
+}
+
+.dealer-header-logo {
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 800;
+}
+a.company-logo {
+  border: 2px solid #f3f3f3;
+  margin: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 15%;
+  margin: 0 auto;
+  margin-top: 10px;
+  background-color: white;
+  justify-content: center;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);;
+}
+.vehicle-log-outer {
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.15);;
+  background-color: #f3f3f3;
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+}
+.fot-store {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  justify-content: space-evenly;
+
+}
 
 
 

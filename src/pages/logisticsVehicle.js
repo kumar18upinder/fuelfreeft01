@@ -390,7 +390,7 @@ function LogisticsVehicle({ handleclick }) {
                       </Link>
                       <img
                         alt={`${data.productName} image`}
-                        src={`https://app.fuelfree.in/${data.productImage}`}
+                        src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
                       />
 
                       <div class="Cartitle">
@@ -404,14 +404,14 @@ function LogisticsVehicle({ handleclick }) {
                         </Link>
                         {localStorage.getItem("product") ? (
                           <Link
-                            to={`/compare-electric-vehicles/${data._id}`}
+                            to={`/compare-product`}
                             class="view-offer-a"
                           >
                             Compare Now
                           </Link>
                         ) : (
                           <Link
-                            to={`/compare-electric-vehicles/:id`}
+                            to={`/compare-product`}
                             class="view-offer-a"
                             onClick={() => handleclick(data)}
                           >
@@ -451,14 +451,14 @@ function LogisticsVehicle({ handleclick }) {
                         </Link>
                         {localStorage.getItem("product") ? (
                           <Link
-                            to={`/semifinalCompare/${data._id}`}
+                            to={`/compare-product`}
                             class="view-offer-a"
                           >
                             Compare Now
                           </Link>
                         ) : (
                           <Link
-                            to={`/semifinalCompare/:id`}
+                            to={`/compare-product`}
                             class="view-offer-a"
                             onClick={() => handleclick(data)}
                           >
@@ -472,15 +472,15 @@ function LogisticsVehicle({ handleclick }) {
             )}
           </div>
           <div className="pagination-products-all">
-              <ResponsivePagination
-                current={currentPage}
-                total={totalPages}
-                onPageChange={handlePageChange}
-              />
-            </div>
+            <ResponsivePagination
+              current={currentPage}
+              total={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </div>
         </section>
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

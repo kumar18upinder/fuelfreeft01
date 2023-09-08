@@ -81,9 +81,6 @@ function Login() {
           <div className="login-inner-contnet">
             <div className="social-login">
               <h5>Login using social media</h5>
-              {/* <Link>
-                <FacebookLogins />
-              </Link> */}
               <GoogleLogins/>
             </div>
 

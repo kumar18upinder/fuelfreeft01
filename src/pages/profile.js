@@ -15,13 +15,13 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import profileback from "./images/profile-background.jpeg";
 import $ from "jquery";
 
-
 function Profile() {
   const [isGoogleLogin, setIsGoogleLogin] = useState(false); // State to track if it's a Google login
 
-  
-  let affiliatdata=localStorage.getItem('affiliateINFO')?(JSON.parse(localStorage.getItem('affiliateINFO'))):''
-  let reffrel=affiliatdata.referralCode
+  let affiliatdata = localStorage.getItem("affiliateINFO")
+    ? JSON.parse(localStorage.getItem("affiliateINFO"))
+    : "";
+  let reffrel = affiliatdata.referralCode;
 
   $(".Click-here-2").on("click", function () {
     $(".custom-model-main").addClass("model-open");
@@ -65,7 +65,6 @@ function Profile() {
     viewProfile();
   }, []);
 
-
   useEffect(() => {
     if (localStorage.getItem("user")) {
       const user = JSON.parse(localStorage.getItem("user"));
@@ -99,10 +98,10 @@ function Profile() {
     if (selectedValue === "petrol") {
       navigate("/sell-your-petrol-vehicle");
     } else if (selectedValue === "electric") {
-      navigate("/usedvehicleform");
+      navigate("/used-vehicle-form");
     }
   };
-  
+
   // =====change pin ===== //
   const [show, setShow] = useState(false);
 
@@ -156,23 +155,23 @@ function Profile() {
     }
   };
 
- //userDetails
- const [userdetails,setuserdetails]=useState('')
+  //userDetails
+  const [userdetails, setuserdetails] = useState("");
 
- const usrDetails=async()=>{
-       let res=await axios.get(`https://app.fuelfree.in/user/details/${uid}`,{
-         headers:{
-           "Accept":"application/json"
-         }
-       })
-       let data=await res.data
-       let details=await data.Details
-       setuserdetails(details)
- }
- useEffect(()=>{
-     usrDetails()
- },[])
-   
+  const usrDetails = async () => {
+    let res = await axios.get(`https://app.fuelfree.in/user/details/${uid}`, {
+      headers: {
+        Accept: "application/json",
+      },
+    });
+    let data = await res.data;
+    let details = await data.Details;
+    setuserdetails(details);
+  };
+  useEffect(() => {
+    usrDetails();
+  }, []);
+
   return (
     <>
       <ToastContainer />
@@ -212,17 +211,19 @@ function Profile() {
                   <p>
                     <i className="fa fa-phone"></i> {details && details.phoneNo}
                   </p>
-                 {
-                  reffrel?(<p className="">
-                    REFFERAL_CODE :- {reffrel}
-                  </p>):''
-                 } 
-                  {
-                  userdetails&&userdetails.walletBalance
-                  ?(<p className="">
-                    walletBalance :- {userdetails&&userdetails.walletBalance}
-                  </p>):''
-                 } 
+                  {reffrel ? (
+                    <p className="">REFFERAL_CODE :- {reffrel}</p>
+                  ) : (
+                    ""
+                  )}
+                  {userdetails && userdetails.walletBalance ? (
+                    <p className="">
+                      walletBalance :-{" "}
+                      {userdetails && userdetails.walletBalance}
+                    </p>
+                  ) : (
+                    ""
+                  )}
                 </div>
               </div>
               <div className="log-out-div">
@@ -239,29 +240,35 @@ function Profile() {
                   </Link>
                 )}{" "}
                 <Link className="profile-logout" to={"/updateprofile"}>
-                  <i><FaUserEdit/></i>Edit Profile
+                  <i>
+                    <FaUserEdit />
+                  </i>
+                  Edit Profile
                 </Link>
-                
                 {localStorage.getItem("user") && !isGoogleLogin && (
                   <Link>
-                  {/* // krpya karke is code ko na hatay anytha dikkat ka samna krna pad sakta hai */}
-                   <div class="mbr-section-btn Click-here-2">
-                   <i><FaEdit/></i>
-                    Edit PIN
-                    <span class="mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn"></span>
-                  </div>
-                </Link>
+                    {/* // krpya karke is code ko na hatay anytha dikkat ka samna krna pad sakta hai */}
+                    <div class="mbr-section-btn Click-here-2">
+                      <i>
+                        <FaEdit />
+                      </i>
+                      Edit PIN
+                      <span class="mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn"></span>
+                    </div>
+                  </Link>
                 )}
-              
-              
-              <select className="profile-logout" value={selectedVehicle} onChange={handleSelectChange}>
-              <i><FaMotorcycle/></i>
-              <option value="">Sell Used Vehicle</option>
-              <option value="electric">Electric Vehicle</option>
-              <option value="petrol">Petrol Vehicle</option>
-              
-      </select>
-                 
+                <select
+                  className="profile-logout"
+                  value={selectedVehicle}
+                  onChange={handleSelectChange}
+                >
+                  <i>
+                    <FaMotorcycle />
+                  </i>
+                  <option value="">Sell Used Vehicle</option>
+                  <option value="electric">Electric Vehicle</option>
+                  <option value="petrol">Petrol Vehicle</option>
+                </select>
               </div>
             </div>
           </div>
@@ -313,7 +320,6 @@ function Profile() {
                     <button
                       type="submit"
                       className="btn btn-primary"
-                      // onClick={changePin}
                     >
                       Submit
                     </button>

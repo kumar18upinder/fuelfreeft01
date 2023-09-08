@@ -1,25 +1,35 @@
-import React,{useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import Audi from "../pages/images/car1.jpg";
 import "./exchangevehicle.css";
+import wallpaper from "../pages/images/exchangeBanner.jpeg";
+import ResponsivePagination from "react-responsive-pagination";
+import "react-responsive-pagination/themes/classic.css";
 
 function Exchangevehicle() {
-  let userdata = localStorage.getItem("user")
-    ? JSON.parse(localStorage.getItem("user"))
-    : "";
-  let userId = userdata ? userdata._id : "";
-  const [source, setsource] = useState("");
-  const visitCount = async () => {
-    const pageVisited = window.location.href;
+  const { city } = useParams();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPage] = useState(0);
+  const [products, setProducts] = useState([]);
+  let lastProductIndex = currentPage * 12;
+  let firstProductIndex = lastProductIndex - 12;
+  let currentChargingStation = products.slice(
+    firstProductIndex,
+    lastProductIndex
+  );
 
-    let res = await axios.post(
-      `https://app.fuelfree.in/user/track-page/${userId}?source=${encodeURIComponent(
-        pageVisited
-      )}`,
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const [Count, setcount] = useState("");
+  const [dealers, setdealers] = useState("");
+  const setoption = async (e) => {
+    let res = await axios.get(
+      `https://app.fuelfree.in/exchangeVehicle/filterBycity/${city}`,
       {
         headers: {
           Accept: "application/json",
@@ -27,134 +37,113 @@ function Exchangevehicle() {
       }
     );
     let result = await res.data;
+    let dealer = result.allDealers;
+    let length = result.count;
+    setdealers(dealer);
+    setcount(length);
+    setProducts(dealer);
+    setTotalPage(Math.ceil(dealer.length / 12));
   };
 
   useEffect(() => {
-    if (localStorage.getItem("user")) {
-      visitCount();
-      setsource(window.location.href);
-    }
-  }, []);
+    setoption();
+  }, [city]);
 
-  // main product
-  const { id } = useParams();
-  const [productDetails, setDetails] = useState("");
-  let data1 = productDetails.vendorDetails;
-  async function getProductdetails() {
-    let resultDetails = await axios.get(
-      `https://app.fuelfree.in/vendor/agency/details/${id}`,
-      {
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
-    let data = await resultDetails.data;
-    setDetails(data);
-  }
-
-  useEffect(() => {
-    getProductdetails();
-  }, []);
-
-  const [vendorList, setvendorList] = useState({});
-  let vendorType = vendorList.List;
-  async function getvendorList() {
-    let resultCycle = await axios.get(
-      `https://app.fuelfree.in/vendor/myproduct/${ id }`,
-      {
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
-    let vendorData = await resultCycle.data;
-    setvendorList(vendorData);
-  }
-
-  useEffect(() => {
-    getvendorList();
-  }, []);
+  //search
+  const [filteredList, setFilteredList] = new useState(dealers);
+  const filterBySearch = (event) => {
+    const query = event.target.value.toLowerCase();
+    const updatedList = dealers.filter((item) => {
+      const firmNameMatch = item.firmName.toLowerCase().indexOf(query) !== -1;
+      const addressMatch = item.address.toLowerCase().indexOf(query) !== -1;
+      const nameMatch = item.name.toLowerCase().indexOf(query) !== -1;
+      return firmNameMatch || addressMatch || nameMatch;
+    });
+    setFilteredList(updatedList);
+  };
   return (
     <>
       <Header />
-      <h3 className="outer-heading-exchange">Exchange Your Vehicle</h3>
-      <div className="exchange-vehicle-outer">
-
-        <div className="ExchangeVehicle-cards">
-          <Link to="">
-            <img src={Audi} alt="imaudi" className="Exchange" />
-            <div className="Exchange-ca-ti">
-              <div>
-                <p>mahindra<br />
-                  Starting at Rs. 250000</p>
-              </div>
-              <div>
-                <Link to="/exchangevehicledetail">
-                  <button className="view-offer-a">View More</button>
-                </Link >
-              </div>
+      <div id="dealerlist">
+        <div className="stations-wallpaper">
+          <img src={wallpaper} alt="charging station wallaper"></img>
+          <div className="stations-wallpaper-overlay">
+            <h3>Exchange Vendor</h3>
+            <p>Exchange Vendor found in your location </p>
+            <div className="search_deler_div">
+              <p>Search address</p>
+              <input onChange={filterBySearch} placeholder=""></input>
             </div>
-          </Link>
+          </div>
         </div>
-        <div className="ExchangeVehicle-cards">
-          <Link to="">
-            <img src={Audi} alt="imaudi" className="Exchange" />
-            <div className="Exchange-ca-ti">
-              <div>
-                <p>mahindra<br />
-                  Starting at Rs. 250000</p>
-              </div>
-
-              <div>
-                <Link to="/exchangevehicledetail">
-                  <button className="view-offer-a">View More</button>
-                </Link >
-              </div>
+        <div className="tanker">
+          <div>
+            <div className="loc-css">
+              <span className="flatNo">{Count}</span> EXCHANGE VENDOR FOUND IN
+              YOUR LOCATION
             </div>
-          </Link>
+          </div>
         </div>
-
-        <div className="ExchangeVehicle-cards">
-
-          <Link to="">
-            <img src={Audi} alt="imaudi" className="Exchange" />
-            <div className="Exchange-ca-ti">
-              <div>
-                <p>mahindra<br />
-                  Starting at Rs. 250000</p>
-              </div>
-
-              <div>
-                <Link to="/exchangevehicledetail">
-                  <button className="view-offer-a">View More</button>
-                </Link >
+        {filteredList ? (
+          <>
+            {filteredList &&
+              filteredList.map((data) => (
+                <div class="Carcard-charge" key={data._id}>
+                  <div class="Cartitle-charge">
+                    <h5>{data.name}</h5>
+                    <p>
+                      Opening/Closing(Time): {data.openingTime}/
+                      {data.closingTime}
+                    </p>
+                  </div>
+                    <Link
+                      target="_blank"
+                      to={`/exchange-vehicle-vendor-details/${data._id}`}
+                      className="google-find"
+                    >
+                      View
+                    </Link>
+                </div>
+              ))}
+          </>
+        ) : (
+          <>
+            <div className="tanker">
+              <div className="OUR-CARS-outer">
+                {currentChargingStation &&
+                  currentChargingStation.map((data) => (
+                    <div class="Carcard-charge" key={data._id}>
+                      <div class="Cartitle-charge">
+                        <h5>{data.name}</h5>
+                        <p>
+                          Opening/Closing(Time): {data.openingTime}/
+                          {data.closingTime}
+                        </p>
+                      </div>
+                        <Link
+                          target="_blank"
+                          to={`/exchange-vehicle-vendor-details/${data._id}`}
+                          className="google-find"
+                        >
+                          View
+                        </Link>
+                    </div>
+                  ))}
               </div>
             </div>
-          </Link>
-        </div>
-
-        <div className="ExchangeVehicle-cards">
-
-          <Link to="">
-            <img src={Audi} alt="imaudi" className="Exchange" />
-            <div className="Exchange-ca-ti">
-              <div>
-                <p>mahindra<br />
-                  Starting at Rs. 250000</p>
-              </div>
-              <div>
-                <Link to="/exchangevehicledetail">
-                  <button className="view-offer-a">View More</button>
-                </Link>
-              </div>
-            </div>
-          </Link>
+          </>
+        )}
+        <div className="pagination-products-all">
+          <ResponsivePagination
+            current={currentPage}
+            total={totalPages}
+            onPageChange={handlePageChange}
+          />
         </div>
       </div>
       <Footer />
     </>
-  )
+  );
 }
 
 export default Exchangevehicle;

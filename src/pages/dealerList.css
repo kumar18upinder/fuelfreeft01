@@ -3,8 +3,22 @@
     text-align: left;
     margin-left: 35px;
 }
+div#dealer-serch-input-id {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .find-dealer-block {
     background-color: #f5f6f6;
+}
+div#dealer-serch-input-id input {
+    padding: 9px 24px;
+    border-radius: 10px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 255%;
+    display: block;
 }
 .find-dealer {
     font-weight: 700;

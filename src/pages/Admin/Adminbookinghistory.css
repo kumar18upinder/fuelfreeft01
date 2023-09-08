@@ -72,23 +72,10 @@ button.news-tabs.active {
   width: 100%;
   margin: 0% 1%;
 }
-.news-content-text {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-}
 .news-content-img img {
   width: 645px;
-  height: 263px;
+  height: 175px;
   object-fit: cover;
-}
-.news-content-text {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 .news-content-con a {
   color: black;
@@ -96,9 +83,7 @@ button.news-tabs.active {
   font-weight: 200;
   padding: 6px;
   border-radius: 10px;
-
   width: 100%;
-  height: 100%;
   top: 0;
   left: 0;
   right: 0;

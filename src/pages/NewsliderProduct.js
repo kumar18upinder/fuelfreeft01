@@ -12,7 +12,12 @@ import axios from 'axios';
 const FeaturedCarSection = ({handleclick}) => {
   const [cycleList, setCycleList] = useState({})
   let cycleType = cycleList.List
-   //console.warn(cycleType);
+
+  const brandList=cycleType&&cycleType.map(data=>{
+    return  data.Brand
+  })
+  localStorage.setItem("AllBrands", JSON.stringify(brandList))
+    
 
   async function getCycleList() {
       let resultCycle = await axios.get('https://app.fuelfree.in/product/list', {
@@ -68,14 +73,14 @@ const FeaturedCarSection = ({handleclick}) => {
               {cycleType && cycleType.slice(5 ,20).map((data) => (
                 <div className="quicklook-outer-card">
                 <div class="Carcard" key={data._id}>
-                  <img alt="cycle" src={`https://app.fuelfree.in/${data.productImage}`}></img>
+                  <img alt="cycle" src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}></img>
                   <div class="Cartitle">
                     <h5>{data.productName}</h5>
                     <p>Starting at Rs. {data.productPrice}</p>
                     {/* <p>{data.productName}</p> */}
                     <Link to={`/products/${data.productName}/${data.VehicleType}/${data._id}`}  class="view-offer-a">View-offer</Link>
-                    {localStorage.getItem('product') ? (<Link to={`/compare-electric-vehicles/${data._id}`} class="view-offer-a" >Add To Compare</Link>) :
-                      (<Link to={`/compare-electric-vehicles/:id`} class="view-offer-a" onClick={() => handleclick(data)} >Add To Compare</Link>)}
+                    {localStorage.getItem('product') ? (<Link to={`/compare-product`} class="view-offer-a" >Add To Compare</Link>) :
+                      (<Link to={`/compare-product`} class="view-offer-a" onClick={() => handleclick(data)} >Add To Compare</Link>)}
                   </div>
                 </div>
                 </div>

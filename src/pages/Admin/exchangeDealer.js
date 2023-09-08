@@ -121,9 +121,6 @@ function ExchangeDealer() {
                             <button onClick={() => Approve("true", data._id)}>
                               Approve
                             </button>
-                            {/* <Link to={`/vendorDetails/${data._id}`}>
-                              <button>See More</button>
-                            </Link> */}
                             <button onClick={() => Approve("false", data._id)}>
                               Ignore
                             </button>
@@ -152,9 +149,6 @@ function ExchangeDealer() {
                             <button onClick={() => Approve("true", data._id)}>
                               Approve
                             </button>
-                            {/* <Link to={`/agency-visit-count/${data._id}`}>
-                              <button>See More</button>
-                            </Link> */}
                             <button onClick={() => Approve("false", data._id)}>
                               Ignore
                             </button>

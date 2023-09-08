@@ -1,35 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@400;500&display=swap");
 .signup-part {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .heading-agency-list {
-    text-align: center;
-    color: white;
+  text-align: center;
+  color: white;
 }
 
 form.signup-form {
-    width: 100%;
-    margin: 0 auto;
+  width: 100%;
+  margin: 0 auto;
 }
-
+.testdrive-page {
+  display: flex;
+  justify-content: space-around;
+}
+.testdrive-btn {
+  display: block;
+  margin: 0px auto;
+  width: 22%;
+  background: white;
+  color: #26386e;
+}
+.testdrive-btn:hover {
+  border: 2px solid #26386e !important;
+  background: white !important;
+  color: linear-gradient(100deg, #f59b26, #26386e) !important;
+}
+.test-now-flex {
+  display: flex;
+}
+.side-box {
+  width: 35%;
+  color: #f0972d;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+.side-box1 {
+  width: 35%;
+  color: #262681;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+.agency-cls input.form-control {
+  background-color: #fff;
+}
+.agency-cls textarea.form-control {
+  background-color: #fff;
+}
+.book-your {
+  color: #fff;
+}
+span.testdrive-text {
+  background: #fff;
+  color: #26386e;
+  padding: 5px 9px;
+  border-radius: 5px;
+  font-size: 21px;
+  font-weight: 600;
+}
+.testdrive-position {
+  position: relative;
+}
+.testdrive-img {
+  position: absolute;
+  top: 41%;
+  width: 33%;
+  left: 10%;
+}
 @media only screen and (max-width: 768px) {
-    .signup-part {
-        width: 100%;
-        margin: 0 auto;
-    }
-    .main-div-buy-now {
-        width: 100% !important;
-    }
-
-    button.btn.btn-success{
-        margin-top: 40px;
-    }
-    input.add-pic {
-        margin-left: 11px;
-        margin-top: 15px;
-    }
-    form.signup-form{
-        width: 100%;
-    }
-
+  .signup-part {
+    width: 100%;
+    margin: 8px auto;
+  }
+  .main-div-buy-now {
+    width: 100% !important;
+    margin-top: 4% !important;
+  }
+  .testdrive-img {
+    position: absolute;
+    top: 41%;
+    width: 33%;
+    left: 10%;
+    display: none;
+}
+  .side-box {
+    width: 25% !important;
+  }
+  button.btn.btn-success {
+    margin-top: 40px;
+  }
+  input.add-pic {
+    margin-left: 11px;
+    margin-top: 15px;
+  }
+  form.signup-form {
+    width: 100%;
+  }
 }

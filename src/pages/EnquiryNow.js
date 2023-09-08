@@ -1,14 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./EnquiryForm.css";
+import ReactModal from "react-modal";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 
 function EnquiryForm() {
+  const [showModal, setShowModal] = useState(false);
   const defaultValues = {
     Name: "",
     Email: "",
@@ -39,12 +41,11 @@ function EnquiryForm() {
     Date: yup
       .date()
       .required("Date must be required")
-      .min(today, "From today's date is required"),
+      .min(today, "Please select a date from today onwards"),
     Message: yup.string().required("Enter Message"),
   });
 
   const handleSubmit = async (values) => {
-    console.log(values, "hhh");
     let response = await axios.post('https://app.fuelfree.in/consult/Add', values, {
       headers: {
         "Content-Type": "application/json",
@@ -54,35 +55,35 @@ function EnquiryForm() {
     let result = response.data;
 
     if (result.success === "success") {
-      toast.success(result.message)
+      setShowModal(true);
       setTimeout(() => {
-         window.location.reload('')
-      }, 3000);
+        window.location.reload()
+      },5000)
     } else {
       toast.error(result.error)
     }
   };
-
+  const buynowmodal = () => {
+    setShowModal(false);
+  };
   return (
     <>
       <Header />
       <ToastContainer />
-      <div className="tanker">
-        <div className="welcomeline">
+      <div className="welcomeline">
           <h3>WELCOME TO FUELFREE</h3>
           <p>FEEL FREE TO CONTACT US</p>
         </div>
+      <div className="tanker">
         <div className="EnquiryAll">
           <div className="Enquiryformouter">
             <div className="enquiry-form">
-              <h2>Free Consultation</h2>
               <Formik
                 initialValues={defaultValues}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
               >
                 <Form>
-                <lable className="label-enquiry">Enter your Name</lable>
                   <Field
                     type="text"
                     name="Name"
@@ -92,7 +93,6 @@ function EnquiryForm() {
                   <p className="text-danger">
                     <ErrorMessage name="Name" />
                   </p>
-                  <lable className="label-enquiry">Enter Your Email</lable>
                   <Field
                     type="text"
                     name="Email"
@@ -102,7 +102,6 @@ function EnquiryForm() {
                   <p className="text-danger">
                     <ErrorMessage name="Email" />
                   </p>
-                  <lable className="label-enquiry">Enter Your Phone Number</lable>
                   <Field
                     type="tel"
                     name="PhoneNo"
@@ -112,7 +111,6 @@ function EnquiryForm() {
                   <p className="text-danger">
                     <ErrorMessage name="PhoneNo" />
                   </p>
-                  <lable className="label-enquiry">Do Not Select Today's Date</lable>
                   <Field
                     type="date"
                     name="Date"
@@ -122,7 +120,6 @@ function EnquiryForm() {
                   <p className="text-danger">
                     <ErrorMessage name="Date" />
                   </p>
-                  <lable className="label-enquiry">Enter Preferred Time</lable>
                   <Field
                     type="time"
                     name="time"
@@ -132,7 +129,6 @@ function EnquiryForm() {
                   <p className="text-danger">
                     <ErrorMessage name="time" />
                   </p>
-                  <lable className="label-enquiry">Enter Message</lable>
                   <Field
                     type="text"
                     name="Message"
@@ -152,6 +148,26 @@ function EnquiryForm() {
           </div>
         </div>
       </div>
+      {showModal && (
+        <ReactModal
+          isOpen={true} 
+          onRequestClose={() => setShowModal(false)} 
+        >
+          <div className="buynowmodelbox">
+          <div className="congo">
+            <h2>Congratulations</h2>
+            </div>
+            <p>Your Consulation is Saved</p>
+            <button
+              type="submit"
+              className="btn btn-success mt-4"
+              onClick={buynowmodal}
+            >
+              OK
+            </button>
+          </div>
+        </ReactModal>
+      )}
       <Footer />
     </>
   );

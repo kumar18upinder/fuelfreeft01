@@ -17,7 +17,6 @@ function Cycle({ handleclick }) {
     ? JSON.parse(localStorage.getItem("user"))
     : "";
   let userId = userdata ? userdata._id : "";
-  const [source, setsource] = useState("");
   const visitCount = async () => {
     const pageVisited = window.location.href;
     let res = await axios.post(
@@ -37,7 +36,6 @@ function Cycle({ handleclick }) {
   useEffect(() => {
     if (localStorage.getItem("user")) {
       visitCount();
-      setsource(window.location.href);
     }
   }, []);
 
@@ -45,9 +43,6 @@ function Cycle({ handleclick }) {
   const userd = JSON.parse(localStorage.getItem("user"));
   const [fromPrice, setFromPrice] = useState(1000);
   const [toPrice, setToPrice] = useState(500000);
-
-  const id = userd ? userd._id : "";
-
   const Handleclick = (data) => {
     handleclick(data);
   };
@@ -117,13 +112,6 @@ function Cycle({ handleclick }) {
     }
   };
 
-  const [isActive, setIsActive] = useState(false);
-  const toggleClass = () => {
-    setIsActive(!isActive);
-  };
-  const toggleClas = () => {
-    setIsActive(!isActive);
-  };
 
   const [cycleproduct, setcycleproduct] = useState("");
   //pagination
@@ -138,6 +126,10 @@ function Cycle({ handleclick }) {
   const lastProductIndex = currentPage * 9;
   const firstProductIndex = lastProductIndex - 9;
   const currentProducts = products.slice(firstProductIndex, lastProductIndex);
+
+  // ======================================filtermatchfound=================================
+
+  const [productsFound, setProductsFound] = useState(true);
 
   //filter
   const [Brand, setBrand] = useState("");
@@ -172,8 +164,17 @@ function Cycle({ handleclick }) {
     let result = await res.data;
     let alldata = result.searchedProduct;
     setcycleproduct(alldata);
-    setProducts(alldata);
-    setTotalPages(Math.ceil(alldata.length / 9));
+   
+    if (alldata.length > 0) {
+      setProductsFound(true);
+      setcycleproduct(alldata);
+      setProducts(alldata);
+      setTotalPages(Math.ceil(alldata.length / 9));
+    } else {
+      setProductsFound(false);
+    }
+
+
   };
   useEffect(() => {
     visitCount();
@@ -223,11 +224,14 @@ function Cycle({ handleclick }) {
       </Helmet>
       <ToastContainer />
       <section id="collection-id">
-        <img src={bannercycleproductpage} alt="bycycle"></img>
-        <div className="collection-id-upper">
+      <div className="page-position-relative">     
+       <img src={bannercycleproductpage} alt="bycycle" className="page-position-absoulte"></img>
+        <div className="collection-id-upper page-position-absoulte">
           <h1>ELECTRIC CYCLES</h1>
           <p>#switchtoev</p>
         </div>
+        </div>
+
         <div className="page-wallpaper">
           <div className="tanker">
             <div className="bread-crumb">
@@ -358,7 +362,7 @@ function Cycle({ handleclick }) {
                 <span></span>
               </div>
             </div>
-
+           
             {cycleproduct ? (
               <div className="OUR-CARS-outer">
                 {currentProducts &&
@@ -387,14 +391,14 @@ function Cycle({ handleclick }) {
                         </Link>
                         {localStorage.getItem("product") ? (
                           <Link
-                            to={`/compare-electric-vehicles/${data._id}`}
+                            to={`/compare-product`}
                             class="view-offer-a"
                           >
                             Compare Now
                           </Link>
                         ) : (
                           <Link
-                            to={`/compare-electric-vehicles/:id`}
+                            to={`/compare-product`}
                             class="view-offer-a"
                             onClick={() => handleclick(data)}
                           >
@@ -403,7 +407,8 @@ function Cycle({ handleclick }) {
                         )}
                       </div>
                     </div>
-                  ))}
+                  ))} 
+                
               </div>
             ) : (
               <div className="OUR-CARS-outer">
@@ -419,7 +424,7 @@ function Cycle({ handleclick }) {
                       </Link>
                       <img
                         alt={`${data.productName} image`}
-                        src={`https://app.fuelfree.in/${data.productImage}`}
+                        src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
                       ></img>
 
                       <div class="Cartitle">
@@ -433,14 +438,14 @@ function Cycle({ handleclick }) {
                         </Link>
                         {localStorage.getItem("product") ? (
                           <Link
-                            to={`/semifinalCompare/${data._id}`}
+                            to={`/compare-product`}
                             class="view-offer-a"
                           >
                             Compare Now
                           </Link>
                         ) : (
                           <Link
-                            to={`/semifinalCompare/:id`}
+                            to={`/compare-product`}
                             class="view-offer-a"
                             onClick={() => handleclick(data)}
                           >
@@ -449,7 +454,8 @@ function Cycle({ handleclick }) {
                         )}
                       </div>
                     </div>
-                  ))}
+                  ))} 
+                
               </div>
             )}
 

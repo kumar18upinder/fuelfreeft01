@@ -30,7 +30,49 @@
     align-items: center;
     height: 700px;
 }
+.news-content-img {
+    width: 25% !important;
+}
+.btn-offer-section{
+    width: 25%;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+}
+button.btn.btn-primary.btn-offer {
+    border: 0;
+    padding: 0 20px;
+    font-size: 16px;
+    line-height: 45px;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.3s linear;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(100deg,#f59b26,#26386e);
+    display: block;
+    margin: 18% auto;
+    animation: shake 3.8s linear infinite;
 
+}
+.offer-content-text {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 50%;
+}
+.offer-page {
+    margin-top: 11%;
+}
+h4.offer-title {
+    text-align: center;
+}
 .offers-cls{
     display: flex;
     flex-direction: column;
@@ -56,8 +98,80 @@
     color: var(--dark);
 }
 
+.news-content-text-top {
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #1c3162;
+    font-family: math;
+}
+p.news-content-text-offerText {
+    font-size: 19px !important;
+    color: #e6942b;
+}
+p.news-content-text-VehicleType {
+    margin-top: 2%;
+}
+span.promo-class {
+    font-size: 19px;
+    margin-right: 7px;
+}
+.animate-charcter
+{
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+      font-size: 20px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
 @media only screen and (max-width:500px){
     .offers-cls{
+        width: 100%;
+    }
+    .offer-page {
+        margin-top: 44%;
+    }
+    .news-content-img {
+        width: 100% !important;
+    }
+    button.btn.btn-primary.btn-offer {
+        border: 0;
+        padding: 0 20px;
+        font-size: 16px;
+        line-height: 45px;
+        border-radius: 2px;
+        color: #fff;
+        cursor: pointer;
+        z-index: 5;
+        transition: all 0.3s linear;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: linear-gradient(100deg,#f59b26,#26386e);
+        display: block;
+        margin: 4% auto;
+        animation: shake 3.8s linear infinite;
+    }
+    .btn-offer-section{
+        width: 100%;
+    }
+    .offer-content-text {
         width: 100%;
     }
 }

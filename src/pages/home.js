@@ -14,7 +14,7 @@ import Slider1 from "../components/Slider";
 import { BsCarFrontFill } from "react-icons/bs";
 import React, { useState, useEffect } from "react";
 import ElectricCarBrand from "./electricCarBrand";
-import FeaturedCarSection from "./NewsliderProduct";
+import FeaturedCarSection from "./NewsliderProduct"; 
 import { FaUniversalAccess, FaMoneyCheckAlt } from "react-icons/fa";
 
 const Home = ({ handleclick }) => {
@@ -56,9 +56,15 @@ const Home = ({ handleclick }) => {
       <Helmet>
         <title>FuelFree</title>
         <meta
+          name="google-site-verification"
+          content="T-w0_OoPkvJTW6TyXJEDVIKe6f9dGdZNuAkfEsHOuUw"
+        />
+
+        <meta
           name="description"
           content="this is a webite for ev where we you can see all ev vehicle"
         />
+
         <meta property="og:title" content="All ev solutions" />
         <meta property="og:description" content="lets make go green" />
         <meta
@@ -130,7 +136,7 @@ const Home = ({ handleclick }) => {
                       <div className="benefits-content">
                         <p>
                           24*7 dedicated team for the{" "}
-                          <strong style={{ color: "#F08A04" }}>customer</strong>{" "}
+                          <strong style={{ color: "#F08A04" }}>Customer</strong>{" "}
                           <strong style={{ color: "#262681" }}>Support</strong>{" "}
                         </p>
                       </div>
@@ -159,7 +165,7 @@ const Home = ({ handleclick }) => {
                   <div className="dealer-title">
                     <h3
                       className="title"
-                      style={{ marginLeft: "20%", width: "58%" }}
+                      style={{ marginLeft: "14%", width: "58%", textAlign: "center" }}
                     >
                       Dealer Spotlight
                     </h3>

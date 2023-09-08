@@ -1,19 +1,16 @@
-import Header from "../components/header";
-import { Link, useNavigate } from "react-router-dom";
-import Footer from "../components/footer";
-import loginimg from "./images/login-img.jpg";
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
-import { FaFacebook } from 'react-icons/fa';
-import { FcGoogle } from 'react-icons/fc';
 import GoogleLogins from "./googleLogin";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import { FaFacebook } from 'react-icons/fa';
+import "react-toastify/dist/ReactToastify.css";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 function SignUp() {
-  //auto location
   const [city, setCity] = useState('');
   const [address, setAddress] = useState('');
   const [mapUrl, setMapUrl] = useState('');

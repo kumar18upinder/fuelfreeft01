@@ -10,7 +10,15 @@ section#contact-us-page-id {
     z-index: 33;
     position: relative;
 }
-
+.contact-tanker {
+    width: 50%;
+    border: 2px solid #9b7f7f;
+    margin-right: 2%;
+    border-radius: 15px;
+}
+.contact-field{
+    width: 90%;
+}
 .div-contact-corner {
     height: 280px;
     width: 280px;

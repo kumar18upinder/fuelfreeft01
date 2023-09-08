@@ -1,8 +1,11 @@
 #admin-page-id{
-    /* margin-top: -55px !important; */
     display: flex;
 }
+.admin-dashboard-lead{
+    padding-left: 280px;
+    width: 100%;
 
+}
 .search-text{
     margin-top: 10px;
     color: white;
@@ -85,10 +88,16 @@
 }
 
 .section-title h3 {
-    color: var(--dark);
+    color: white;
     font-size: 2.75rem !important;
     font-weight: 600 !important;
     text-align: center;
+    background: #314276;
+    width: 23%;
+    margin: 0 auto;
+    padding: 10px;
+    margin-top: 175px;
+    border-radius: 13px;
 }
 
 
@@ -202,8 +211,9 @@ div#admin-page-id button {
     display: block;
     color: white;
     font-size: 17px;
-    margin: 17px auto;
+    margin: 8px auto;
     border: none;
+    width: 100%;
 }
 
 .modal-dialog {

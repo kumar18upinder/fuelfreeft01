@@ -71,15 +71,15 @@ function Editproduct({ handleclick }) {
   const [filteredList, setFilteredList] = new useState(cycleType);
   const filterBySearch = (event) => {
     const query = event.target.value.toLowerCase();
-   console.log(query,'kya')
+    
     const updatedList = cycleType.filter((item) => {
       const vehicleTypeMatch = item.VehicleType.toLowerCase().indexOf(query) !== -1;
       const productNameMatch = item.productName.toLowerCase().indexOf(query) !== -1;
-      const productPriceMatch = item.productPrice.toString().toLowerCase().indexOf(query) !== -1;
-      const DrivingRangeMatch = item.DrivingRange.toString().toLowerCase().indexOf(query) !== -1;
-      const topSpeedMatch = item.topSpeed.toString().toLowerCase().indexOf(query) !== -1;
+      // const productPriceMatch = item.productPrice.toString().toLowerCase().indexOf(query) !== -1;
+      // const DrivingRangeMatch = item.DrivingRange.toLowerCase().indexOf(query) !== -1;
+      // const topSpeedMatch = item.topSpeed.toString().toLowerCase().indexOf(query) !== -1;
   
-      return productPriceMatch || productNameMatch||vehicleTypeMatch||DrivingRangeMatch||topSpeedMatch;
+      return    productNameMatch||vehicleTypeMatch ; 
     });
   
     setFilteredList(updatedList);
@@ -139,7 +139,7 @@ function Editproduct({ handleclick }) {
                       <div className="Carcard" key={data._id}>
                         <img
                           alt="cycle"
-                          src={`https://app.fuelfree.in/${data.productImage}`}
+                          src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
                         ></img>
                         <div class="Car-buttons-flex">
                           <h5>{data.productName}</h5>
@@ -279,7 +279,7 @@ function Editproduct({ handleclick }) {
                       <div class="Carcard" key={data._id}>
                         <img
                           alt="cycle"
-                          src={`https://app.fuelfree.in/${data.productImage}`}
+                          src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
                         ></img>
                         <div class="Cartitle">
                           <h5>{data.productName}</h5>
@@ -416,7 +416,7 @@ function Editproduct({ handleclick }) {
                       <div class="Carcard" key={data._id}>
                         <img
                           alt={`${data.productName} image`}
-                          src={`https://app.fuelfree.in/${data.productImage}`}
+                          src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
                         />
 
                         <div class="Cartitle">

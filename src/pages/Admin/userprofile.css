@@ -269,11 +269,11 @@ button.book-tabs.active {
 }
 .profile-basic-info p {
     margin: 6px 0px;
-    font-size: 18px;
+    font-size: 11px;
 }
 .log-out-div {
     flex-direction: row !important;
-    width: 100%;
+    width: 101%;
     flex-wrap: wrap;
     justify-content: space-between;
 }

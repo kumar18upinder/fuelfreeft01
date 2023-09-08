@@ -46,22 +46,22 @@ function Car({ handleclick }) {
   const Handleclick = (data) => {
     handleclick(data);
   };
- 
+
   const [carList, setCarList] = useState({});
   let carType = carList.type;
-   // remove duplicate
-   const [duplicate, setduplicate] = useState("");
-   const filterByBrand =
-   carType &&
-   carType.map((data) => {
-       return data.Brand;
-     });
-   const uniqueArrayofBrand =
-     filterByBrand &&
-     filterByBrand.filter((value, index, self) => {
-       const trimmedValue = value.trim();
-       return self.findIndex((item) => item.trim() === trimmedValue) === index;
-     });
+  // remove duplicate
+  const [duplicate, setduplicate] = useState("");
+  const filterByBrand =
+    carType &&
+    carType.map((data) => {
+      return data.Brand;
+    });
+  const uniqueArrayofBrand =
+    filterByBrand &&
+    filterByBrand.filter((value, index, self) => {
+      const trimmedValue = value.trim();
+      return self.findIndex((item) => item.trim() === trimmedValue) === index;
+    });
   async function getCarList() {
     let resultCycle = await axios.get("https://app.fuelfree.in/product/car", {
       headers: {
@@ -112,8 +112,6 @@ function Car({ handleclick }) {
     }
   };
 
- 
-
   const [isActive, setIsActive] = useState(false);
 
   const toggleClass = () => {
@@ -123,93 +121,92 @@ function Car({ handleclick }) {
     setIsActive(!isActive);
   };
 
-//filter
-const [cycleproduct, setcycleproduct] = useState("");
- //pagination
- const [currentPage, setCurrentPage] = useState(1);
- const [totalPages, setTotalPages] = useState(0);
- const [products, setProducts] = useState([]);
+  //filter
+  const [cycleproduct, setcycleproduct] = useState("");
+  //pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [products, setProducts] = useState([]);
 
- const handlePageChange = (pageNumber) => {
-   setCurrentPage(pageNumber);
- };
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
- const lastProductIndex = currentPage * 9;
- const firstProductIndex = lastProductIndex - 9;
- const currentProducts = products.slice(firstProductIndex, lastProductIndex);
+  const lastProductIndex = currentPage * 9;
+  const firstProductIndex = lastProductIndex - 9;
+  const currentProducts = products.slice(firstProductIndex, lastProductIndex);
 
-const [Brand, setBrand] = useState("");
-const [Price, setPrice] = useState("");
-const [Range, setrange] = useState("");
+  const [Brand, setBrand] = useState("");
+  const [Price, setPrice] = useState("");
+  const [Range, setrange] = useState("");
 
-const setprice = (price) => {
-  let data = `&priceValue=${price}`;
-  setPrice(data);
-};
-const setRange = (Drange) => {
-  let data = `&rangeValue=${Drange}`;
-  setrange(data);
-};
-const setbrand = (brand) => {
-  let data = `&Brand=${brand}`;
-  setBrand(data);
-};
+  const setprice = (price) => {
+    let data = `&priceValue=${price}`;
+    setPrice(data);
+  };
+  const setRange = (Drange) => {
+    let data = `&rangeValue=${Drange}`;
+    setrange(data);
+  };
+  const setbrand = (brand) => {
+    let data = `&Brand=${brand}`;
+    setBrand(data);
+  };
 
-const getfilter = async () => {
-  let productBrand = Brand ? Brand : "";
-  let maxPrice = Price ? Price : "";
-  let DrivingRangeProduct = Range ? Range : "";
-  console.log(productBrand, "brand");
-  console.log(maxPrice, "maxprice");
-  console.log(DrivingRangeProduct, "maxprice");
-  let res = await axios.get(
-    `https://app.fuelfree.in/product/multiFilter?VehicleType=car${productBrand}${DrivingRangeProduct}${maxPrice}`,
-    {
-      headers: {
-        Accept: "application/json",
-      },
-    }
-  );
-  let result = await res.data;
-  let alldata = result.searchedProduct;
-  setcycleproduct(alldata);
-  setProducts(alldata);
-  setTotalPages(Math.ceil(alldata.length / 9));
-};
-useEffect(()=>{
-  visitCount()
-},[])
+  const getfilter = async () => {
+    let productBrand = Brand ? Brand : "";
+    let maxPrice = Price ? Price : "";
+    let DrivingRangeProduct = Range ? Range : "";
+    console.log(productBrand, "brand");
+    console.log(maxPrice, "maxprice");
+    console.log(DrivingRangeProduct, "maxprice");
+    let res = await axios.get(
+      `https://app.fuelfree.in/product/multiFilter?VehicleType=car${productBrand}${DrivingRangeProduct}${maxPrice}`,
+      {
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    );
+    let result = await res.data;
+    let alldata = result.searchedProduct;
+    setcycleproduct(alldata);
+    setProducts(alldata);
+    setTotalPages(Math.ceil(alldata.length / 9));
+  };
+  useEffect(() => {
+    visitCount();
+  }, []);
 
-useEffect(() => {
-  getfilter();
-}, [Brand, Price, Range]);
+  useEffect(() => {
+    getfilter();
+  }, [Brand, Price, Range]);
 
-const bikePrices = [
-  { productPrice: "400000", productPriceK: "400k" },
-  { productPrice: "500000", productPriceK: "500k" },
-  { productPrice: "700000", productPriceK: "700k" },
-  { productPrice: "1000000", productPriceK: "1000k" },
-  { productPrice: "2000000", productPriceK: "2000k" },
-  { productPrice: "3000000", productPriceK: "3000k" },
-  { productPrice: "5000000", productPriceK: "5000k" },
-  { productPrice: "10000000", productPriceK: "10000k" },
-  { productPrice: "20000000", productPriceK: "20000k" },
-];
-const DrivingRange = [
-  { DrivingRange: "200" },
-  { DrivingRange: "250" },
-  { DrivingRange: "450" },
-  { DrivingRange: "650" },
-  { DrivingRange: "700" },
-  { DrivingRange: "750" },
-];
+  const bikePrices = [
+    { productPrice: "400000", productPriceK: "400k" },
+    { productPrice: "500000", productPriceK: "500k" },
+    { productPrice: "700000", productPriceK: "700k" },
+    { productPrice: "1000000", productPriceK: "1000k" },
+    { productPrice: "2000000", productPriceK: "2000k" },
+    { productPrice: "3000000", productPriceK: "3000k" },
+    { productPrice: "5000000", productPriceK: "5000k" },
+    { productPrice: "10000000", productPriceK: "10000k" },
+    { productPrice: "20000000", productPriceK: "20000k" },
+  ];
+  const DrivingRange = [
+    { DrivingRange: "200" },
+    { DrivingRange: "250" },
+    { DrivingRange: "450" },
+    { DrivingRange: "650" },
+    { DrivingRange: "700" },
+    { DrivingRange: "750" },
+  ];
 
-const [activeMenu, setActiveMenu] = useState(null);
+  const [activeMenu, setActiveMenu] = useState(null);
 
-const handleMenuClick = (menu) => {
-  setActiveMenu(activeMenu === menu ? null : menu);
-};
-  
+  const handleMenuClick = (menu) => {
+    setActiveMenu(activeMenu === menu ? null : menu);
+  };
 
   return (
     <div>
@@ -223,30 +220,30 @@ const handleMenuClick = (menu) => {
             <p>#switchtoev</p>
           </div>
           <div className="page-wallpaper">
-          <div className="tanker">
-            <div className="bread-crumb">
-              <Link to="/">Home</Link>/<Link to="/collection">Collection</Link>/
+            <div className="tanker">
+              <div className="bread-crumb">
+                <Link to="/">Home</Link>/
+                <Link to="/collection">Collection</Link>/
+              </div>
+              {/* <h3>Cycle</h3> */}
             </div>
-            {/* <h3>Cycle</h3> */}
           </div>
         </div>
-        </div>
-        </div>
-        
+      </div>
 
       {/* ---------------------------------our cycles------------------------------- */}
       <div className="tanker">
         <div class="mobile-section-headfing">
           <span></span>
           <h3>EV-Car</h3>
-{/* 
+          {/* 
           <button onClick={getCycleList}>All</button> */}
           <span></span>
         </div>
       </div>
       <div className="tanker">
         <section id="product-cotegory-outer-ot">
-        <div className="product-cot-filter">
+          <div className="product-cot-filter">
             <div
               className={`product-cot-filter-content ${
                 activeMenu === "menu" ? "open-filter" : ""
@@ -347,123 +344,130 @@ const handleMenuClick = (menu) => {
             </div>
             {/* =================================================================== */}
           </div>
-      <div id="OUR-CARS">
-        <div className="cotegotry-overlay-background">
-          <div
-            className="cotegory-first-image"
-            style={{ backgroundImage: `url(${carBG})` }}
-          ></div>
-          <div
-            id="cotegory-secand-image"
-            style={{ backgroundImage: `url(${carBG})` }}
-          >
-            <span></span>
-          </div>
-        </div>
-        {/* <div class="mobile-section-headfing">
+          <div id="OUR-CARS">
+            <div className="cotegotry-overlay-background">
+              <div
+                className="cotegory-first-image"
+                style={{ backgroundImage: `url(${carBG})` }}
+              ></div>
+              <div
+                id="cotegory-secand-image"
+                style={{ backgroundImage: `url(${carBG})` }}
+              >
+                <span></span>
+              </div>
+            </div>
+            {/* <div class="mobile-section-headfing">
           <span></span>
           <h3>Car</h3>
           <span></span>
         </div> */}
-        <div className="tanker">
-          <div className="OUR-CARS-outer">
-            {cycleproduct?(<>{currentProducts &&
-              currentProducts.map((data) => (
-                <div class="Carcard" key={data._id}>
-                  <Link
-                    onClick={() => setId(data._id)}
-                    className="favrate-butn"
-                    title="Add to favorite"
-                  >
-                    <i class="fa fa-heart"></i>
-                  </Link>
-                  <img
-                    alt={`${data.productName} image`}
-                    src={`https://app.fuelfree.in/${data.productImage}`}
-                  ></img>
-                  <div class="Cartitle">
-                    <h5>{data.productName}</h5>
-                    <p>Starting at Rs. {data.productPrice}</p>
-                    <Link
-                      to={`/products/${data.productName}/${data.VehicleType}/${data._id}`}
-                      class="view-offer-a"
-                    >
-                      View-offer
-                    </Link>
-                    {localStorage.getItem("product") ? (
-                      <Link
-                        to={`/compare-electric-vehicles/${data._id}`}
-                        class="view-offer-a"
-                      >
-                        Compare Now
-                      </Link>
-                    ) : (
-                      <Link
-                        to={`/compare-electric-vehicles/:id`}
-                        class="view-offer-a"
-                        onClick={() => handleclick(data)}
-                      >
-                        Compare Now
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              ))}</>):(<>{carType &&
-                carType.map((data) => (
-                  <div class="Carcard" key={data._id}>
-                    <Link
-                      onClick={() => setId(data._id)}
-                      className="favrate-butn"
-                      title="Add to favorite"
-                    >
-                      <i class="fa fa-heart"></i>
-                    </Link>
-                    <img
-                      alt={`${data.productName} image`}
-                      src={`https://app.fuelfree.in/${data.productImage}`}
-                    ></img>
-                    <div class="Cartitle">
-                      <h5>{data.productName}</h5>
-                      <p>Starting at Rs. {data.productPrice}</p>
-                      <Link
-                        to={`/products/${data.productName}/${data._id}/${data.VehicleType}`}
-                        class="view-offer-a"
-                      >
-                        View-offer
-                      </Link>
-                      {localStorage.getItem("product") ? (
-                        <Link
-                          to={`/semifinalCompare/${data._id}`}
-                          class="view-offer-a"
-                        >
-                          Compare Now
-                        </Link>
-                      ) : (
-                        <Link
-                          to={`/semifinalCompare/:id`}
-                          class="view-offer-a"
-                          onClick={() => handleclick(data)}
-                        >
-                          Compare Now
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                ))}</>)}
-            
-          </div>
-        </div>
-        <div className="pagination-products-all">
-        <ResponsivePagination
+            <div className="tanker">
+              <div className="OUR-CARS-outer">
+                {cycleproduct ? (
+                  <>
+                    {currentProducts &&
+                      currentProducts.map((data) => (
+                        <div class="Carcard" key={data._id}>
+                          <Link
+                            onClick={() => setId(data._id)}
+                            className="favrate-butn"
+                            title="Add to favorite"
+                          >
+                            <i class="fa fa-heart"></i>
+                          </Link>
+                          <img
+                            alt={`${data.productName} image`}
+                            src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
+                          ></img>
+                          <div class="Cartitle">
+                            <h5>{data.productName}</h5>
+                            <p>Starting at Rs. {data.productPrice}</p>
+                            <Link
+                              to={`/products/${data.productName}/${data.VehicleType}/${data._id}`}
+                              class="view-offer-a"
+                            >
+                              View-offer
+                            </Link>
+                            {localStorage.getItem("product") ? (
+                              <Link
+                                to={`/compare-product`}
+                                class="view-offer-a"
+                              >
+                                Compare Now
+                              </Link>
+                            ) : (
+                              <Link
+                                to={`/compare-product`}
+                                class="view-offer-a"
+                                onClick={() => handleclick(data)}
+                              >
+                                Compare Now
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                  </>
+                ) : (
+                  <>
+                    {carType &&
+                      carType.map((data) => (
+                        <div class="Carcard" key={data._id}>
+                          <Link
+                            onClick={() => setId(data._id)}
+                            className="favrate-butn"
+                            title="Add to favorite"
+                          >
+                            <i class="fa fa-heart"></i>
+                          </Link>
+                          <img
+                            alt={`${data.productName} image`}
+                            src={`https://app.fuelfree.in/${data.productImage}`}
+                          ></img>
+                          <div class="Cartitle">
+                            <h5>{data.productName}</h5>
+                            <p>Starting at Rs. {data.productPrice}</p>
+                            <Link
+                              to={`/products/${data.productName}/${data._id}/${data.VehicleType}`}
+                              class="view-offer-a"
+                            >
+                              View-offer
+                            </Link>
+                            {localStorage.getItem("product") ? (
+                              <Link
+                                to={`/compare-product`}
+                                class="view-offer-a"
+                              >
+                                Compare Now
+                              </Link>
+                            ) : (
+                              <Link
+                                to={`/compare-product`}
+                                class="view-offer-a"
+                                onClick={() => handleclick(data)}
+                              >
+                                Compare Now
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                  </>
+                )}
+              </div>
+            </div>
+            <div className="pagination-products-all">
+              <ResponsivePagination
                 current={currentPage}
                 total={totalPages}
                 onPageChange={handlePageChange}
               />
             </div>
+          </div>
+        </section>
       </div>
-      </section>
       <Footer />
-    </div>
     </div>
   );
 }

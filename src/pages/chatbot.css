@@ -1,5 +1,7 @@
 /* Chatbot.css */
-
+.chatbot-container button.message-icon {
+background-color: transparent;
+}
 .chatbot-container {
   bottom: 20px;
   right: 20px;

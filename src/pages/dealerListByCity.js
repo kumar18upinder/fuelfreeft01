@@ -138,7 +138,7 @@ const DealerListByCity = () => {
                       Find on Google Map
                     </Link>
                     <Link
-                      to={`/vendorDetails/${data._id}`}
+                      to={`/dealer-store-page/${data._id}`}
                       class="view-offer-a"
                     >
                       Visit Store
@@ -167,7 +167,7 @@ const DealerListByCity = () => {
                           Find on Google Map
                         </Link>
                         <Link
-                          to={`/vendorDetails/${data._id}`}
+                          to={`/dealer-store-page/${data._id}`}
                           class="view-offer-a"
                         >
                           Visit Store

@@ -109,7 +109,7 @@ const Questionner = () => {
     } else {
       setResult('100%');
     }
-    toast.success('Your response has been successfully submitted');
+    toast.success('Your response has been successful submitted');
 
     
   };

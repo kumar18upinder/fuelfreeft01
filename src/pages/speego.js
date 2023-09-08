@@ -232,7 +232,7 @@ export const Speego = ({ handleclick }) => {
                           </Link>
                           <img
                             alt="cycle"
-                            src={`https://app.fuelfree.in/${data.productImage}`}
+                            src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
                           ></img>
                           <div class="Cartitle">
                             <h5>{data.productName}</h5>
@@ -245,14 +245,14 @@ export const Speego = ({ handleclick }) => {
                             </Link>
                             {localStorage.getItem("product") ? (
                               <Link
-                                to={`/semifinalCompare/${data._id}`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                               >
                                 Compare Now
                               </Link>
                             ) : (
                               <Link
-                                to={`/semifinalCompare/:id`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                                 onClick={() => handleclick(data)}
                               >
@@ -290,14 +290,14 @@ export const Speego = ({ handleclick }) => {
                             </Link>
                             {localStorage.getItem("product") ? (
                               <Link
-                                to={`/compare-electric-vehicles/${data._id}`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                               >
                                 Compare Now
                               </Link>
                             ) : (
                               <Link
-                                to={`/compare-electric-vehicles/:id`}
+                                to={`/compare-product`}
                                 class="view-offer-a"
                                 onClick={() => handleclick(data)}
                               >

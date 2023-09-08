@@ -66,112 +66,124 @@ function Affiliateform() {
       let result = await response.data;
       let affiliateINFO = await result.affiliateData;
       if (result.success === "success") {
+        toast.success("Register Successful");
         localStorage.setItem("affiliateINFO", JSON.stringify(affiliateINFO));
-        toast.success(result.message);
       }
-      // Reset form values and profile picture
       setProfilePic(null);
+      setTimeout(() => {
       navigate("/affiliaterefferalcode");
+      }, 3000);
+
     } catch (error) {
-      toast.error("Registration failed");
+      toast.error("Email Already Exist");
     }
   };
 
   return (
     <div>
-      <Header />
       <ToastContainer />
-      <div id="login-page-id">
-        <div class="login-form-new" id="signup-id">
-          <div className="login-inner-contnet">
-            <h3>Affiliate Registration</h3>
-            <div className="social-login">
-              <h5>Enter your Details</h5>
-            </div>
-            <Formik
-              initialValues={defaultValues}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            >
-              <Form>
-                <Field
-                  type="text"
-                  name="name"
-                  placeholder="User Name"
-                  className="form-control"
-                />
-                <p className="text-danger">
-                  <ErrorMessage name="name" />
-                </p>
-                <Field
-                  type="email"
-                  name="email"
-                  placeholder="User Email"
-                  className="form-control"
-                />
-                <p className="text-danger">
-                  <ErrorMessage name="email" />
-                </p>
-                <Field
-                  type="password"
-                  name="password"
-                  placeholder="Enter 6-digits PIN"
-                  className="form-control"
-                />
-                <p className="text-danger">
-                  <ErrorMessage name="password" />
-                </p>
-                <Field
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm PIN"
-                  className="form-control"
-                />
-                <p className="text-danger">
-                  <ErrorMessage name="confirmPassword" />
-                </p>
-                <Field
-                  type="tel"
-                  name="phoneNo"
-                  placeholder="Phone No"
-                  className="form-control"
-                />
-                <p className="text-danger">
-                  <ErrorMessage name="phoneNo" />
-                </p>
-                <Field
-                  className="form-control"
-                  placeholder="City"
-                  type="text"
-                  id="city"
-                  name="city"
-                />
-                <lable>Please add you profile photo.</lable>
-                <input
-                  type="file"
-                  name="profilePic"
-                  className="form-control"
-                  onChange={(e) => setProfilePic(e.target.files[0])}
-                />
-                <p className="text-danger">
-                  <ErrorMessage name="profilePic" />
-                </p>
+      <Header />
+      <div id="affiliate-page-id">
+        <div class="affiliate-form-new" id="signup-id">
+          <div className="affiliate-inner-contnet">
+            <h3 style={{ textAlign: "center" }}>
+              Fill the form and join the affiliate team
+            </h3>
+            <div className="affiliate-form-bg">
+              <Formik
+                initialValues={defaultValues}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+              >
+                <Form>
+                  <label className="affiliate-label">Enter your name</label>
+                  <Field
+                    type="text"
+                    name="name"
+                    placeholder="User Name"
+                    className="form-control"
+                  />
+                  <p className="text-danger">
+                    <ErrorMessage name="name" />
+                  </p>
+                  <label className="affiliate-label">
+                    Enter your email address
+                  </label>
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="User Email"
+                    className="form-control"
+                  />
+                  <p className="text-danger">
+                    <ErrorMessage name="email" />
+                  </p>
+                  <label className="affiliate-label">Enter your password</label>
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Enter 6-digits PIN"
+                    className="form-control"
+                  />
+                  <p className="text-danger">
+                    <ErrorMessage name="password" />
+                  </p>
+                  <label className="affiliate-label">
+                    Re-enter your password
+                  </label>
+                  <Field
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm PIN"
+                    className="form-control"
+                  />
+                  <p className="text-danger">
+                    <ErrorMessage name="confirmPassword" />
+                  </p>
+                  <label className="affiliate-label">
+                    Enter your Phone number
+                  </label>
+                  <Field
+                    type="tel"
+                    name="phoneNo"
+                    placeholder="Phone No"
+                    className="form-control"
+                  />
+                  <p className="text-danger">
+                    <ErrorMessage name="phoneNo" />
+                  </p>
+                  <label className="affiliate-label">Enter your city</label>
+                  <Field
+                    className="form-control"
+                    placeholder="City"
+                    type="text"
+                    id="city"
+                    name="city"
+                  />
+                  <label className="affiliate-label">
+                    Add your profile picture
+                  </label>
+                  <input
+                    type="file"
+                    name="profilePic"
+                    className="form-control"
+                    onChange={(e) => setProfilePic(e.target.files[0])}
+                    required
+                  />
+                  <p className="text-danger">
+                    <ErrorMessage name="profilePic" />
+                  </p>
 
-                <button
-                  type="submit"
-                  className="btn btn-primary mt-3 userSignup-btn"
-                >
-                  Submit
-                </button>
-              </Form>
-            </Formik>
+                  <button
+                    type="submit"
+                    className="btn btn-primary mt-3 userSignup-btn"
+                  >
+                    Submit
+                  </button>
+                </Form>
+              </Formik>
+            </div>
           </div>
-        </div>
-        <div className="login-right-content">
-          <h3>
-            Join Our Affiliate Network
-            <br />
-          </h3>
         </div>
       </div>
       <Footer />

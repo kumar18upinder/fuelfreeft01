@@ -64,7 +64,7 @@ const RentalVehicleList = () => {
                                     <h4 style={{color: "#262681"}}><BiRupee/>{data.vehiclePricePerHour}/h</h4>
                                     <p style={{color: "#000"}}>{data.Brand} | {data.topSpeed}km/h | {data.seatingCapacity}Seats</p>
                                     <Link to={`/rent-vehicle-booking/${data._id}/${data.productName}/${data.vehiclePricePerHour}`} onClick={gotologin} class="view-offer-a">Book Now</Link>
-                               
+                                    <Link to={`/rental-vehicle-details/${data._id}`} onClick={gotologin} class="view-offer-a">See details</Link>
                                 </div>
                             </div>
                         ))}

@@ -49,8 +49,8 @@ function Buses({ handleclick }) {
   // remove duplicate
   const [duplicate, setduplicate] = useState("");
   const filterByBrand =
-  bustype &&
-  bustype.map((data) => {
+    bustype &&
+    bustype.map((data) => {
       return data.Brand;
     });
   const uniqueArrayofBrand =
@@ -109,26 +109,25 @@ function Buses({ handleclick }) {
     }
   };
 
-   
   const [cycleproduct, setcycleproduct] = useState("");
-   //pagination
- const [currentPage, setCurrentPage] = useState(1);
- const [totalPages, setTotalPages] = useState(0);
- const [products, setProducts] = useState([]);
+  //pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(0);
+  const [products, setProducts] = useState([]);
 
- const handlePageChange = (pageNumber) => {
-   setCurrentPage(pageNumber);
- };
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
- const lastProductIndex = currentPage * 9;
- const firstProductIndex = lastProductIndex - 9;
- const currentProducts = products.slice(firstProductIndex, lastProductIndex);
+  const lastProductIndex = currentPage * 9;
+  const firstProductIndex = lastProductIndex - 9;
+  const currentProducts = products.slice(firstProductIndex, lastProductIndex);
 
   //filter
   const [Brand, setBrand] = useState("");
   const [Price, setPrice] = useState("");
   const [Range, setrange] = useState("");
-  
+
   const setprice = (price) => {
     let data = `&priceValue=${price}`;
     setPrice(data);
@@ -141,7 +140,7 @@ function Buses({ handleclick }) {
     let data = `&Brand=${brand}`;
     setBrand(data);
   };
-  
+
   const getfilter = async () => {
     let productBrand = Brand ? Brand : "";
     let maxPrice = Price ? Price : "";
@@ -163,9 +162,9 @@ function Buses({ handleclick }) {
     setProducts(alldata);
     setTotalPages(Math.ceil(alldata.length / 9));
   };
-  useEffect(()=>{
-    visitCount()
-  },[])
+  useEffect(() => {
+    visitCount();
+  }, []);
   useEffect(() => {
     getfilter();
   }, [Brand, Price, Range]);
@@ -176,7 +175,6 @@ function Buses({ handleclick }) {
     { productPrice: "1500000", productPriceK: "1500k" },
     { productPrice: "250000", productPriceK: "250k" },
     { productPrice: "5000000", productPriceK: "5000k" },
-     
   ];
   const DrivingRange = [
     { DrivingRange: "100" },
@@ -214,14 +212,14 @@ function Buses({ handleclick }) {
         <div class="mobile-section-headfing">
           <span></span>
           <h3>EV-Car</h3>
-{/* 
+          {/* 
           <button onClick={getCycleList}>All</button> */}
           <span></span>
         </div>
       </div>
       <div className="tanker">
         <section id="product-cotegory-outer-ot">
-        <div className="product-cot-filter">
+          <div className="product-cot-filter">
             <div
               className={`product-cot-filter-content ${
                 activeMenu === "menu" ? "open-filter" : ""
@@ -323,113 +321,122 @@ function Buses({ handleclick }) {
             {/* =================================================================== */}
           </div>
 
+          {/* ---------------------------------our cars------------------------------- */}
+          <div id="OUR-CARS">
+            <div className="tanker">
+              <div className="OUR-CARS-outer">
+                {cycleproduct ? (
+                  <>
+                    {" "}
+                     {currentProducts &&
+                      currentProducts.map((data) => (
+                        <div class="Carcard" key={data._id}>
+                          <Link
+                            onClick={() => setId(data._id)}
+                            className="favrate-butn"
+                            title="Add to favorite"
+                          >
+                            <i class="fa fa-heart"></i>
+                          </Link>
 
+                          <img
+                            alt={`${data.productName} image`}
+                            src={`https://app.fuelfree.in/${data.productImage.length>0?data.productImage[0]:null}`}
+                          />
 
-      {/* ---------------------------------our cars------------------------------- */}
-      <div id="OUR-CARS">
-        <div className="tanker">
-          <div className="OUR-CARS-outer">
-          {cycleproduct?(<>  {currentProducts &&
-              currentProducts.map((data) => (
-                <div class="Carcard" key={data._id}>
-                  <Link
-                    onClick={() => setId(data._id)}
-                    className="favrate-butn"
-                    title="Add to favorite"
-                  >
-                    <i class="fa fa-heart"></i>
-                  </Link>
+                          <div class="Cartitle">
+                            <h5>{data.productName}</h5>
+                            <p>Starting at Rs. {data.productPrice}</p>
+                            <Link
+                              to={`/products/${data.productName}/${data.VehicleType}/${data._id}`}
+                              class="view-offer-a"
+                            >
+                              View-offer
+                            </Link>
+                            {localStorage.getItem("product") ? (
+                              <Link
+                                to={`/compare-product`}
+                                class="view-offer-a"
+                              >
+                                Compare Now
+                              </Link>
+                            ) : (
+                              <Link
+                                to={`/compare-product`}
+                                class="view-offer-a"
+                                onClick={() => handleclick(data)}
+                              >
+                                Compare Now
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      ))} 
+                    
+                  </>
+                ) : (
+                  <>
+                    {" "}
+                     <>{bustype &&
+                      bustype.map((data) => (
+                        <div class="Carcard" key={data._id}>
+                          <Link
+                            onClick={() => setId(data._id)}
+                            className="favrate-butn"
+                            title="Add to favorite"
+                          >
+                            <i class="fa fa-heart"></i>
+                          </Link>
 
-                  <img
-                    alt={`${data.productName} image`}
-                    src={`https://app.fuelfree.in/${data.productImage}`}
-                  />
+                          <img
+                            alt={`${data.productName} image`}
+                            src={`https://app.fuelfree.in/${data.productImage}`}
+                          />
 
-                  <div class="Cartitle">
-                    <h5>{data.productName}</h5>
-                    <p>Starting at Rs. {data.productPrice}</p>
-                    <Link
-                      to={`/products/${data.productName}/${data.VehicleType}/${data._id}`}
-                      class="view-offer-a"
-                    >
-                      View-offer
-                    </Link>
-                    {localStorage.getItem("product") ? (
-                      <Link
-                        to={`/compare-electric-vehicles/${data._id}`}
-                        class="view-offer-a"
-                      >
-                        Compare Now
-                      </Link>
-                    ) : (
-                      <Link
-                        to={`/compare-electric-vehicles/:id`}
-                        class="view-offer-a"
-                        onClick={() => handleclick(data)}
-                      >
-                        Compare Now
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              ))}</>):(<>  {bustype &&
-                bustype.map((data) => (
-                  <div class="Carcard" key={data._id}>
-                    <Link
-                      onClick={() => setId(data._id)}
-                      className="favrate-butn"
-                      title="Add to favorite"
-                    >
-                      <i class="fa fa-heart"></i>
-                    </Link>
-  
-                    <img
-                      alt={`${data.productName} image`}
-                      src={`https://app.fuelfree.in/${data.productImage}`}
-                    />
-  
-                    <div class="Cartitle">
-                      <h5>{data.productName}</h5>
-                      <p>Starting at Rs. {data.productPrice}</p>
-                      <Link
-                        to={`/products/${data.productName}/${data._id}/${data.VehicleType}`}
-                        class="view-offer-a"
-                      >
-                        View-offer
-                      </Link>
-                      {localStorage.getItem("product") ? (
-                        <Link
-                          to={`/semifinalCompare/${data._id}`}
-                          class="view-offer-a"
-                        >
-                          Compare Now
-                        </Link>
-                      ) : (
-                        <Link
-                          to={`/semifinalCompare/:id`}
-                          class="view-offer-a"
-                          onClick={() => handleclick(data)}
-                        >
-                          Compare Now
-                        </Link>
-                      )}
-                    </div>
-                  </div>
-                ))}</>)}
-          
-          </div>
-        </div>
-        <div className="pagination-products-all">
-        <ResponsivePagination
+                          <div class="Cartitle">
+                            <h5>{data.productName}</h5>
+                            <p>Starting at Rs. {data.productPrice}</p>
+                            <Link
+                              to={`/products/${data.productName}/${data._id}/${data.VehicleType}`}
+                              class="view-offer-a"
+                            >
+                              View-offer
+                            </Link>
+                            {localStorage.getItem("product") ? (
+                              <Link
+                                to={`/compare-product`}
+                                class="view-offer-a"
+                              >
+                                Compare Now
+                              </Link>
+                            ) : (
+                              <Link
+                                to={`/compare-product`}
+                                class="view-offer-a"
+                                onClick={() => handleclick(data)}
+                              >
+                                Compare Now
+                              </Link>
+                            )}
+                          </div>
+                        </div>
+                      ))}</> 
+                    
+                  </>
+                )}
+              </div>
+            </div>
+            <div className="pagination-products-all">
+              <ResponsivePagination
                 current={currentPage}
                 total={totalPages}
                 onPageChange={handlePageChange}
               />
             </div>
+          </div>
+        </section>
       </div>
-      </section>
       <Footer />
-    </div>
     </div>
   );
 }

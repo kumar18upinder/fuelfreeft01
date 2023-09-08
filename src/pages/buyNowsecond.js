@@ -2,18 +2,45 @@ import axios from "axios";
 import * as yup from "yup";
 import "./buynowsecond.css";
 import "./testDriveFormsecond.css";
+import "../components/modalBox.css";
+import ReactModal from "react-modal";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { useParams } from "react-router-dom";
+import party from "../pages/images/congo.jpg";
 import "react-toastify/dist/ReactToastify.css";
+import { useParams, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
 const BuyNowSecond = () => {
-  const { pName, pPrice, city, brand } = useParams();
+  const [showModal, setShowModal] = useState(false);
+  const { pName, pPrice, VT, city, brand } = useParams();
+  let promoCodeFromlocal = localStorage.getItem("buyNOwPromo")
+    ? JSON.parse(localStorage.getItem("buyNOwPromo"))
+    : "";
+  let promo = promoCodeFromlocal ? promoCodeFromlocal.promoCode : "";
+  let discountofpromo = promoCodeFromlocal
+    ? promoCodeFromlocal.discountAmount
+    : "";
+  let discountTypeofpromo = promoCodeFromlocal
+    ? promoCodeFromlocal.discountType
+    : "";
+  const [discountPriceOfPromo, setPromoPrice] = useState("");
+
+  useEffect(() => {
+    if (discountTypeofpromo === "amount") {
+      setPromoPrice(discountofpromo);
+      // setIsFunctionCalled(true)
+    } else if (discountTypeofpromo === "percentage") {
+      let prices = (pPrice * discountofpromo) / 100;
+      // setIsFunctionCalled(true)
+      setPromoPrice(prices);
+    }
+  }, [promoCodeFromlocal]);
   const [reffrelCode, setReffrelCode] = useState("");
   const [agencyList, setagencyList] = useState("");
+  const [promoCode, setPromoCode] = useState(promo);
   const [agencyId, setAgencyId] = useState(null);
   let user = JSON.parse(localStorage.getItem("user"));
   let uid = user ? user._id : "";
@@ -57,13 +84,12 @@ const BuyNowSecond = () => {
     email: user.userEmail,
     phoneNo: user.phoneNo,
     preferredLocation: "",
-    productName: pName,
     preferredDate: "",
   };
 
   const today = new Date();
 
-  const DiscountedPrice = pPrice - WalletBalance;
+  const DiscountedPrice = pPrice - WalletBalance - discountPriceOfPromo;
   const validationSchema = yup.object().shape({
     name: yup
       .string()
@@ -82,21 +108,27 @@ const BuyNowSecond = () => {
       )
       .required("Phone No is required"),
     preferredLocation: yup.string().required("Enter Preferred Location"),
-    productName: yup
-      .string()
-      .matches(/[A-Za-z]/, "Must be a alphabet")
-      .required("Product Name is required"),
     preferredDate: yup
       .date()
       .required("Date must be required")
-      .min(today, "From today's date and required"),
+      .min(today, "Please select a date from today onwards"),
   });
+
+  const [produtData, setproduct] = useState("");
 
   const handleSubmit = async (values) => {
     let VID = agencyId
       ? agencyId
       : toast.error("Select Vendor From Agencylist");
-      let alldata={...values,referralCode:reffrelCode,walletDiscount: userdetails && userdetails.walletBalance, productPrice: pPrice,}
+    let alldata = {
+      ...values,
+      referralCode: reffrelCode,
+      walletDiscount: userdetails && userdetails.walletBalance,
+      productPrice: pPrice,
+      promoCode: promo && promo,
+      VehicleType: VT,
+      productName: pName,
+    };
     const response = await axios.post(
       "https://app.fuelfree.in/productBook/bookProduct/" + uid + "/" + VID,
       alldata,
@@ -108,12 +140,13 @@ const BuyNowSecond = () => {
       }
     );
 
-    const result = response.data;
+    const result = await response.data;
     if (result.success === "success") {
       toast.success(result.message);
-      setTimeout(() => {
-        window.location.reload("");
-      }, 3000);
+      let product = await result.finalPrice;
+      setproduct(product);
+      setShowModal(true);
+      localStorage.removeItem("buyNOwPromo");
     } else if (result.failure === "failure") {
       toast.error(result.error);
     } else {
@@ -121,22 +154,87 @@ const BuyNowSecond = () => {
     }
   };
 
+  const buynowmodal = () => {
+    setShowModal(false);
+  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
-      <Header />
-      <p className="create-ac-heading">Buy Now</p>
+    <Header />
+    <ToastContainer />
+      <div className="buynow-bg-clr">
       <div className="buynow-bg">
         <div className="news-margin">
           <div className="tanker">
-            <ToastContainer />
-            <div className="buy-now-second">
-              <div className="main-div-buy-now">
-                <label className="label-enquiry">Select Agency List</label>
+            <div className="buy-now-second-2">
+              <div className="buy-right-bar">
+                <div className="buy-side-right-bar-outer-2">
+                  <div className="news-side-content-con">
+                    <div className="nnnnn">
+                      <div className="news-side-content-text">
+                        <p className="buy-now-flex">{pName}</p>
+                      </div>
+                      <div className="news-side-content-text">
+                        <p className="buy-now-flex">{brand}</p>
+                      </div>
+                      <div className="news-side-content-text">
+                        <p className="buy-now-flex">{pPrice}</p>
+                      </div>
+                    </div>
+                    <hr />
+                    <div className="news-side-content-text-top">
+                      <p className="buy-now-flex">
+                        <span> Wallet Balance</span>
+                        <span className="side-box1-buy">
+                          {userdetails && userdetails.walletBalance}
+                        </span>
+                      </p>
+                    </div>
+                    <div className="news-side-content-text-top">
+                      <p className="buy-now-flex">
+                        <span className="side-box-buy">Discount Price</span>
+                        <span className="side-box1-buy">{DiscountedPrice}</span>
+                      </p>
+                    </div>
+                    <hr />
+                    <div className="news-side-content-text">
+                      <input
+                        type="text"
+                        className="refer-input mt-3"
+                        placeholder="Enter Referral Code"
+                        name="reffrelCode"
+                        value={reffrelCode}
+                        onChange={(e) => setReffrelCode(e.target.value)}
+                      />
+                    </div>
+                    <div className="news-side-content-text">
+                      <input
+                        type="text"
+                        className="refer-input promo"
+                        placeholder="Apply Promo Code"
+                        name="promoCode"
+                        value={promo}
+                        onChange={(e) => setPromoCode(e.target.value)}
+                      />
+                      <button>
+                        <Link className="offer-btn" to={`/offers/${VT}`}>
+                          see offers
+                        </Link>{" "}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="main-div-buy-now-2">
+                <h3 className="book-your-2">Buy Now</h3>
                 <select
                   className="form-control"
                   style={{ padding: "6px" }}
                   name="agency"
                   id="agency"
+                  required
                   onChange={($event) => setAgencyId($event.target.value)}
                 >
                   <option value={""} style={{ width: "100" }}>
@@ -168,10 +266,7 @@ const BuyNowSecond = () => {
                       >
                         <Form className="signup-form">
                           <div className="signup-form-buy">
-                            <div>
-                              <lable className="label-enquiry">
-                                Enter Name
-                              </lable>
+                            <div className="agency-cls">
                               <Field
                                 type="text"
                                 name="name"
@@ -182,10 +277,7 @@ const BuyNowSecond = () => {
                                 <ErrorMessage name="name" />
                               </p>
                             </div>
-                            <div>
-                              <lable className="label-enquiry">
-                                Enter Email
-                              </lable>
+                            <div className="agency-cls">
                               <Field
                                 type="email"
                                 name="email"
@@ -196,10 +288,7 @@ const BuyNowSecond = () => {
                                 <ErrorMessage name="email" />
                               </p>
                             </div>
-                            <div>
-                              <lable className="label-enquiry">
-                                Enter Phone Number
-                              </lable>
+                            <div className="agency-cls">
                               <Field
                                 type="tel"
                                 name="phoneNo"
@@ -210,37 +299,20 @@ const BuyNowSecond = () => {
                                 <ErrorMessage name="phoneNo" />
                               </p>
                             </div>
-
-                            <lable className="label-enquiry">
-                              Enter Preferred Location
-                            </lable>
-                            <Field
-                              type="text"
-                              name="preferredLocation"
-                              placeholder="Preferred Location"
-                              className="form-control"
-                            />
-                            <p className="text-danger">
-                              <ErrorMessage name="preferredLocation" />
-                            </p>
+                            <div className="agency-cls">
+                              <Field
+                                type="text"
+                                name="preferredLocation"
+                                placeholder="Preferred Location"
+                                className="form-control"
+                              />
+                              <p className="text-danger">
+                                <ErrorMessage name="preferredLocation" />
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <lable className="label-enquiry">
-                              Product Name
-                            </lable>
-                            <Field
-                              type="text"
-                              name="productName"
-                              placeholder="Product Name"
-                              className="form-control"
-                              value={pName}
-                            />
-                            <p className="text-danger">
-                              <ErrorMessage name="productName" />
-                            </p>
-                          </div>
-                          <div>
-                            <lable className="label-enquiry">
+                          <div className="agency-cls">
+                            <lable className="label-date">
                               Do Not Select Today's Date
                             </lable>
                             <Field
@@ -253,7 +325,10 @@ const BuyNowSecond = () => {
                               <ErrorMessage name="preferredDate" />
                             </p>
                           </div>
-                          <button type="submit" className="btn btn-success mt-4">
+                          <button
+                            type="submit"
+                            className="btn btn-success mt-4 testdrive-btn-2"
+                          >
                             Submit
                           </button>
                         </Form>
@@ -262,38 +337,30 @@ const BuyNowSecond = () => {
                   </div>
                 </div>
               </div>
-              <div className="buy-right-bar">
-                <div className="buy-side-right-bar-outer">
-                  <h4 style={{textAlign:"center"}}>PRICE DETAILS</h4>
-                  <hr/>
-                  <div className="news-side-content-con">
-                    <div className="news-side-content-text">
-                      <p className="buy-now-flex"><span>Product Price</span><span>{pPrice}</span></p>
-                    </div>
-                    <div className="news-side-content-text">
-                      <p className="buy-now-flex"><span> Wallet Balance</span><span>{userdetails && userdetails.walletBalance}</span></p>
-                    </div>
-                    <div className="news-side-content-text-top">
-                      <p className="buy-now-flex"><span>Discount Price</span><span>{DiscountedPrice}</span></p>
-                    </div>
-                    <div className="news-side-content-text">
-                      <input
-                        type="text"
-                        className="refer-input"
-                        placeholder="Enter Referral Code"
-                        name="reffrelCode"
-                        value={reffrelCode}
-                        onChange={(e) => setReffrelCode(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
-
+      </div>
+      {showModal && (
+        <ReactModal isOpen={true} onRequestClose={() => setShowModal(false)}>
+          <div className="buynowmodelbox">
+            <div className="congo">
+              <h2>Congratulations</h2>
+              <img className="party-on" src={party} alt="party" />
+            </div>
+            <p>You got fuelfree Discount</p>
+            <p>Final Product Price:-{produtData}</p>
+            <button
+              type="submit"
+              className="btn btn-success mt-4"
+              onClick={buynowmodal}
+            >
+              OK
+            </button>
+          </div>
+        </ReactModal>
+      )}
       <Footer />
     </>
   );

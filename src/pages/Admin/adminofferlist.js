@@ -40,7 +40,7 @@ const OfferAdminList = () => {
   return (
     <div>
       <Adminsidebar />
-      <div>
+      <div >
         <div className="news-right-bar-outer-new">
           <h4>All Offers</h4>
           {OfferType &&

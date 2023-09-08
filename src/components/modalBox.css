@@ -65,4 +65,69 @@
       border: 1px solid #888;
       width: 78%; 
     }
+    .custom-dropdown {
+      display: block !important;
+      margin: 0px auto !important;
+  }
+}
+.product-modal-img{
+  width: 231px;
+  display: block;
+  margin: 0px auto;
+}
+.detail-product-img{
+  position: relative;
+}
+.close-btn-modal {
+  background: none;
+  border: none;
+  position: absolute;
+  right: 0px;
+  color: #c4c1c1;
+  font-size: 23px;
+
+}
+/* Add your existing CSS styles for other elements here */
+
+.custom-dropdown {
+  display: flex;
+  flex-wrap: wrap;
+}
+.search-input {
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.search-input input[type="text"] {
+  border: 1px solid black;
+  border-radius: 20px;
+  display: block;
+  margin: 0px auto;
+  padding: 7px 15px;
+}
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  min-width: 150px;
+  max-width: 180px;
+}
+
+.option-image {
+  width: 30px !important;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.selected-option {
+  border: 2px solid blue;
+}
+
+/* The styles for the selected option when active (clicked) */
+.selectedOption.active {
+  border: 2px solid #262681;
 }

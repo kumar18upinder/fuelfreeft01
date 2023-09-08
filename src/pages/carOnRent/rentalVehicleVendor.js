@@ -39,23 +39,6 @@ const RentalVehicleVendor = () => {
     // Trigger render with updated values
     setFilteredList(updatedList);
   };
-
-  const [dealers, setdealers] = useState("");
-  const setoption = async (e) => {
-    let data = e.target.value ? e.target.value : "Indore";
-
-    let res = await axios.get(
-      `https://app.fuelfree.in/vendor/charging/filterBycity/${data}`,
-      {
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
-    let result = await res.data;
-    let dealer = result.allDealers;
-    setdealers(dealer);
-  };
   return (
     <>
       <Header />
@@ -95,8 +78,6 @@ const RentalVehicleVendor = () => {
           <option value="jabalpur">jabalpur</option>
         </select>
         </div>
-        
-
         {filteredList ? (
           <div className="tanker" id="charging-station-all">
             <>
@@ -110,7 +91,7 @@ const RentalVehicleVendor = () => {
                         <p style={{ color: "#262681" }}>{data.name}</p>
                         <p style={{ color: "#262681" }}>{data.whatsappNo}</p>
                         <Link
-                          to={`#`}
+                          to={`/rental-vehicle-vendor-details/${data._id}`}
                           class="view-offer-a"
                         >
                           Visit Store
@@ -132,9 +113,8 @@ const RentalVehicleVendor = () => {
                         <h5>{data.firmName}</h5>
                         <p style={{ color: "#262681" }}>{data.name}</p>
                         <p style={{ color: "#262681" }}>{data.whatsappNo}</p>
-
                         <Link
-                          to={`#`}
+                          to={`/rental-vehicle-vendor-details/${data._id}`}
                           class="view-offer-a"
                         >
                           Visit Store

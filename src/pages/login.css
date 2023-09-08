@@ -16,6 +16,7 @@
     display: block;
     margin: 0px auto;    
 }
+
 .userlogin-btn:hover {
     background-color: var(--dark);
     /* border: var(--dark); */
@@ -123,6 +124,28 @@ div#login-page-id {
     margin-right: auto;
     padding: 6% 2%;
 }
+.affiliate-form-bg {
+    padding: 25px 135px;
+    background-color: #f4f4f4;
+    border-radius: 6px;
+}
+.affiliate-inner-contnet {
+    padding: 18px 100px 42px 100px;
+    box-shadow: none;
+}
+
+.affiliate-form-bg input{
+background-color: #fff;
+}
+.affiliate-form-new {
+    width: 100% !important; 
+}
+div#affiliate-page-id {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    margin: 11%;
+}
+
+
 .login-inner-contnet {
     width: 55%;
 }
@@ -152,7 +175,19 @@ div#login-page-id {
     .login-form-new {
         width: 80%;
     }
-    
+    .affiliate-form-bg {
+        padding: 25px 31px;
+        background-color: #f4f4f4;
+        border-radius: 6px;
+        /* box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px; */
+
+    }
+    .affiliate-inner-contnet {
+        padding: 18px 20px 42px 20px;
+    }
+    div#affiliate-page-id {
+        margin: 42% 3%;
+    }
     .login-form-new h5 {
         margin-bottom: 11px;
     }
@@ -164,11 +199,5 @@ div#login-page-id {
         justify-content: space-between;
         flex-direction: column-reverse;
     }
-
-}
-.forget{   
-    /* position: 
-    absolute;
-    top: 2; */
 
 }

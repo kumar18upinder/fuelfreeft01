@@ -7,18 +7,14 @@ import { useEffect, useState } from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
-import BrandBannerstore from "../pages/images/BrandBannerstore.jpg";
-
 function Storepage() {
   //visitor count
   let userdata = localStorage.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
     : "";
   let userId = userdata ? userdata._id : "";
-  const [source, setsource] = useState("");
   const visitCount = async () => {
     const pageVisited = window.location.href;
-    console.log(pageVisited, "visited");
     let res = await axios.post(
       `https://app.fuelfree.in/user/track-page/${userId}?source=${encodeURIComponent(
         pageVisited
@@ -35,7 +31,6 @@ function Storepage() {
   useEffect(() => {
     if (localStorage.getItem("user")) {
       visitCount();
-      setsource(window.location.href);
     }
   }, []);
 

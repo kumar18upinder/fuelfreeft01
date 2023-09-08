@@ -36,7 +36,7 @@ const NewsForm = () => {
     Date: yup
       .date()
       .required("Date must be required")
-      .min(today, "From today's date is required"),
+      .min(today, "Please select a date from today onwards"),
   });
 
   const handleSubmit = async (values) => {

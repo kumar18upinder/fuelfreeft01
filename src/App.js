@@ -1,6 +1,6 @@
 import "./App.css";
 import "./pages/Becomeadealer.css";
-import React from 'react'
+import React from "react";
 import About from "./pages/about";
 import Contact from "./pages/contact";
 import Home from "./pages/home";
@@ -12,7 +12,6 @@ import Admin from "./pages/Admin/admin";
 import Dashboard from "./pages/Admin/dashboard";
 import Admindealerlist from "./pages/Admin/admindealerlist";
 import FAQ from "./pages/FAQ";
-import DealerDetails from "./pages/dealerDetails";
 import Privacypolicy from "./pages/privacypolicy";
 import EnquiryForm from "./pages/EnquiryNow";
 import { Route, Routes } from "react-router-dom";
@@ -29,6 +28,7 @@ import LogisticsVehicle from "./pages/logisticsVehicle";
 import Offers from "./pages/offers";
 import Productpage from "./pages/productpage";
 import CompareType from "./pages/compareType";
+import Compare from "./pages/compare";
 import SemifinalCompare from "./pages/compareProdustsPages/semifinalCompare";
 import ComparisonMobile from "./pages/compareProdustsPages/comparisonMobile";
 import Comingsoon from "./pages/comingsoon";
@@ -141,7 +141,7 @@ import AdminSolarList from "./pages/adminSolarList";
 import SolarAddProduct from "./pages/Admin/AddProduct/solarAddProduct";
 import SolarProductDetails from "./pages/solarProductDetails";
 import Affiliaterefferalcode from "./pages/affiliaterefferalcode";
-import AgencyVisitCount  from './pages/Admin/agencyVisitCount'
+import AgencyVisitCount from "./pages/Admin/agencyVisitCount";
 import ScooterUpdate from "./pages/Admin/updateProduct/scooterUpdate";
 import CycleUpdate from "./pages/Admin/updateProduct/cycleUpdate";
 import CarUpdate from "./pages/Admin/updateProduct/carUpdate";
@@ -169,33 +169,49 @@ import StarRating from "./pages/starRating";
 import DynamicallyChanges from "./components/dynamicallyChanges";
 import LeadList from "./pages/Admin/LeadList";
 import Exchangevehicle from "./pages/exchangevhicle";
-import ExchangeDealer  from '../src/pages/Admin/exchangeDealer'
-import ApprovedExchangeDealer   from '../src/pages/Admin/ApprovedExchangeDealer';
-import Exchangevehicledetail from "./pages/exchangevehicledetail";
-import SellPetrolVehicle  from './pages/SellPetrolVehicle'
+import ExchangeDealer from "../src/pages/Admin/exchangeDealer";
+import ApprovedExchangeDealer from "../src/pages/Admin/ApprovedExchangeDealer";
+import Exchangevehicledetails from "./pages/exchangevehicledetail";
+import SellPetrolVehicle from "./pages/SellPetrolVehicle";
 import Questionner from "./pages/Questioner";
 import Membership from "./pages/Membership";
-import Marketing from "./pages/Marketing/marketing";
-import MarketingBooking from "./pages/Marketing/marketingBooking";
-import MarketingTestDrive from "./pages/Marketing/marketingTestdrive";
-import MarketingLogin  from './pages/Marketing/MarketingLogin';
-import MarketingDealer from './pages/Marketing/MarketingDealer';
-// import { Storepageupdated } from "./pages/Storepageupdated";
 import DealerStore from "./pages/dealerStore";
+import CartCheckout from "./pages/cartCheckOut";
+import ImageSlider from "./pages/imagesliderproductpage";
+import Viewbookingdetails from "./pages/viewbookingdetails";
+import RentalVehicleDetails from "./pages/rentalDetails";
+import RentalDealerDetails from "./pages/rentalVendorDetails";
+import Viewtestdrivebookingdetails from "./pages/viewtestdrivebookingdetails";
+import Viewchargingbookingdetails from "./pages/viewchargingbookingdetail";
+import MarketingApprove from "./pages/Admin/MarketingApprovel";
+import DealerAddedByMarketer from "./pages/Admin/Marketing_Dealers";
+import Testsizse from "./pages/testsizse";
+import Filterformnew from "./pages/filterformnew";
+import FilterProduct from "./pages/filterProduct";
+import ElectricCarBrand from "./pages/electricCarBrand";
+import MyLocation from "./pages/UserLocation";
+import Notification from "./components/notification";
+import PaidVendorList from "./pages/Admin/paidVendorList";
 
 function App() {
   const handleclick = (item) => {
     localStorage.setItem("product", JSON.stringify(item));
-
   };
+  const handleclick1 = (data) => {
+    localStorage.setItem("product2", JSON.stringify(data));
+  };
+  
   return (
     <div className="margin-header">
       <Routes>
         <Route path="/" element={<Home handleclick={handleclick} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/service-center" element={<ServiceComingSoon/>} />
+        <Route path="/service-center" element={<ServiceComingSoon />} />
         <Route path="/near-by-dealers-in/:city" element={<DealerList />} />
-        <Route path="/dealer-List-city-wise/:city" element={<DealerListByCity />} />
+        <Route
+          path="/dealer-List-city-wise/:city"
+          element={<DealerListByCity />}
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="/collection" element={<Collection />} />
         <Route path="/blogwithSideBar" element={<BlogwithSideBar />} />
@@ -227,45 +243,71 @@ function App() {
           path="/add-scooter-variant/:id"
           element={<ScooterAddVariant />}
         />
-        <Route path="/add-solar-variant/:id" element={<SolarAddVariant/>} />
-        <Route path="/solar-update-product/:id" element={<UpdateSolarProduct/>} />
-        <Route path="/add-luna-variant/:id" element={<LunaAddVariant/>} />
-        <Route path="/update-scooter-product/:id" element={<ScooterUpdate/>} />
-        <Route path="/update-cycle-product/:id" element={<CycleUpdate/>} />
-        <Route path="/update-car-product/:id" element={<CarUpdate/>} />
-        <Route path="/update-logistics-product/:id" element={<LogisticsUpdate/>} />
+        <Route path="/add-solar-variant/:id" element={<SolarAddVariant />} />
+        <Route path="/my-location/:url/location" element={<MyLocation />} />
+        <Route
+          path="/solar-update-product/:id"
+          element={<UpdateSolarProduct />}
+        />
+        <Route path="/add-luna-variant/:id" element={<LunaAddVariant />} />
+        <Route path="/update-scooter-product/:id" element={<ScooterUpdate />} />
+        <Route path="/update-cycle-product/:id" element={<CycleUpdate />} />
+        <Route path="/update-car-product/:id" element={<CarUpdate />} />
+        <Route
+          path="/update-logistics-product/:id"
+          element={<LogisticsUpdate />}
+        />
         <Route path="/admindealerlist" element={<Admindealerlist />} />
         <Route path="/FAQ" element={<FAQ />} />
-        <Route path="/DealerDetails" element={<DealerDetails />} />
         <Route path="/Privacypolicy" element={<Privacypolicy />} />
         <Route path="/book-your-free-consultation" element={<EnquiryForm />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
-        <Route path="/electric-cycle" element={<Cycle handleclick={handleclick} />} />
+        <Route
+          path="/electric-cycle"
+          element={
+            <Cycle handleclick={handleclick} handleclick1={handleclick1} />
+          }
+        />
         <Route
           path="/electric-scooter"
           element={<Scooters handleclick={handleclick} />}
         />
-        <Route path="/electric-bike" element={<Bike handleclick={handleclick} />} />
+        <Route
+          path="/electric-bike"
+          element={<Bike handleclick={handleclick} />}
+        />
         <Route
           path="/electric-auto"
           element={<Eauto handleclick={handleclick} />}
         />
-        <Route path="/electric-car" element={<Car handleclick={handleclick} />} />
+        <Route
+          path="/electric-car"
+          element={<Car handleclick={handleclick} />}
+        />
         <Route
           path="/electric-loading"
           element={<LoadingVehicle handleclick={handleclick} />}
         />
-        <Route path="/electric-bus" element={<Buses handleclick={handleclick} />} />
+        <Route
+          path="/electric-bus"
+          element={<Buses handleclick={handleclick} />}
+        />
         <Route
           path="/electric-logistics"
           element={<LogisticsVehicle handleclick={handleclick} />}
         />
-        <Route path="/offers" element={<Offers />} />
-        <Route path="/product-page/:Product/:type/:id" element={<ProductShare/>} />
+        <Route path="/offers/:vt" element={<Offers />} />
+        <Route
+          path="/product-page/:Product/:type/:id"
+          element={<ProductShare />}
+        />
         <Route path="/products/:Product/:type/:id" element={<Productpage />} />
         <Route path="/compareType/:id" element={<CompareType />} />
-        <Route path="/compare-electric-vehicles/:id" element={<SemifinalCompare />} />
+        <Route
+          path="/compare-electric-vehicles/:id"
+          element={<SemifinalCompare />}
+        />
         <Route path="/comingsoon" element={<Comingsoon />} />
         <Route
           path="/send-your-enquiry/:pName/:id"
@@ -273,10 +315,7 @@ function App() {
         />
         <Route path="/news-details/:id" element={<NewsDetails />} />
         <Route path="/news" element={<News />} />
-        <Route
-          path="/tata"
-          element={<TataBrand handleclick={handleclick} />}
-        />
+        <Route path="/tata" element={<TataBrand handleclick={handleclick} />} />
         <Route path="/compareType" element={<CompareType />} />
         <Route
           path="/comparisonMobile/:p1id/:p2id"
@@ -297,23 +336,11 @@ function App() {
           element={<MercedesBenz handleclick={handleclick} />}
         />
         <Route path="/audi" element={<Audi handleclick={handleclick} />} />
-        <Route
-          path="/volvo"
-          element={<Volvo handleclick={handleclick} />}
-        />
-        <Route
-          path="/eicher"
-          element={<Eicher handleclick={handleclick} />}
-        />
-          <Route
-          path="/star-rating"
-          element={<StarRating/>}
-        />
-        <Route path="/dynamically-changes" element={<DynamicallyChanges/>}/>
-        <Route
-          path="/ola"
-          element={<Ola handleclick={handleclick} />}
-        />
+        <Route path="/volvo" element={<Volvo handleclick={handleclick} />} />
+        <Route path="/eicher" element={<Eicher handleclick={handleclick} />} />
+        <Route path="/star-rating" element={<StarRating />} />
+        <Route path="/dynamically-changes" element={<DynamicallyChanges />} />
+        <Route path="/ola" element={<Ola handleclick={handleclick} />} />
         <Route
           path="/kinetic"
           element={<Kinatic handleclick={handleclick} />}
@@ -343,7 +370,15 @@ function App() {
         <Route path="/chargingDetails/:id" element={<ChargingStore />} />
         <Route path="/servicestationlist" element={<Servicecenterlist />} />
         <Route path="/serviceDetails/:id" element={<ServiceDetails />} />
-        <Route path="/near-by-charging-station/:city" element={<Chargingstationone />} />
+        <Route
+          path="/near-by-charging-station/:city"
+          element={<Chargingstationone />}
+        />
+        <Route
+          path="/near-by-exchange-vendor-in/:city"
+          element={<Exchangevehicle />}
+        />
+
         <Route
           path="/book-test-drive/:vendorId/:productId"
           element={<AgencyList />}
@@ -356,8 +391,11 @@ function App() {
         <Route path="/product-dealer" element={<ParticularProductDealer />} />
         <Route path="/booking-deatails" element={<BookNow />} />
         <Route path="/whatpowerus" element={<Whatpowerus />} />
-        <Route path="/usedvehicleform" element={<UsedVehicleForm />} />
-        <Route path="/buy-electric-vehicle/:pName/:pPrice/:VT/:brand/:city" element={<BuyNowSecond />} />
+        <Route path="/used-vehicle-form" element={<UsedVehicleForm />} />
+        <Route
+          path="/buy-electric-vehicle/:pName/:pPrice/:VT/:brand/:city"
+          element={<BuyNowSecond />}
+        />
         <Route
           path="/book-your-test-drive/:pName/:VT/:brand/:city"
           element={<TestDriveFormSecond />}
@@ -385,6 +423,7 @@ function App() {
         <Route path="/lead-list" element={<LeadList />} />
         <Route path="/userprofileadmin/:id" element={<UserProfileAdmin />} />
         <Route path="/userList" element={<UserList />} />
+        <Route path="/paid-vendor-list" element={<PaidVendorList/>} />
         <Route path="/affiliatelist-admin" element={<AffiliateList />} />
         <Route
           path="/product"
@@ -398,7 +437,7 @@ function App() {
         <Route path="/enquiryadmin" element={<Enquiryadmin />} />
         <Route path="/admintestdrive" element={<Admintestdrive />} />
         <Route path="/google-login" element={<GoogleLogins />} />
-        <Route path="/facebook-login" element={<FacebookLogins/>}/>
+        <Route path="/facebook-login" element={<FacebookLogins />} />
         <Route path="/testdriveform" element={<Testdriveform />} />
         <Route path="/adminnews" element={<Adminnews />} />
         <Route path="/approvedagency" element={<Approvedagency />} />
@@ -417,53 +456,115 @@ function App() {
         <Route path="/totalbookingsAdmin" element={<Totalbookings />} />
         <Route path="/Adminaddproductcategory" element={<AddNewProd />} />
         <Route path="/news-list-admin" element={<NewsAdminList />} />
-        <Route
-          path="/editnewsform/:id"
-          element={<NewsEditAdmin />}
-        />
+        <Route path="/editnewsform/:id" element={<NewsEditAdmin />} />
         <Route path="/adminofferlist" element={<OfferAdminList />} />
         <Route path="/totalsentleads" element={<TotalSentLeads />} />
+        <Route path="/notification" element={<Notification/>} />
         <Route
           path="/totalchargingbookings"
           element={<Totalchargingbookings />}
         />
         <Route path="/adminwishlist" element={<Adminwishlist />} />
         <Route path="/consultationadmin" element={<ConsultationAdmin />} />
-        <Route path="/adminvarientlist" element={<AdminVariantList/>} />
-        <Route path="/electric-luna" element={<Electricluna />} />
+        <Route path="/adminvarientlist" element={<AdminVariantList />} />
+        <Route
+          path="/electric-luna"
+          element={<Electricluna handleclick={handleclick} />}
+        />
         <Route path="/fuelfree-reels" element={<Reel />} />
         <Route path="/fuelfree-addreel" element={<AddReel />} />
         <Route path="/add-luna" element={<AddLuna />} />
         <Route path="/solar-add" element={<SolarAddProduct />} />
         <Route path="/affiliate-network" element={<Affiliateform />} />
         <Route path="/solar-vehicle" element={<AdminSolarList />} />
-        <Route path="/solar-product-details/:id" element={<SolarProductDetails />}/>
-        <Route path="/affiliaterefferalcode" element={<Affiliaterefferalcode/>}/>
-        <Route path="/agency-visit-count/:id" element={<AgencyVisitCount/>}/>
-        <Route path="/electric-rentalvehicles" element={<RentalVehicleList/>}/>
-        <Route path="/rent-vehicle-booking/:pId/:Pname/:Pprice" element={<Rentvehiclebooking/>}/>
-        <Route path="*" element={<PageNotFound/>}/>
-        <Route path="/solar-variant-details/:id" element={<SolarVariantDetails/>}/>
-        <Route path="facebook-user" element={<FacebookLoginComponent/>}/>
-        <Route path="/rental-vehicle-vendor" element={<RentalVehicleVendor/>}/>
-        <Route path="/admin-rental-vehicle-list" element={<AdminRentalVehicleList/>}/>
-        <Route path="/admin-rental-vehicle-booking" element={<AdminRentalVehicleBookingList/>}/>
-        <Route path="/admin-rental-vehicle-vendor" element={<AdminRentalVehicleVendor/>}/>
-        <Route path="/privacy-policy-page" element={<PrivacyPolicyPage/>}/>
-        <Route path="/exchangevehicle" element={<Exchangevehicle/>}/>
-        <Route path="/Exchange-vehicle-Dealer" element={<ExchangeDealer/>}/>
-        <Route path="/approved-Exchange-vehicle-Dealer" element={<ApprovedExchangeDealer/>}/>
-        <Route path="/exchangevehicledetail" element={<Exchangevehicledetail/>}/>
-        <Route path="/sell-your-petrol-vehicle" element={<SellPetrolVehicle/>}/>
-        <Route path="/questioner" element={<Questionner/>}/>
-        <Route path="/membership" element={<Membership/>}/>
-        <Route path="/marketing-leads/:id" element={<Marketing/>}/>
-        <Route path="/marketing-bookings" element={<MarketingBooking/>}/>
-        <Route path="/marketing-testdrive" element={<MarketingTestDrive/>}/>
-        <Route path="/marketing-login" element={<MarketingLogin/>}/>
-        <Route path="/marketing-dealer-list" element={<MarketingDealer/>}/>
-        {/* <Route path="vendor-store-page" element={<Storepageupdated/>}/> */}
-        <Route path="/dealer-store-page" element={<DealerStore/>}/>
+        <Route
+          path="/solar-product-details/:id"
+          element={<SolarProductDetails />}
+        />
+        <Route
+          path="/affiliaterefferalcode"
+          element={<Affiliaterefferalcode />}
+        />
+        <Route path="/agency-visit-count/:id" element={<AgencyVisitCount />} />
+        <Route
+          path="/electric-rental-vehicles"
+          element={<RentalVehicleList />}
+        />
+        <Route
+          path="/rental-vehicle-vendor-details/:id"
+          element={<RentalDealerDetails />}
+        />
+        <Route
+          path="/rental-vehicle-details/:id"
+          element={<RentalVehicleDetails />}
+        />
+        <Route
+          path="/rent-vehicle-booking/:pId/:Pname/:Pprice"
+          element={<Rentvehiclebooking />}
+        />
+        <Route path="*" element={<PageNotFound />} />
+        <Route
+          path="/solar-variant-details/:id"
+          element={<SolarVariantDetails />}
+        />
+        <Route path="facebook-user" element={<FacebookLoginComponent />} />
+        <Route
+          path="/rental-vehicle-vendor"
+          element={<RentalVehicleVendor />}
+        />
+        <Route
+          path="/admin-rental-vehicle-list"
+          element={<AdminRentalVehicleList />}
+        />
+        <Route
+          path="/admin-rental-vehicle-booking"
+          element={<AdminRentalVehicleBookingList />}
+        />
+        <Route
+          path="/admin-rental-vehicle-vendor"
+          element={<AdminRentalVehicleVendor />}
+        />
+        <Route path="/privacy-policy-page" element={<PrivacyPolicyPage />} />
+        <Route path="/Exchange-vehicle-Dealer" element={<ExchangeDealer />} />
+        <Route
+          path="/approved-Exchange-vehicle-Dealer"
+          element={<ApprovedExchangeDealer />}
+        />
+        <Route
+          path="/exchange-vehicle-vendor-details/:id"
+          element={<Exchangevehicledetails />}
+        />
+        <Route
+          path="/sell-your-petrol-vehicle"
+          element={<SellPetrolVehicle />}
+        />
+        <Route path="/questioner" element={<Questionner />} />
+        <Route path="/membership" element={<Membership />} />
+        <Route path="/test" element={<Testsizse />} />
+        <Route path="/dealer-store-page/:id" element={<DealerStore />} />
+        <Route path="/checkout" element={<CartCheckout />} />
+        <Route path="/imageprductslider" element={<ImageSlider />} />
+        <Route
+          path="/viewbookingdetails/:id"
+          element={<Viewbookingdetails />}
+        />
+        <Route
+          path="/view-testdrivebooking-details/:id"
+          element={<Viewtestdrivebookingdetails />}
+        />
+        <Route
+          path="/view-rental-booking-details/:id"
+          element={<Viewchargingbookingdetails />}
+        />
+        <Route path="marketing-approve" element={<MarketingApprove />} />
+        <Route
+          path="dealer Added-By-Marketer/:id"
+          element={<DealerAddedByMarketer />}
+        />
+        <Route path="compare-product" element={<Compare />} />
+        <Route path="/feature" element={<ElectricCarBrand />} />
+        <Route path="filterform" element={<Filterformnew />} />
+        <Route path="Filter-Products" element={<FilterProduct />} />
       </Routes>
     </div>
   );

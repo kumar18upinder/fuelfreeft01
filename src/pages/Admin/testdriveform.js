@@ -44,7 +44,6 @@ const Testdriveform = () => {
   };
 
   const today = new Date();
-
   const validationSchema = yup.object().shape({
     name: yup
       .string()
@@ -70,7 +69,7 @@ const Testdriveform = () => {
     date: yup
       .date()
       .required("Date must be required")
-      .min(today, "From today's date and required"),
+      .min(today, "Please select a date from today onwards"),
   });
 
   const handleSubmit = async (values) => {
@@ -167,7 +166,7 @@ const Testdriveform = () => {
                     component="textarea"
                     name="address"
                     className="form-control"
-                    placeholder="Address"
+                    placeholder="Address..."
                   ></Field>
                   <p className="text-danger">
                     <ErrorMessage name="address" />

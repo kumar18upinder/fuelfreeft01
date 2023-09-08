@@ -9,9 +9,11 @@ import { MultiSelect } from "react-multi-select-component";
 
 export const Updateproduct = () => {
   const [image, setImage] = useState([]);
-  console.log(image,'img')
+  const [broucher , setBroucher] = useState([]);
   const [values, setValues] = useState({
     VehicleType: "",
+    upcomingVehicle: "",
+    recentLaunches: "",
     productName: "",
     productPrice: "",
     Brand: "",
@@ -60,6 +62,8 @@ export const Updateproduct = () => {
           ...values,
           VehicleType: res.data.productDetails.VehicleType,
           productName: res.data.productDetails.productName,
+          upcomingVehicle: res.data.productDetails.upcomingVehicle,
+          recentLaunches: res.data.productDetails.recentLaunches,
           productPrice: res.data.productDetails.productPrice,
           Brand: res.data.productDetails.Brand,
           variant: res.data.productDetails.variant,
@@ -131,7 +135,7 @@ export const Updateproduct = () => {
     let delerList = await result.List;
     const deledetails = delerList.map((data) => {
       let a = {
-        label: data.name,
+        label: data.name+"----->"+data.Brand,
         value: data._id,
       };
       return a;
@@ -143,18 +147,31 @@ export const Updateproduct = () => {
   }, []);
 
   const handleUpdate = (e) => {
-    console.log(values,'value')
     e.preventDefault();
+    const formData = new FormData();
+  
+    // Add broucher files to the FormData
+    for (let i = 0; i < broucher.length; i++) {
+      formData.append('broucher', broucher[i]);
+    }
+  
+    // Add other form values to the FormData
+    for (const key in values) {
+      formData.append(key, values[key]);
+    }
+  
     axios
       .patch(`https://app.fuelfree.in/product/edit/${id}/${getData}`, values)
       .then(async (res) => {
         let imgFormData = new FormData();
-        imgFormData.append("productImage", image);
+        for (let i = 0; i < image.length; i++) {
+          imgFormData.append('productImage', image[i]);
+        }
         await axios.patch(
           "https://app.fuelfree.in/product/editImage/" + id,
           imgFormData
         );
-        // navigate("/editproduct");
+        navigate("/editproduct");
       })
       .catch((err) => err);
   };
@@ -207,6 +224,24 @@ export const Updateproduct = () => {
                       value={values.productName}
                       onChange={(e) =>
                         setValues({ ...values, productName: e.target.value })
+                      }
+                    />
+                     <label>recentLaunches</label>
+                    <input
+                      type="text"
+                      placeholder="recentLaunches"
+                      value={values.recentLaunches}
+                      onChange={(e) =>
+                        setValues({ ...values, recentLaunches: e.target.value })
+                      }
+                    />
+                     <label>upcomingVehicle</label>
+                    <input
+                      type="text"
+                      placeholder="upcomingVehicle"
+                      value={values.upcomingVehicle}
+                      onChange={(e) =>
+                        setValues({ ...values, upcomingVehicle : e.target.value })
                       }
                     />
                     <label>Product Price (in Rupees)</label>
@@ -562,7 +597,21 @@ export const Updateproduct = () => {
                         multiple
                         placeholder="image"
                         className="form-control"
-                        onChange={(e)=>setImage(e.target.files[0])}
+                        onChange={(e)=>setImage(e.target.files)}
+                      />
+                    </label>
+                    <label>
+                      Broucher
+                      <sup>
+                        <span style={{ color: "red" }}>*</span>
+                      </sup>
+                      <input
+                      
+                        type="file"
+                        multiple
+                        placeholder="broucher"
+                        className="form-control"
+                        onChange={(e)=>setBroucher(e.target.files)}
                       />
                     </label>
                     <label>Battery Warranty(Years)</label>

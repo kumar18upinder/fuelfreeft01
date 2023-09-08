@@ -5,11 +5,11 @@
 }
 select.profile-logout {
     background: #1c3162;
-    padding: 3px 16px;
+    padding: 9px 16px;
     margin: 8px;
-    border-radius: 12px;
+    border-radius: 11px;
     color: white;
-    width: 45%;
+    width: 68%;
 }
 .profile-image {
     width: 50%;
@@ -227,12 +227,17 @@ svg.edit-pic {
     padding: 15px;
     position: relative;
 }
+select.profile-logout {
+    font-size: 10px;
+}
 .update-pro {
     border: none;
 }
-.text-center{
-    margin-top: 100px;
+select.profile-logout {
+    border-radius: 14px;
+    width: 44%;
 }
+
 .profile-basic-info p {
     margin: 6px 0px;
     font-size: 18px;
