@@ -1,0 +1,43 @@
+
+                <div className="basic-capeion-info">
+                    <h3>Basic comaprision</h3>
+                    <div className="basic-com-info-outer">
+                        <div className="basic-com-info-content">
+                            <div className="comp-review">
+                                <h3>{compareData && compareData[0].productName}</h3> 
+                                    <h5>{compareData && compareData[0]&&compareData[1].productPrice}</h5>
+                                    <h5>BatteryVolt:{compareData && compareData[0]&&compareData[1].BatteryVolt}</h5>
+                                    <h5>BatteryAmpere:{compareData && compareData[0]&&compareData[1].BatteryAmpere}</h5>
+                                    <h5>BatteryKWH:{compareData && compareData[0]&&compareData[1].BatteryKWH}</h5>
+                                    <h5>DrivingRange:{compareData && compareData[0]&&compareData[1].DrivingRange}</h5>
+                                    <h5>ChargingTime:{compareData && compareData[0]&&compareData[1].ChargingTime}</h5>
+                                    <h5>TopSpeed:{compareData && compareData[0]&&compareData[1].TopSpeed}</h5>
+                                    <h5>ParkingAssist:{compareData && compareData[0]&&compareData[1].ParkingAssist}</h5>
+                                    <h5>Display:{compareData && compareData[0]&&compareData[1].Display}</h5>
+                                    <h5>GPSsystem:{compareData && compareData[0]&&compareData[1].GPSsystem}</h5>
+                                    <h5>BluetoothCompatibility:{compareData && compareData[0]&&compareData[1].BluetoothCompatibility}</h5>
+                                    <h5>BatteryWarranty:{compareData && compareData[0]&&compareData[1].BatteryWarranty}</h5>
+                                    <h5>BatteryWarrantyKM:{compareData && compareData[0]&&compareData[1].BatteryWarrantyKM}</h5>
+                                    <h5>disc:{compareData && compareData[0]&&compareData[1].disc}</h5>
+                                    <h5>ventilatedDisc:{compareData && compareData[0]&&compareData[1].ventilatedDisc}</h5>
+                                    <h5>hydraulicDisc:{compareData && compareData[0]&&compareData[1].hydraulicDisc}</h5>
+                                    <h5>mechanicBreak{compareData && compareData[0]&&compareData[1].mechanicBreak}</h5>
+                                    <h5>combine Break:{compareData && compareData[0]&&compareData[1].combiBreak}</h5>
+                                    <h5>Rating:{compareData && compareData[0]&&compareData[1].Rating}</h5>
+                                    <h5>BluetoothCompatibility{compareData && compareData[0]&&compareData[1].BluetoothCompatibility}</h5>
+                                    {/* <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" id="star"><defs><linearGradient id="b" x1="-1483.396" x2="-1155.767" y1="1056.787" y2="1056.787" gradientUnits="userSpaceOnUse" xlink:href="#a" /><linearGradient id="a"><stop offset="0" stop-color="#fcd635" /><stop offset="1" stop-color="#f7a928" /></linearGradient></defs><path fill="url(#b)" d="M-1220 1212.362c-11.656 8.326-86.446-44.452-100.77-44.568-14.324-.115-89.956 51.449-101.476 42.936-11.52-8.513 15.563-95.952 11.247-109.61-4.316-13.658-76.729-69.655-72.193-83.242 4.537-13.587 96.065-14.849 107.721-23.175 11.656-8.325 42.535-94.497 56.86-94.382 14.323.116 43.807 86.775 55.327 95.288 11.52 8.512 103.017 11.252 107.334 24.91 4.316 13.658-68.99 68.479-73.527 82.066-4.536 13.587 21.133 101.451 9.477 109.777z" color="#000" overflow="visible" transform="matrix(.04574 0 0 .04561 68.85 -40.34)" style="marker:none" /></svg> */}
+                                
+                            </div>
+                        </div>
+                        <div className="basic-com-info-content">
+                            <div className="comp-review">
+                                <h3>{compareData && compareData[0]&&compareData[1].productName}</h3>
+                                 <div className="comap-stars">
+                                    <h5>{compareData && compareData[0].productPrice}</h5>
+                                    {/* <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" id="star"><defs><linearGradient id="b" x1="-1483.396" x2="-1155.767" y1="1056.787" y2="1056.787" gradientUnits="userSpaceOnUse" xlink:href="#a" /><linearGradient id="a"><stop offset="0" stop-color="#fcd635" /><stop offset="1" stop-color="#f7a928" /></linearGradient></defs><path fill="url(#b)" d="M-1220 1212.362c-11.656 8.326-86.446-44.452-100.77-44.568-14.324-.115-89.956 51.449-101.476 42.936-11.52-8.513 15.563-95.952 11.247-109.61-4.316-13.658-76.729-69.655-72.193-83.242 4.537-13.587 96.065-14.849 107.721-23.175 11.656-8.325 42.535-94.497 56.86-94.382 14.323.116 43.807 86.775 55.327 95.288 11.52 8.512 103.017 11.252 107.334 24.91 4.316 13.658-68.99 68.479-73.527 82.066-4.536 13.587 21.133 101.451 9.477 109.777z" color="#000" overflow="visible" transform="matrix(.04574 0 0 .04561 68.85 -40.34)" style="marker:none" /></svg> */}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>

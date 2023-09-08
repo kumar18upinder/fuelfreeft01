@@ -1,0 +1,20 @@
+
+.hello-world{
+  padding: 20px 25px;
+  margin: 10px auto;
+  border: 1px solid black;
+}
+:root {
+  --blue: #3d5a80;
+  --light-blue: #98c1d9;
+  --sky-blue: #e0fbfc;
+  --orange: #ee6c4d;
+  --dark: #293241;
+  --white: #ffffff;
+  --text-color: #24272c;
+  --text-fade-color: #919395;
+}
+/* 
+.margin-header{
+  margin-top: 129px !important;
+} */

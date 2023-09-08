@@ -1,0 +1,201 @@
+
+
+   .enquiry-form {
+    padding: 30px;
+    border-radius: 5px;
+   }  
+
+  .enquiry-form h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 25px;
+  }
+  .Enquirybackground{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-size: cover;
+    filter: blur(2px);
+  }
+
+  .EnquiryAll button {
+    background: #1c3162;
+    color: white;
+    padding: 7px 27px;
+    border: navajowhite;
+    border-radius: 10px;
+    display: block;
+    margin: 0px auto;
+}
+  .EnquiryAll {
+    display: flex;
+    justify-content: center;
+    margin: 6%;
+    box-shadow: 0 1px 10px rgba(36,39,44,.15);
+    border-radius: 5px;
+}
+.Enquiryformouter {
+    width: 50%;
+}
+.EnquiryContent {
+    width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    background-image: url(./images/consultationimage.jpg);
+    background-size: cover;
+    border-radius: 0 5px 5px 0;
+}
+
+  
+  .enquiry-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  
+  .enquiry-form input,
+  .enquiry-form textarea {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    font-size: 13px;
+    color: #555;
+    transition: border-color 0.2s ease-in-out;
+    margin: 10px auto;
+  }
+  .welcomeline{
+    text-align: center;
+    margin-top: 75px;
+  }
+  .welcomeline h3{
+    font-weight: 700;
+  }
+  .welcomeline p {
+    letter-spacing: 11px;
+    font-size: 9px;
+    margin-left: 7px;
+}
+  
+  .enquiry-form input:focus,
+  .enquiry-form textarea:focus {
+    outline: none;
+    border-color: #ce8339;
+  }
+  
+  .enquiry-form textarea {
+    resize: none;
+  }
+  
+  .enquiry-form button[type="submit"] {
+    background-color: #ce8339;
+    color: #fff;
+    padding: 8px 45px;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+  
+  .enquiry-form button[type="submit"]:hover {
+    background-color: #ce8339;
+  }
+  
+  .enquiry-form .form-error {
+    display: block;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #ce8339;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  .EnquiryContent h3 {
+    color: black;
+    margin-top: 10%;
+}
+.EnquiryContent p {
+    color: white;
+}
+.EnquiryContent{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+  @media only screen and (max-width: 600px) {
+    .EnquiryAll {
+        position: relative;
+        
+    }
+    .EnquiryContent {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: none;
+        
+    }
+    .Enquiryformouter {
+        width: 80%;
+        margin-top: 21%;
+    }
+    
+    form.enquiry-form {
+        z-index: 55;
+        position: relative;
+    }
+    form.enquiry-form input {
+        padding: 3px;
+        font-size: 13px;
+    }
+    .enquiry-form label {
+        font-size: 10px;
+    }
+    .EnquiryAll {
+        margin: 0;
+    }
+    .EnquiryContent {
+        display: block;
+        text-align: center;
+        display: none;
+    }
+    .enquiry-form button[type="submit"] {
+      background-color: #1c3162;
+      color: #fff;
+      padding: 8px 45px;
+      border: none;
+      border-radius: 3px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      margin-top: 20px;
+      margin-left: 25px;
+  }
+  .enquiry-form button:hover{
+    background-color: white;
+    color: #1c3162;
+  }
+  .enquiry-form input:focus, .enquiry-form textarea:focus {
+    outline: none;
+    border-color: #1c3162;
+    margin: 20px auto;
+}
+  }
+  

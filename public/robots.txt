@@ -1,0 +1,13 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+allow:
+
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.fuelfree.in/sitemap.xml
+Sitemap: https://fuelfree.in/sitemap.xml
+Sitemap: https://www.fuelfree.in/sitemap.xml

@@ -1,0 +1,176 @@
+button.slick-arrow.slick-next {
+  right: 4%;
+}
+
+button.slick-arrow.slick-prev {
+  left: 1%;
+  z-index: 1;
+}
+
+button.slick-arrow.slick-prev:before {
+  content: "<<";
+  font-size: 19px;
+  font-family: monospace;
+  background: #ffffff45;
+}
+button.slick-arrow.slick-next:before {
+  content: ">>";
+  font-size: 19px;
+  font-family: monospace;
+  background: #ffffff45;
+}
+.item.item1 {
+  width: 100%;
+}
+section#product-id .slick-slide.slick-active.slick-center.slick-current img {
+  scale: 2 2;
+}
+section#product-id .slick-slide.slick-active.slick-center.slick-current img {
+  transition: 1s;
+}
+.carousel-imgs-product {
+  padding-top: 73px;
+}
+.carousel-imgs-product {
+  padding-top: 108px;
+  height: 509px;
+}
+
+div#banner-slider-home button.slick-arrow {
+  display: none !important;
+}
+div#banner-slider-home .slick-dots {
+  bottom: 7%;
+}
+div#banner-slider-home .slick-dots li button:before {
+  opacity: initial;
+  color: orange;
+  font-size: 12px;
+}
+div#banner-slider-home .slick-dots li.slick-active button:before {
+  opacity: initial;
+  color: orange;
+}
+div#mobile-slider-id {
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  div#banner-slider-home {
+    display: none;
+  }
+  div#mobile-slider-id {
+    display: block;
+    padding: 8px 0;
+  }
+  .mobilecarousel-outer img {
+    width: 100%;
+    border-radius: 23px;
+  }
+  div#mobile-slider-id button.slick-arrow {
+    display: none !important;
+  }
+  div#mobile-slider-id ul.slick-dots {
+    bottom: 17px;
+  }
+  div#mobile-slider-id .slick-dots li button:before {
+    opacity: 0.5;
+    color: white;
+    font-size: 11px;
+  }
+  div#mobile-slider-id .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: white;
+  }
+  .filter-div {
+    position: relative;
+    display: none;
+  }
+  .mobilecarousel-outer {
+    position: relative;
+    padding: 10px;
+    border-radius: 23px;
+    overflow: hidden;
+    margin-bottom: 3px;
+  }
+  .mobilecarousel-outer a {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/* =============namita============== */
+.banner-car-overlay {
+  position: absolute;
+  top: 4%;
+  left: 13%;
+  width: 64%;
+}
+
+.animate-character {
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 50px;
+  font-family: initial;
+  font-weight: 700;
+  margin-bottom: 0px !important;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+.car-desc {
+  position: absolute;
+  top: 10%;
+  right: 6%;
+  text-align: end;
+}
+
+.new-launch {
+  color: var(--orange);
+  margin-bottom: 0px !important;
+}
+.car-banner-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.car-banner-price {
+  font-size: 57px;
+  font-weight: bold;
+  color: var(--orange);
+}
+
+.car-banner-per {
+  font-size: 42px;
+  color: #fff;
+  font-weight: 600;
+}
+.car-banner-month {
+  color: #fff;
+  text-align: start;
+  font-size: 13px;
+  font-weight: 500;
+}
+.car-banner-desc {
+  color: #fff;
+}
+.learn-more-btn {
+  color: #fff;
+  background-color: var(--orange);
+  border-color: var(--orange);
+}
+.learn-more-btn:hover {
+  color: #fff;
+  background-color: var(--blue);
+  border-color: var(--blue);
+}

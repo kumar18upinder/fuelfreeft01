@@ -1,0 +1,207 @@
+.news-left-content {
+  width: 70%;
+}
+.news-tab-content {
+  display: none;
+}
+.news-margin {
+  margin: 0% 6%;
+}
+.news-side-img img {
+  border-radius: 50% !important;
+  width: 54px;
+  height: 52px;
+}
+.news-tab-content.active {
+  display: block !important;
+}
+.news-font{
+  font-family: "auto";
+}
+.news-head {
+  margin: 0% 3%;
+  text-align: justify;
+}
+.news-mainheading {
+  font-family: ui-serif;
+}
+.news-content{
+  padding: 2% 0%;
+  font-family: fangsong;
+}
+.news-img img {
+  width: 93px;
+  height: 81px;
+  object-fit: cover;
+}
+.news-tba-outer-tab {
+  display: flex;
+  justify-content: flex-start;
+  padding: 23px 0;
+}
+button.news-tabs {
+  padding: 0% 1%;
+  border-top: navajowhite;
+  border-radius: 17px;
+  border-right: none;
+  border-left: navajowhite;
+  border-bottom: 2px solid #f59b26;
+  font-size: 18px;
+  width: 18%;
+}
+button.news-tabs.active {
+  border-bottom: none;
+  border-top: 2px solid #f59b26;
+  font-size: 19px;
+}
+
+.news-detaisl-img h2 {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: -31px;
+  font-size: 17px;
+  background: white;
+}
+.news-right-bar {
+  width: 28%;
+  margin-bottom: 20px;
+  padding-top: 45px;
+}
+.news-content-con {
+  display: flex;
+  box-shadow: -1px -1px 8px rgba(36, 39, 44, 0.15);
+  margin-bottom: 1% !important;
+  position: relative;
+  width: 100%;
+  margin: 0% 1%;
+}
+.news-content-text {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+.news-content-img img {
+  width: 645px;
+  height: 263px;
+  object-fit: cover;
+}
+.news-content-text {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.news-see-more-butn {
+  width: 100%;
+}
+.news-see-more-butn span {
+  background: #1c3162;
+  color: white;
+  padding: 8px 40px;
+  border-radius: 5px;
+}
+.news-content-text-Bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+.news-right-bar .news-content-text {
+  padding: 6px;
+}
+.news-right-bar h6 {
+  font-size: 10px;
+}
+.news-right-bar .news-content-img {
+  width: 212px;
+  height: 78px;
+}
+.news-right-bar .news-see-more-butn span {
+  font-size: 10px;
+  padding: 1px 7px;
+}
+.news-right-bar-outer {
+  box-shadow: 0 1px 3px rgb(36 39 44 / 15%);
+  padding: 10px;
+  margin-bottom: 32px;
+  border-radius: 4px;
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+}
+.all-news-content-outer a {
+  width: 100%;
+  margin-top: 5%;
+}
+/* =====================================new==================================================================================== */
+@media only screen and (max-width: 768px) {
+  .news-left-content {
+    width: 100% !important;
+  }
+  .news-mainheading {
+    font-family: ui-monospace;
+}
+.news-detaisl-img img {
+  width: 823px !important;
+  height: 206px !important;
+  object-fit: unset !important;
+}
+.news-content {
+  padding: 2% 0% !important;
+  font-family: "fangsong" !important;
+  font-size: 15px !important;
+}
+.news-left-content {
+  width: 100% !important;
+  margin: 0% !important;
+  border-right: 0px solid black !important;
+}
+  .news-tba-outer-tab {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    flex-wrap: wrap;
+  }
+  .news-tab-content.active {
+    width: 100%;
+  }
+  .news-content-con {
+    width: 44%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px !important;
+  }
+  button.news-tabs {
+    font-size: 10px !important;
+    width: 30%;
+    border: 1px solid black;
+    border-radius: 13px;
+    padding: 4px 2px;
+    margin-top: 3px;
+  }
+  button.news-tabs.active {
+    border: 1px solid #f59b26;
+    border-radius: 13px;
+  }
+  .news-right-bar {
+    display: none;
+  }
+  section.news-outer {
+    display: block !important;
+    margin-top: 20px !important;
+  }
+  .news-see-more-butn span {
+    background: #1c3162;
+    color: white;
+    padding: 4px 25px;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+  .news-content-text-top h5 {
+    font-size: 14px;
+  }
+}

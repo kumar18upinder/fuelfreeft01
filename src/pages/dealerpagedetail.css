@@ -1,0 +1,433 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+
+:root {
+  --blue: #3d5a80;
+  --light-blue: #98c1d9;
+  --sky-blue: #e0fbfc;
+  --orange: #ee6c4d;
+  --dark: #293241;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.dealer-rating img {
+  border-radius: 50%;
+}
+
+.stations-wallpaper{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  overflow: hidden;
+  text-align: center;
+}
+.dist-main-dealer {
+  border: 1px solid lightgray;
+  margin-top: 20px;
+  height: 80px;
+  word-break: break-word;
+  /* overflow: scroll; */
+  width: 75%;
+}
+.charging-view-btn{
+  width: 55%;
+}
+.stations-wallpaper-overlay {
+  position: absolute;
+}
+.stations-wallpaper-overlay p {
+  background: #1c3162;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+  padding: 10px;
+  color: white;
+  text-transform: capitalize;
+  border-radius: 11px;
+  font-weight: 600;
+}
+.stion-content-outer {
+  /* display: flex; */
+
+  /* box-shadow: 0px 0px 1px 1px; */
+  margin: 22px 0px;
+  border-radius: 30px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* margin-left: 3%; */
+}
+
+.stion-content {
+  width: 25%;
+}
+
+.loc-css {
+  text-align: center;
+  font-size: 25px;
+  margin-top: 2%;
+  font-weight: 500;
+}
+h3.firm-name-main {
+  text-align: center;
+  background: #262681;
+  bottom: 0px auto;
+  height: 100%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  color: white;
+  margin-top: 0%;
+  width: 55%;
+  box-shadow: 0px 2px 3px 0px;
+  border: 10px solid #262681;
+  font-size: 13px;
+}
+.dist-main{
+  width: 60%;
+  margin-top: 10px;
+}
+.wall-img-main {
+  box-shadow: 0px 2px 3px 0px;
+  width: 189px;
+  height: 114px;
+  object-fit: cover;
+}
+
+#charging-station-all {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.hidden-address {
+  font-size: 0;
+}
+img.loction-icn {
+  margin-right: 11px;
+}
+.charging-station-cont {
+  width: 75%;
+  margin-left: 15px;
+}
+
+a.google-color {
+  color: #999;
+  font-size: 12px;
+  text-decoration: revert;
+}
+
+
+a.google-find {
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  padding: 4px 6px;
+  background: #1c3162;
+  color: #fff;
+  margin-top: 18px;
+  border-radius: 5px;
+}
+.charging-view-btn {
+  justify-content: space-between;
+    align-items: center;
+    display: flex;
+    /* width: 75%; */
+}
+
+.stion-adress img {
+  width: 26px;
+  border: 1px solid #00000085;
+  border-radius: 50%;
+  padding: 3px;
+}
+.stion-star-name {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  justify-content: center;
+  /* border: 1px solid #1c3162; */
+  width: 100%;
+  /* height: 50%; */
+  /* border-radius: 12%; */
+  border-bottom: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.search_deler_div p {
+  background: transparent;
+  text-align: center;
+  font-weight: 500;
+}
+.search_deler_div input {
+  width: 51%;
+  padding: 10px;
+  border-radius: 15px;
+}
+.stations-wallpaper h5 {
+  font-size: 47px;
+  color: white;
+  margin-top: 4%;
+  text-transform: capitalize;
+  font-weight: 700;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.stations-wallpaper-overlay h3 {
+  color: white;
+  font-size: 48px;
+  text-transform: uppercase;
+}
+.stations-wallpaper img {
+  width: 100%;
+}
+.Carcard-charge{
+  background-color: #ffffffc2;
+  padding: 18px;
+  margin: 27px 11px;
+  border-radius: 5px;
+  min-height: 220px;
+  flex-direction: row;
+  width: 23%;
+  border: 1px solid #0000001a;
+}
+.width-percent {
+  width: 75%;
+  margin: 0px auto;
+  font-family: "Roboto", sans-serif;
+  box-shadow: none;
+}
+
+.dealer-cls .dealer-1 {
+  margin-top: 90px;
+}
+
+.dealer-1 h1 {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.dealer-cls h2 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.dealer-cls p {
+  font-size: 13px;
+}
+
+.dealer-cls .section-margin {
+  margin: 60px 50px;
+}
+.dealer-cls .dealer-img {
+  width: 100%;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+.dealer-info .dealer-rating {
+  display: flex;
+  align-items: center;
+}
+
+.dealer-info .dealer-rating div p {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.dealer-info .dealer-rating h3 {
+  margin-left: 20px;
+}
+
+.dealer-info .dealer-rating div {
+  display: flex;
+  align-items: center;
+  margin: 0px 35px;
+}
+
+.dealer-info .dealer-con div {
+  display: flex;
+  margin: 15px 20px;
+}
+
+.dealer-info .dealer-con div i {
+  margin-right: 20px;
+}
+
+.dealer-reviews img {
+  width: 5%;
+}
+.dealer-reviews h3 {
+  font-size: 18px;
+  margin-top: 5px;
+}
+.dealer-reviews .dealer-rating {
+  display: flex;
+  align-items: center;
+}
+
+.dealer-reviews .dealer-rating div p {
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.dealer-reviews .dealer-rating h3 {
+  margin-left: 20px;
+}
+
+.dealer-reviews .dealer-rating div {
+  display: flex;
+  align-items: center;
+  margin: 0px 15px;
+}
+
+.dealer-reviews .dealer-review-rating {
+  margin: 40px 30px;
+}
+
+.dealer-reviews .dealer-review-rating .dealer-comment {
+  margin-top: -9px;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+
+.dealer-reviews .dealer-form {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 90px auto;
+  width: 60%;
+}
+.dealer-reviews .dealer-form h3 {
+  margin-left: 47px;
+  font-weight: bold;
+}
+
+.dealer-reviews .dealer-form form {
+  margin: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dealer-reviews .dealer-form form input {
+  width: 90%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
+
+.dealer-reviews .dealer-form form textarea {
+  margin-top: 60px;
+  width: 90%;
+  height: 26px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
+
+.dealer-reviews .dealer-form form button {
+  width: 30%;
+  border: 1px solid black;
+  padding: 5px 25px;
+  color: white;
+  background-color: black;
+  margin-top: 45px;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.dealer-reviews .dealer-form form button:hover {
+  background-color: white;
+  color: black;
+}
+
+/* =========================================mobile view===================================== */
+
+@media only screen and (max-width: 768px) {
+  .row.main-div .col-md-1 {
+    width: 15%;
+  }
+  .Carcard-charge {
+    background-color: #ffffffc2;
+    padding: 18px;
+    margin: 27px 11px;
+    border-radius: 5px;
+    height: -moz-fit-content;
+    height: fit-content;
+    flex-direction: row;
+    width: 100%;
+    border: 1px solid #0000001a;
+}
+  .stion-content-outer {
+    padding-bottom: 0;
+  }
+  .stations-wallpaper {
+    height: auto;
+  }
+  .wall-img-main{
+    width: 100%;
+  }
+  .stations-wallpaper-overlay h3 {
+    font-size: 23px;
+  }
+  .stations-wallpaper-overlay p {
+    font-size: 10px;
+    padding: 4px;
+    text-align: center;
+  }
+  .search_deler_div input {
+    padding: 0;
+  }
+
+  .address-deal {
+    font-size: 9px;
+  }
+  a.google-find {
+    font-size: 9px;
+  }
+  .stations-wallpaper h5 {
+    font-size: 18px;
+  }
+  .col-md-3.travelCar {
+    width: 38%;
+  }
+  .row.main-div .col-md-4 {
+    width: 40%;
+  }
+  .dealerlist {
+    padding: 38px 54px;
+    margin: 0 auto;
+  }
+  select.sorting {
+    margin-top: 50px;
+  }
+  .stion-content {
+    width: 100%;
+    height: max-content;
+    margin-bottom: 20px;
+    margin-right: 18px;
+  }
+  .loc-css {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 30px;
+  }
+  .dist-main-dealer {
+    border: 1px solid lightgray;
+    margin-top: 20px;
+    height: 80px;
+    word-break: break-word;
+    overflow: scroll;
+}
+}

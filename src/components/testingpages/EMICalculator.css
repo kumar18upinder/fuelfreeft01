@@ -1,0 +1,137 @@
+.emi-calculator {
+    margin-top: 50px;
+  }
+  
+  .emi-inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-around;
+  }
+  
+  .emi-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 30%;
+  }
+  
+  .emi-input label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .scroll-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .emi-input span {
+    width: 55%;
+    text-align: center;
+    width: 35%;
+    text-align: center;
+    background: white;
+    border-radius: 10px;
+}
+section#emi-calculater .tanker {
+  background: white;
+  padding: 16px 0px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.emi-content span {
+  border: 1px solid #0000001f;
+  -webkit-appearance: none;
+  border-bottom: 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+}
+.emi-content-result p {
+  font-size: 20px ;
+}
+.emi-content-result {
+  width: 50%;
+  text-align: center;
+  padding: 17px;
+}
+.emi-content input {
+  border: 1px solid #0000001f;
+  -webkit-appearance: none;
+  border-bottom: 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+}
+.emi-content label {
+ font-size: 20px;
+}
+.emi-content button {
+  display: none;
+}
+.emi-content {
+  width: 21%;
+  display: flex;
+  flex-direction: column;
+}
+.emi-results {
+  text-align: center;
+}
+  .scroll-button button {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #e6e6e6;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0 10px;
+  }
+  
+  .scroll-button span {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 10px;
+  }
+  
+  .emi-results button {
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #1c3162;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 11px;
+    margin-top: 19px;
+  }
+  
+  .emi-result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .price-showroom-one{
+    text-align: left;
+    font-size: 13px;
+    margin-left: 18%;
+  }
+  
+  .price-showroom-Two {
+    font-size: 18px;
+    margin-left: 18%;
+    font-weight: 900;
+}
+
+  .img-one-emi-calc{
+    width: 30%;
+  }

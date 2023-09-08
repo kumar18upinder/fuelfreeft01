@@ -1,0 +1,316 @@
+.mainbtn {
+    width: 100%;
+}
+.basic-com-info-content h2 {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.comp-img{
+    width: 100%;
+    margin-bottom: 15px;
+    height: 100%;
+    object-fit: scale-down;
+}
+.camapare-vehicle:first-child .compare-img {
+    background-color: #fbc2c8;
+}
+
+.camapare-vehicle:nth-child(2) .compare-img {
+    background-color: #cce5ff;
+}
+a.remove-comapre {
+    position: absolute;
+    top: 12px;
+    right: 2%;
+    border-radius: 11px;
+    background: #bc00ff;
+    color: white;
+    padding: 3px 10px;
+    font-size: 10px;
+}
+a.add-compare {
+    display: none;
+}
+.camapare-vehicle:nth-child(3):before {
+    content: "vs";
+    position: absolute;
+    top: -11px;
+    background: var(--dark);
+    border-radius: 50%;
+    width: 24px;
+    text-align: center;
+    color: white;
+}
+
+.camapare-vehicle {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 14px;
+    position: relative;
+}
+
+.compare-discr {
+    width: 50%;
+    padding: 9px;
+    text-align: center;
+}
+.compare-discr h3 {
+    font-size: 17px;
+}
+
+div#first_vs:after {
+    content: "VS";
+    position: absolute;
+    right: -5%;
+    top: 50%;
+    z-index: 99;
+    background: black;
+    border-radius: 50%;
+    color: white;
+    padding: 5px 5px;
+}
+p.comp-prize {
+    font-size: 16px;
+    color: #252625;
+}
+p.comp-prize span {
+    font-size: 21px;
+    margin-right: 3px;
+    color: #1616168f;
+}
+.mainbtn {
+    width: 89%;
+    padding: 10px;
+    border: 1px solid var(--orange);
+    border-radius: 5px;
+    margin: 6px 0;
+    color: #ee6c4d;
+}
+.compre-butn {
+    text-align: center;
+}
+
+.camapare-vehicle:nth-child(3) {
+    border-top: 1px solid #00000042;
+}
+.Comapresion-div {
+    display: flex;
+    justify-content: space-around;
+}
+.basic-caompresion-img img {
+    width: 100%;
+}
+
+.com-comapreion-img {
+    position: relative;
+}
+div#comparisonMobile {
+    margin: 8px;
+}
+.comap-stars img {
+    width: 4%;
+}
+.basic-com-info-outer {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #0000001c;
+    padding-bottom: 17px;
+    padding-top: 19px;
+}
+.basic-com-info-outer h5 {
+    height: 90px;
+    background: white;
+    margin-bottom: 23px;
+}
+.comap-stars {
+    display: flex;
+    justify-content: center;
+}
+.comp-review {
+    text-align: center;
+}
+.basic-capeion-info {
+    margin-top: 28px;
+}
+ 
+.middle-compre {
+    width: 10%;
+    text-align: center;
+}
+.middle-compre h5 {
+    padding: 4px;
+    position: relative;
+    font-size: 14px;
+}
+.middle-compre h5::before {
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background: #c5c5c5;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 10px;
+    rotate: 45deg;
+
+}
+
+
+.comp-review h5 {
+    position: relative;
+    color: black;
+    padding: 18px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.basic-com-info-outer h5::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 7px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-bottom: 3px solid #36363b1a;
+}
+div#CompareType .mobile-cotegory-outer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-left: 13%;
+}
+div#CompareType .mobile-cotegory-content {
+    width: 30%;
+    background: red;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px;
+    border-radius: 10px;
+    margin-bottom: 2%;
+    margin-right: 3%;
+}
+#CompareType .mobile-cotegory-content i {
+    font-size: 81px;
+    color: #289952;
+}
+div#CompareType .mobile-cotegory-content a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+div#CompareType .CompareType .section-title {
+    margin-top: 33px;
+}
+.copmpare-item-flex-outer {
+    display: flex;
+    justify-content: center;
+}
+
+.camapare-vehicle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+.copmpare-item-flex-outer {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.compare-img {
+    width: 300px;
+    position: relative;
+    height: 300px;
+}
+.comapre-butn-outer {
+    display: flex;
+    justify-content: center;
+}
+.compre-butn {
+    text-align: center;
+    width: 20%;
+}
+.basic-caompresion-img:nth-child(2) .com-comapreion-img:before {
+    content: "VS";
+    position: absolute;
+    background: black;
+    color: white;
+    border-radius: 50%;
+    padding: 9px;
+    left: -3%;
+    top: 50%;
+}
+.CompareType .mobile-cotegory-content h3 {
+        /* display: none; */
+        font-size: 15px;
+        margin-top: 20px;
+        color: #545454d9;
+        text-align: center;
+}
+.basic-com-info-content {
+    width: 33.3%;
+    text-align: center;
+}
+
+
+
+/* =====================================================================================================================mobile======================================== */
+@media only screen and (max-width: 768px) {
+.mobile-inner-header {
+    display: flex;
+}
+.basic-com-info-content {
+    width: 40%;
+}
+.middle-compre {
+    width: 20%;
+}
+.basic-caompresion-img:nth-child(2) .com-comapreion-img:before {
+    left: -10%;
+    top: 40%;
+}
+.mobile-inner-header {
+    display: flex;
+    padding: 6px;
+    /* align-items: center; */
+}
+.mobile-inner-header a {
+    margin-right: 7%;
+    margin-bottom: 4px;
+}
+.camapare-vehicle {
+    display: flex;
+    flex-direction: row;
+}
+.copmpare-item-flex-outer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.compare-img {
+    width: 200px;
+    height: 200px;
+    object-fit: scale-down;
+}
+.compre-butn {
+    width: 70%;
+}
+.comapre-butn-outer {
+    flex-direction: column;
+    align-items: center;
+}
+div#CompareType .mobile-cotegory-content {
+    width: 48%;
+}
+
+
+
+
+}

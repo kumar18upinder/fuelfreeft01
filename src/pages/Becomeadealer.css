@@ -1,0 +1,512 @@
+.become-dealer-banner-area {
+  background-image: url(./images/aboutusfinal.png);
+  height: 476px;
+  position: relative;
+  z-index: 5;
+  background-size: contain !important;
+  margin-top: -33px;
+}
+
+.Home-heading {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 7%;
+  color: #333;
+}
+
+#tanker {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Home-page-paragraph {
+  font-size: 15px;
+  /* color: #605f5fe0; */
+}
+
+.card h2::first-letter {
+  font-size: 30px;
+}
+
+.card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(36, 39, 44, .15);
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 25%;
+}
+
+.card img {
+  width: 100%;
+  /* max-height: 240px; */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.card h2 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.card p {
+  font-size: 10px;
+  text-align: center;
+}
+.card p:nth-of-type(2){
+  font-size: 15px;
+}
+.card.card-1 {
+  width: 21%;
+  margin-top: 3%;
+}
+
+.card-outer {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-top: 60px; */
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+button.Register-card {
+  font-size: 14px;
+  border: 1px solid #333;
+  color: #333333;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  background: #fff;
+  width: 150px;
+  height: 36px;
+  border-radius: 3px;
+}
+button.Register-card:hover {
+  color: #e6e6e6;
+  padding: 1px 23px;
+}
+
+.Register {
+  display: inline-block;
+  background-color: black;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  width: 25% !important;
+  margin-right: 31px;
+  box-shadow: 0 1px 3px rgba(36, 39, 44, .15);
+  margin-top: 4%;
+}
+
+.Register:hover {
+  background-color: #fff;
+  color: black;
+}
+.pro-list-card{
+  display: flex;
+  height: 400px;
+  width: 100%;
+}
+.pro-list-btn{
+  margin-left: 10px;
+}
+
+
+@media only screen and (max-width:500px){
+  .main-div-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+  }
+  .card.card-1 {
+    width: 90%;
+}
+  .home-heading-mobile{
+      margin-top: 100px;
+  }
+  .home-heading-mobile .pera-cls{
+      font-size: 23px;
+      font-weight: 500;
+  }
+
+  .home-heading-mobile 
+   .card-row{
+      display: flex;
+      flex-wrap: wrap;
+   }
+
+   .card-1{
+      width: 90%;
+      margin: 10px auto;
+   }
+   .Home-page-paragraph p{
+      font-size: 10px;
+   }
+}
+
+.bg_cover {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.align-items-center {
+  align-items: center !important;
+}
+.become-dealer-banner-area::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: (
+    linear,
+    left top,
+    right top,
+    from(rgb(0, 0, 0)),
+    to(rgba(255, 255, 255, 0))
+  );
+  background: linear-gradient(
+    90deg,
+    rgb(0, 0, 0) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.65;
+}
+
+@media (min-width: 992px) {
+  .col-lg-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+}
+@media (min-width: 576px) {
+  .col-sm-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+}
+.become-dealer-banner-content .main-title {
+  font-size: 60px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1;
+  letter-spacing: -3px;
+  text-shadow: 5px 5px 5px orange;
+  display: none;
+}
+
+.become-a-dealer-content {
+  padding-top: 112px;
+  padding-bottom: 70px;
+}
+
+.dealer-title .title {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: "Cabin", sans-serif;
+  color: white;
+  position: relative;
+}
+.single-benefits {
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 45px;
+}
+.single-benefits .benefits-icon i {
+  width: 80px;
+  font-size: 50px;
+  color: #1c3162;
+  line-height: 45px;
+}
+.ion-model-s:before {
+  content: "\f2c1";
+}
+.single-benefits .benefits-content {
+  -moz-flex: 1;
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+.single-benefits .benefits-content p {
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+  margin-left: 50px;
+}
+.ion-android-contacts:before {
+  content: "\f2d9";
+}
+.ion-cash:before {
+  content: "\f316";
+}
+.benefits-btn {
+  margin-top: 65px;
+}
+.benefits-btn .main-btn {
+  font-size: 14px;
+}
+
+.benefits-btn :hover {
+  color: #ce8339;
+  background-color: #fff;
+}
+.call-to-action-2-btn :hover {
+  color: #ce8339;
+  background-color: #fff;
+}
+
+p {
+  color: #737f96;
+  margin: 0px;
+}
+.why-choose-wrapper {
+  border-top: 1px solid rgba(41, 57, 87, 0.15);
+  padding-top: 70px;
+  padding-bottom: 120px;
+}
+.why-choose-title .title {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: "Cabin", sans-serif;
+  color: #293957;
+}
+.g-5,
+.gx-5 {
+  --bs-gutter-x: 3rem;
+}
+@media (min-width: 992px) {
+  .col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+}
+.single-choose-2 {
+  margin-top: 50px;
+}
+.single-choose-2 .choose-image img {
+  width: 100%;
+}
+.single-choose-2 .choose-content {
+  background-color: #f0f3f5;
+  padding: 30px;
+  min-height: 172px;
+}
+.single-choose-2 .choose-content .title {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Cabin", sans-serif;
+  color: #293957;
+  text-transform: uppercase;
+}
+.single-choose-2 .choose-content p {
+  margin-top: 15px;
+}
+.single-choose-2 .choose-content p strong {
+  color: #293957;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+.benefits-dealer-spotlight-area {
+  background-color: white;
+  padding-bottom: 80px;
+  /* padding-top: 70px; */
+}
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+.benefits-area {
+  max-width: 470px;
+  margin-top: 42px;
+}
+.dealer-spotlight-area {
+  margin-top: 42px;
+}
+
+.dealer-title p a {
+  color: #0099cc;
+}
+.dealer-spotlight-area .dealer-spotlight-video {
+  margin-top: 30px;
+}
+.ratio-16x9 {
+  --bs-aspect-ratio: 56.25%;
+}
+.ratio {
+  position: relative;
+  width: 100%;
+}
+.ratio::before {
+  display: block;
+  padding-top: var(--bs-aspect-ratio);
+  content: "";
+}
+.ratio > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+iframe {
+  border: 0;
+}
+
+.testimonial-area-4 {
+  padding-bottom: 120px;
+  padding-top: 115px;
+}
+.position-relative {
+  position: relative !important;
+}
+.dealer-title .title {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: "Cabin", sans-serif;
+  color: white;
+}
+.faq-wrapper {
+  border-top: 1px solid rgba(41, 57, 87, 0.15);
+  padding-top: 112px;
+  padding-bottom: 120px;
+}
+.dealer-title .title {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: "Cabin", sans-serif;
+  color: white;
+}
+.faq-contact p a {
+  color: #ce8339;
+  text-decoration: underline;
+  font-weight: 700;
+}
+.call-to-action-2-area {
+  background-image: url(./images/moneycash.jpg);
+  padding-top: 110px;
+  padding-bottom: 140px;
+}
+
+.bg_cover {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.g-5,
+.gx-5 {
+  --bs-gutter-x: 3rem;
+}
+@media (min-width: 992px) {
+  .col-lg-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+}
+.single-faq {
+  margin-top: 45px;
+}
+.single-faq .title {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: "Cabin", sans-serif;
+  color: #293957;
+}
+.faq-contact {
+  margin-top: 70px;
+}
+.faq-contact p {
+  text-transform: uppercase;
+  font-size: 24px;
+  color: #293957;
+}
+.single-faq p {
+  margin-top: 20px;
+  line-height: 30px;
+}
+.call-to-action::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: (
+    linear,
+    left top,
+    right top,
+    from(rgb(0, 0, 0)),
+    to(rgba(255, 255, 255, 0))
+  );
+  background: linear-gradient(
+    90deg,
+    rgb(0, 0, 0) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.65;
+}
+strong.before-horizontal-line-orange:before {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #f08a04;
+  position: absolute;
+  bottom: 0;
+}
+strong.before-horizontal-line-orange {
+  position: relative;
+}
+strong.before-horizontal-line-blue {
+  position: relative;
+}
+strong.before-horizontal-line-blue::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background-color: #262681;
+  bottom: 0;
+  left: 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .benefits-dealer-spotlight-area {
+    padding-bottom: 20px;
+  }
+  .benefits-btn {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+.title {
+  background-color: #262681;
+  color: white;
+}

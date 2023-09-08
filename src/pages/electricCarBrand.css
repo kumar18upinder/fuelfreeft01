@@ -1,0 +1,121 @@
+.logo-car {
+  color: #000;
+  text-align: center;
+}
+.electric-vehicle-log-outer {
+    display: flex;
+    margin-top: 18px !important;
+    margin-left: 0 !important;
+    width: 100%;
+    margin-right: 2% !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0% 0%;
+}
+.electric-vehicle-logo-name a {
+    margin-right: 1%;
+}
+
+/* .electric-vehicle-log-outer.m-4 a {
+    width: 12%;
+    text-align: center;
+} */
+
+.section-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: .1;
+    z-index: -1;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.section-background img {
+    width: 34%;
+    margin-bottom: 5%;
+}
+.electric-vehicle-log-outer.m-4 a {
+    width: 10%;
+    text-align: center;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    border-radius: 19px;
+    padding: 10px;
+    box-shadow: 3px 0px 6px 3px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    z-index: 1;
+}
+
+#elct-brnd-komaki{
+    width: 89%;
+    /* margin-top: 16px; */
+}
+
+
+
+#elct-brnd-pureev{
+    margin-top: 15px;
+    /* height: 70px; */
+    width: 80%;
+}
+
+
+.electric-vehicle-log-outer.m-4 p {
+    display: none;
+}
+.electric-vehicle-logo-name h3{
+    color: var(--dark);
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+}
+.browserBY {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+/* .electric-vehicle-border {
+    border-bottom: 1px solid #2932410d;
+} */
+.show-all-makes {
+    color: #999;
+    text-decoration: revert;
+}
+.car-brand-clr{
+    color: #008000a8
+}
+#electric-vehicle-log{
+    padding-top: 3%;
+    position: relative;
+    margin-top: 2%;
+    overflow: hidden;
+}
+.browserBY {
+    display: flex;
+    justify-content: space-between;
+    width: 49%;
+    align-items: center;
+}
+/* ==================================================================meadia query start here================================= */
+@media only screen and (max-width: 768px) {
+    
+    .electric-vehicle-log-outer.m-4 a {
+        margin-bottom: 20px;
+        width: 23%;
+        box-shadow: 0 1px 3px rgba(36,39,44,.15);;
+        border: 1px solid #0000002b;
+    }
+    .electric-vehicle-log-outer {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 18px !important;
+        justify-content: center;
+        
+        
+    }
+}

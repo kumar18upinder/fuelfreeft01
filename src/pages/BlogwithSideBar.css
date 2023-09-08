@@ -1,0 +1,285 @@
+.Slide-img1 img {
+  height: 550px;
+  width: 100%;
+}
+.Slide-img2 img {
+  display: none;
+  height: 550px;
+  width: 100%;
+}
+.Slide-img3 img {
+  display: none;
+  height: 550px;
+  width: 100%;
+}
+/* headers */
+.header-title {
+  margin-top: -50px;
+  margin-left: 25px;
+}
+.title {
+  font-size: 42px;
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+}
+.title-para {
+  color: white;
+  margin-top: 20px;
+  margin-left: 31px;
+}
+
+.Header-blog {
+  display: flex;
+  position: absolute;
+  top: 70%;
+}
+.heaers-li {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+.heaers-li li {
+  list-style: none;
+}
+li a {
+  text-decoration: none;
+  color: white;
+}
+li a:hover {
+  color: #ce8339;
+  transition: 0.3s ease-out;
+  text-decoration: underline;
+}
+.left-button-slide {
+  margin-left: 10px;
+  margin-top: 50px;
+}
+.right-button-slide {
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+.right-button-slide button {
+  border: none;
+  margin: 5px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+}
+.left-button-slide button {
+  border: none;
+  margin-inline: 5px;
+  padding-inline: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.mid-full-page {
+  display: flex;
+}
+.mid-section-blog {
+  height: auto;
+  width: 60%;
+  display: flex;
+  margin-top: 50px;
+  flex-direction: column;
+}
+.blog-list-container {
+  height: 90%;
+  margin-top: 50px;
+  display: flex;
+  margin-inline: 5%;
+}
+.card-blog {
+  display: flex;
+  flex-direction: column;
+}
+.blog-list-container hr {
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.hr hr {
+  margin-top: 20px;
+}
+
+.blog-img img {
+  width: 270px;
+  height: 155px;
+}
+.News {
+  display: flex;
+}
+.News p {
+  margin-left: 11px;
+  margin-bottom: 6px;
+}
+
+.News a {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ce8339;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.news-title h5 a {
+  color: black;
+  text-decoration: none;
+}
+.news-title h5 a:hover {
+  color: #ce8339;
+  transition: 0.3s ease-out;
+}
+.news-title h5 {
+  font-size: 17px;
+}
+.news-title p {
+  color: rgb(130, 130, 130);
+  font-size: 13px;
+  margin-bottom: 0px;
+}
+.blog-info {
+  margin-left: 15px;
+  box-sizing: border-box;
+}
+
+.blog-comment:hover {
+  color: #ce8339;
+  transition: 0.3s ease-out;
+}
+.commnet-and-others {
+  display: flex;
+  justify-content: space-between;
+}
+.blog-share:hover {
+  color: #ce8339;
+  transition: 0.3s ease-out;
+}
+.pagination-blog-list button {
+  margin-inline: 5px;
+  border: none;
+}
+.pagination-blog-list button:hover {
+  background-color: #ce8339;
+  transition: 0.3s ease-out;
+}
+.pagination-blog-list {
+  margin-bottom: 10px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.right-section {
+  width: 35%;
+  height: 90%;
+  margin-top: 100px;
+  margin-left: 20px;
+}
+.top-section {
+  margin-left: 33px;
+}
+.text-of-categouries {
+  margin-top: 20px;
+}
+
+.list-number {
+  float: right;
+}
+.categouries-list li a {
+  color: rgb(21, 21, 20);
+}
+.categouries-list li a:hover {
+  color: #ce8339;
+  transition: 0.3s ease-out;
+}
+.categouries-list li {
+  border-bottom: 1px solid rgb(183, 183, 183);
+  list-style: none;
+  margin-top: 20px;
+}
+
+.populer-posts-heading {
+  margin: 50px 0px 30px 30px;
+}
+.populer-posts {
+  margin-left: 33px;
+  display: flex;
+  border-bottom: solid rgb(183, 183, 183);
+  margin-bottom: 20px;
+}
+.populer-post-img img {
+  height: 55px;
+  width: 90px;
+}
+.populer-head {
+  margin-left: 10px;
+}
+.populer-details {
+  margin-left: 10px;
+  color: black;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.populer-details:hover {
+  color: #ce8339;
+  transition: 0.3s ease-out;
+}
+.newSelter-full-box {
+  height: 280px;
+  width: 310px;
+  margin-top: 80px;
+  background-color: #f5f6f6;
+  margin-bottom: 50px;
+  margin-left: 30px;
+}
+
+/* NEWS-SELTER */
+
+.selter-head {
+  margin-top: 30px;
+  display: inline-block;
+}
+.selter {
+  margin-left: 25px;
+}
+.form input {
+  width: 100%;
+  padding: 0 15px;
+  height: 45px;
+  border-radius: 3px;
+  border: 1px solid #d7dce6;
+  background-color: #ffffff;
+  font-size: 16px;
+}
+.selter-form {
+  margin-inline: 20px;
+}
+.btn-main {
+  margin-top: 4%;
+  padding: 1.9%;
+  background-color: #ce8339;
+  border: none;
+  color: white;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 10px 10px;
+  border-radius: 2px;
+  padding-inline: 15px;
+}
+.btn-main:hover {
+  background-color: #204060;
+  transition: 0.5s ease-out;
+}
+.spam-text {
+  margin-bottom: 20px;
+}
+
+.populer-button button {
+  margin: 10px 10px 10px 10px;
+}
+
+.populer-text {
+  display: inline-block;
+  margin-left: 30px;
+}

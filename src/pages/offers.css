@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+:root {
+    --blue: #3d5a80;
+    --light-blue: #98c1d9;
+    --sky-blue: #e0fbfc;
+    --orange: #ee6c4d;
+    --dark: #293241;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.width-percent{
+    width: 75%;
+    margin: 0px auto;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: none;
+}
+
+.width-percent-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+}
+
+.offers-cls{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 700px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(36,39,44,.15);
+}
+
+.width-percent .offers-cls div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.width-percent .offers-cls p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--dark);
+}
+
+@media only screen and (max-width:500px){
+    .offers-cls{
+        width: 100%;
+    }
+}

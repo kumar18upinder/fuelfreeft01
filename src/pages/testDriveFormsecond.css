@@ -1,0 +1,35 @@
+.signup-part {
+    margin: 0 auto;
+}
+
+.heading-agency-list {
+    text-align: center;
+    color: white;
+}
+
+form.signup-form {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .signup-part {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .main-div-buy-now {
+        width: 100% !important;
+    }
+
+    button.btn.btn-success{
+        margin-top: 40px;
+    }
+    input.add-pic {
+        margin-left: 11px;
+        margin-top: 15px;
+    }
+    form.signup-form{
+        width: 100%;
+    }
+
+}

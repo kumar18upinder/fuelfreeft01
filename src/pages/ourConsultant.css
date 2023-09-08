@@ -1,0 +1,26 @@
+.rating-star {
+    padding: 0px;
+    margin: 0px;
+  }
+  .deal-num {
+    text-decoration: none;
+    color: #000;
+  }
+  .professional-person {
+    width: 86px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .deal-head {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .deal-head:hover {
+    text-decoration: none;
+    color: #f37214;
+    font-size: 18px;
+    font-weight: 700;
+  }

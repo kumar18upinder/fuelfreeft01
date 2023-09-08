@@ -1,0 +1,146 @@
+.used-vehicle-ssection{
+    flex-wrap: wrap;
+    margin: 0px auto;
+    /* box-shadow: 0 1px 3px rgba(36,39,44,.15); */
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.used-vehicle-buuton{
+    margin-bottom: 50px;
+}
+h3.create-ac-heading.padding-ac-top {
+    text-align: center;
+    /* margin-top: 23%; */
+}
+img.avail-city {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    /* border-radius: 50%; */
+}
+input[type=file] {
+    display: block;
+    /* margin-top: 15px; */
+    /* margin-left: 15px; */
+}
+
+ button.slick-arrow.slick-prev:before {
+    content: "<";
+    font-size: 16px;
+    font-family: monospace;
+    background: transparent;
+    color: white;
+}
+ button.slick-arrow.slick-next:before {
+    content: ">";
+    font-size: 16px;
+    font-family: monospace;
+    background: transparent;
+}
+.used-vehicle-section .section-title {
+    padding: 23px 6px;
+}
+.usedVehicle-cards{
+    background-color: #fff;
+    border-radius: 19px;
+    box-shadow: 0 1px 3px rgba(36,39,44,.15);
+    margin-bottom: 20px;
+    margin-right: 2%;
+    padding: 4px;
+    text-align: center;
+    width: 10%;
+    z-index: 1;
+    border: 1px solid #0000002b;
+}
+.usedVehicle-cards img {
+    /* width: 100%; */
+    /* margin-inline: 10%; */
+    /* margin-top: 10px; */
+    height: 80px;
+    filter: hue-rotate(400deg);
+    width: 180px;
+    border-radius: 19px;
+    /* opacity: 0.6; */
+    filter: unset;
+}
+.usedVehicle-cards a{
+    text-decoration: none;
+}
+:root {
+    --blue: #3d5a80;
+    --light-blue: #98c1d9;
+    --sky-blue: #e0fbfc;
+    --orange: #ee6c4d;
+    --dark: #293241;
+  }
+
+.used-car-title{
+    font-size: 11px;
+    color:var(--blue) ;
+    line-height: normal;
+    text-align: center;
+  
+}
+.used-car-title p{
+    text-decoration: none;
+   
+}
+.used-car-city {
+    font-size: 10px;
+    color: #737f96;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Rambla', sans-serif;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.used-vehicle-section .mobile-section-headfing {
+    justify-content: center;
+}
+
+
+/* ==================================================================meadia query start here================================= */
+@media only screen and (max-width: 768px) {
+    .used-vehicle-buuton{
+        margin-bottom: 50px;
+    }
+    .usedVehicle-cards {
+        width: 23%;
+    }
+    .used-vehicle-ssection {
+        justify-content: center;
+    }
+     
+#useded-vehicle .mobile-section-headfing span:first-child:before {
+    background-color: #f08a04;
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 1px;
+    right: 0px;
+    top: 50%;
+}
+#mobile-section-id .mobile-section-headfing {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.usedVehicle-cards img {
+    /* width: 100%; */
+    /* margin-inline: 10%; */
+    /* margin-top: 10px; */
+    height: 50px;
+    filter: hue-rotate(400deg);
+    width: 180px;
+    border-radius: 19px;
+    /* opacity: 0.6; */
+    filter: unset;
+}
+
+}

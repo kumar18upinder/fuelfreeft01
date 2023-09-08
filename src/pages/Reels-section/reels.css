@@ -1,0 +1,258 @@
+.venders-list {
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    align-items: center;
+}
+.reels-section-outer {
+    display: flex;
+    justify-content: flex-start;
+}
+.mobile-tanker {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.reels-content video {
+    width: 100%;
+    height: 594px;
+}
+.venders-list img {
+    width: 100%;
+}
+.venders-list a {
+    overflow: hidden;
+}
+
+.reels-div-left {
+    width: 50%;
+    display:none;
+}
+.recent-post {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.recent-post-content {
+    width: 22%;
+    margin-right: 3%;
+    margin-bottom: 5%;
+}
+.Reels-header h1 {
+    text-transform: uppercase;
+    font-style: italic;
+    font-family: 'Roboto';
+    font-size: 11px;
+    color: #33557e;
+}
+.Reels-header input {
+    width: 35%;
+    background: #00000026;
+    padding: 3px 10px;
+    border: navajowhite;
+    border-radius: 10px;
+}
+.Reels-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px 12px;
+}
+.Reels-header button {
+    background: #33557e;
+    border: none;
+    padding: 4px 9px;
+    border-radius: 10px;
+    color: white;
+    font-size: 12px;
+}
+.reels-div-left h3 {
+    text-align: left;
+    color: #33557e;
+    text-transform: uppercase;
+    font-family: 'Roboto';
+}
+.recent-post {
+    display: flex;
+    flex-wrap: wrap;
+}
+.venders-list img {
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+    margin-bottom: 7%;
+    object-fit: cover;
+}
+.Reels-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Reels-div {
+    width: 100%;
+    padding: 17px 0;
+}
+section#reels-section video {
+    width: 100%;
+    height: 610px;
+    object-fit: cover;
+    border-radius: 32px;
+}
+.reels-top img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.reels-div {
+    display: flex;
+    justify-content: center;
+}
+.reels-right {
+    width: 100%;
+}
+.reels-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 15px;
+}
+.reels-top-heading img {
+    margin-right: 18px;
+}
+.reels-top-heading p {
+    font-size: 15px;
+    font-weight: 600;
+}
+.reels-top-heading {
+    display: flex;
+    align-items: center;
+}
+.recent-post img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 17px;
+}
+.reels-top a {
+    color: black;
+    font-weight: 500;
+    text-decoration: underline;
+}
+.reel-bottom-detil {
+    padding: 6px 8px;
+}
+.reels-action a {
+    margin: 2px 7px;
+    font-size: 24px;
+    color: #26386e;
+}
+.reels-content {
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #0000001a;
+    margin-bottom: 10px;
+}
+button.mute-unmute {
+    position: absolute;
+    top: 10%;
+    z-index: 9;
+    left: 78%;
+    border: none;
+    background: white;
+    padding: 10px;
+    border-radius: 50%;
+}
+button.soundmute-un {
+    margin: 2px 7px;
+    font-size: 24px;
+    color: #26386e;
+    border: none;
+    background: transparent;
+    margin-top: -9px;
+}
+.reels-action {
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.reels-div .modal {
+    top: 15%;
+
+}
+.reels-div .modal-header {
+    background-color: white;
+}
+.comment-input input {
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.comment-input svg {
+    width: 10%;
+    font-size: 40px;
+}
+.comment-input button {
+    border: navajowhite;
+    background: #1c3162;
+    color: white;
+    margin: 10px 7px;
+    border-radius: 17px;
+    font-size: 8px;
+    text-transform: capitalize;
+    padding: 5px 17px;
+}
+.comment-input {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.reels-div .modal-header .modal-title {
+    color: black;
+}
+.reels-div .modal-dialog {
+    height: 79%;
+}
+.rels-commets-outer {
+    overflow-y: scroll;
+    max-height: 429px;
+    width: 100%;
+    padding: 7px 24px;
+}
+.rels-comments {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.rels-comments img {
+    width: 20%;
+}
+.comnrt-content {
+    width: 93%;
+    border-bottom: 1px solid #0000000f;
+}
+.comnrt-content p {
+    width: 100%;
+    margin: 0px 10px;
+    font-weight: 100;
+}
+.comnrt-content p:first-child {
+    font-weight: 500;
+    font-style: italic;
+    text-transform: capitalize;
+}
+.rels-comments svg {
+    font-size: 20px;
+}
+.reels-action svg {
+    font-size: 21px;
+}
+
+@media only screen and (max-width: 768px) { 
+    a.reels-floting-btndesktop {
+        bottom: 4%;
+    }
+
+}

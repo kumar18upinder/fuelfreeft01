@@ -1,0 +1,155 @@
+img.storepage-outer {
+    width: 100%;
+    height: 550px;
+}
+
+.storepage-inner {
+    margin-bottom: 5%;
+}
+.store-para {
+    display: flex;
+    z-index: 999;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+}
+p.storeheading {
+    font-size: 25px;
+    color: black;
+    font-weight: 600;
+}
+h4.storepage-heading {
+    font-family: "Roboto" !important;
+    color: #f59d2b !important;
+    padding: 1% 0% !important;
+    font-size: 35px !important;
+    text-align: center !important;
+}
+a.book-slot {
+    vertical-align: middle;
+    margin-top: 3%;
+    color: white;
+}
+.book-slot:hover{
+    color: #1c3162;
+}
+.charging-book:hover{
+    color: #1c3162;
+    background-color:white;
+}
+/* ////// */
+.dealer-banner{
+    height: 100vh; /* Adjust this value to your desired height */
+    overflow: hidden;
+    background: #f3f3f3;
+}
+.dealer-banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h6.storepage-heading {
+    font-size: 19px;
+}
+
+@media only screen and (max-width: 768px) {
+
+.charging-book {
+    width: 45%;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #333;
+    text-align: center;
+    height: 40px;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    background-color: #1c3162;
+    color: white;
+}
+
+.store-para {
+    display: flex;
+    z-index: 999;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+
+
+
+/* ===================================================================================================================== */
+
+
+.dealer-header-outer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px;
+  }
+  .tanker {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .dealer-header-logo {
+    font-size: 31px;
+    font-family: sans-serif;
+    font-weight: 800;
+    width: 20%;
+  }
+  .dealer-header-link {
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .dealer-header-link a {
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: sans-serif;
+  }
+  .mobilecarousel-outer img {
+    width: 400px;
+    height: 400%;
+  }
+  .mobilecarousel-outer img {
+    width: 242px;
+    height: 236%;
+  }
+  .dealer-banner-text {
+    font-size: 60px;
+  }
+  .dealer-banner-text {
+    font-size: 60px;
+    width: 44%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .dealer-featuring-product-content {
+    width: 50%;
+  }
+  .dealer-featuring-product-content img {
+    width: 100%;
+  }
+  .dealer-featuring-product-texts {
+    width: 50%;
+  }
+  .dealer-featuring-product-outer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  section.dealer-featuring-product {
+    background: #f3f3f3;
+  }
+
+
+
+
+
+}

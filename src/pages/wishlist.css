@@ -1,0 +1,33 @@
+.favorite-margin{
+    margin: 15px 0px;
+}
+.fav-btn {
+    display: block;
+    margin: 0px auto;
+    width: 25%;
+    border-radius: 3px;
+    transition: all 0.3s linear;
+    letter-spacing: 1px;
+    background: #1c3162;
+}
+.delete-btn {
+    float: right;
+    color: #ec3838;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+}
+.delete-btn:hover{
+    cursor: pointer;
+}
+.booked-btn {
+    float: right;
+    color: #00ff08;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+}
+ 
+

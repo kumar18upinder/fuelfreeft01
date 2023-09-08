@@ -1,0 +1,650 @@
+#admin-page-id{
+    /* margin-top: -55px !important; */
+    display: flex;
+}
+
+.search-text{
+    margin-top: 10px;
+    color: white;
+}
+.admin-title-cycle {
+    text-align: center;
+}
+.delte-variant{
+    cursor: pointer;
+}
+ 
+.Carcard img {
+    width: 50%;
+    object-fit: cover;
+    height: 80%;
+}
+.admin-dashboard {
+    padding-left: 280px;
+    width: 100%;
+}
+.submit-main-btn-login-admin{
+    padding: 10px 8px;
+    margin: 0 auto;
+}
+
+.admin-bg-div img {
+    filter: brightness(.5);
+}
+
+
+#admin-page-id h3{
+    font-weight: bold;
+    color: white;
+}
+
+#admin-page-id div#OUR-CARS {
+    background-color: transparent;
+}
+#admin-page-id .Carcard {
+    background: #021dfb0d;
+    border: 1px solid blue;
+    box-shadow: 8px 5px 13px 1px;
+    width: 30%;
+    height: auto;
+    flex-wrap: wrap;
+}
+#admin-page-id .Carcard img {
+    width: 100%;
+    height: 45%;
+    object-fit: contain;
+
+}
+#admin-page-id .Car-buttons-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+#admin-page-id .Carcardss {
+    background: #021dfb0d;
+    border: 1px solid blue;
+    box-shadow: 8px 5px 13px 1px;
+}
+/* #admin-page-id a.view-offer-a {
+    background: #0000ff29;
+    color: white;
+    width: 46%;
+    font-size: 8px;
+} */
+#admin-page-id a.view-offer-a {
+    background: #0000ff29;
+    color: white;
+    font-size: 14px;
+}
+#admin-page-id .Cartitle {
+    width: 100%;
+}
+#admin-page-id .Cartitle h5 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #bcbcbc;
+}
+
+.section-title h3 {
+    color: var(--dark);
+    font-size: 2.75rem !important;
+    font-weight: 600 !important;
+    text-align: center;
+}
+
+
+div#admin-login form {
+    margin-left: auto;
+    margin-right: auto;
+    background: #000000c9;
+    box-shadow: -9px 10px 34px -23px #0000ffa8;
+
+}
+div#admin-login input {
+    color: black;   
+    padding: 12px;
+    border-bottom: 1px solid #173e6c !important;
+}
+div#admin-login input::placeholder {
+    color: rgb(26, 26, 26) !important;
+}
+h5.admin-heading {
+    text-align: center;
+    color: white;
+}
+.total-booking-btn{
+    position: absolute;
+    color: rgb(21, 244, 21);
+    font-size: 30px;
+}
+.total-booking-btnn{
+    position: absolute;
+    color: rgb(255, 0, 0);
+    font-size: 30px;
+}
+
+.admin-bg-div {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    z-index: 0;
+    background: #242529;
+    top: 0;
+    z-index: -1;
+}
+div#admin-page-id .tanker {
+    top: 41%;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+div#admin-page-id form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+}
+div#admin-page-id input {
+    margin: 10px auto;
+    border: none;
+    width: 90%;
+    border-bottom: 1px solid  #464a6b;
+    outline: none;
+    border-radius: none !important;
+}
+div#admin-page-id-cycle input {
+    margin: 10px auto;
+    border: none;
+    width: 90%;
+    background: transparent;
+    border-bottom: 1px solid  #464a6b;
+    outline: none;
+    border-radius: none !important;
+    color: black;
+}
+div#admin-page-id textarea {
+    margin: 10px auto;
+    border: none;
+    width: 90%;
+    background: transparent;
+    border-bottom: 1px solid  #464a6b;
+    outline: none;
+    border-radius: none !important;
+    color: white;
+}
+div#admin-page-id-cycle textarea {
+    margin: 10px auto;
+    border: none;
+    width: 90%;
+    background: transparent;
+    border-bottom: 1px solid  #464a6b;
+    outline: none;
+    border-radius: none !important;
+    color: black;
+}
+div#admin-page-id input::placeholder {
+    color: rgb(161, 159, 159) !important;
+}
+
+.section-title {
+    text-align: center;
+}
+
+div#admin-page-id input::placeholder {
+    color: black;
+}
+
+div#admin-page-id button {
+    background: #0c2e77;
+    padding: 6px 15px;
+    border-radius: 4px;
+    display: block;
+    color: white;
+    font-size: 17px;
+    margin: 17px auto;
+    border: none;
+}
+
+.modal-dialog {
+    background: white;
+    padding: 0px;
+    border-radius: 10px;
+    border: 1px solid blue;
+    padding-top: 0;
+    padding-bottom: 35px;
+}
+.modal-dialog p {
+    width: 46%;
+    margin: 10px;
+}
+.modal-dialog h4 {
+    text-align: center;
+    background: #928ac9;
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #3d3d3d;
+}
+
+.admin-dashboard-cycle {
+    padding: 14px;
+    width: 100%;
+    z-index: 1;
+}
+.admin-dashboard-name {
+    width: 97%;
+    display: flex;
+}
+.admin-dashboard-name-new {
+    width: 97%;
+    display: flex;
+}
+.modal-backdrop.show {
+    z-index: 0;
+}
+.delaer-open-details {
+    width: 70%;
+    position: fixed;
+    background: red;
+    display: none;
+}
+.apporve-ignore {
+    width: 15%;
+    display: flex;
+}
+.full-add-product {
+    display: flex;
+    flex-wrap: wrap;
+}
+.admin-input-outer {
+    width: 30%;
+}
+.admin-input {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.admin-dashboard-table li {
+    display: flex;
+    justify-content: space-between;
+}
+.admin-dashboard-outer {
+    width: 100;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px;
+    flex-wrap: wrap;
+}
+.admin-dashboard-outer-cycle {
+    width: 100;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 24px;
+    flex-wrap: wrap;
+}
+.admin-title-cycle h3 {
+    color: black;
+}
+.admin-title h3 {
+    color: white;
+}
+.admin-dashbord-content {
+    width: auto;    
+}
+
+button.cycle-submit {
+    color: white;
+    background: #000;
+    padding: 3px 6px;
+    margin: 0px auto;
+    display: block;
+}
+.admin-side-bar-inner {
+    box-shadow: 6px -9px 12px -11px;
+    height: 100%;
+    color: black;
+}
+.dashboard-inner-content li {
+    display: flex;
+    justify-content: space-between;
+}
+.doashboard-content-line h5 {
+    color: white;
+    font-size: 15px;
+    margin: 14px 3px;
+    width: 30%;
+}
+.doashboard-content-line {
+    display: flex;
+    align-items: center;
+}
+.admin-topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+ 
+}
+.admin-logout-div {
+    display: flex;
+    align-items: center;
+    padding: 19px;
+}
+.admin-logout-div h5 {
+    color: white;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-bottom: 0;
+}
+.admin-side-bar {
+    max-width: 280px;
+    /* position: fixed; */
+    height: 100%;
+    top: 0;
+    box-shadow: -9px -24px 35px 0px blue;
+    z-index: 1;
+}
+.admin-topbar-links {
+    display: flex;
+    justify-content: flex-end;
+    z-index: 99;
+    position: relative;
+}
+.admin-topbar {
+    position: fixed;
+    top: 0;
+    box-shadow: -9px -24px 35px 0px blue;
+}
+.admin-logo img {
+    width: 136px;
+    padding: 14px;
+}
+.admin-dashbord-content-inner {
+    width: auto;
+    padding: 10px;
+    margin: 8px;
+    border-radius: 10px;
+    box-shadow: 9px 8px 9px -11px blue;
+    border: 1px solid #ffffff21;
+    position: relative;
+}
+
+.admin-dashbord-content span {
+    color: white;
+    width: 30%;
+}
+.admin-dashbord-content h6 {
+    color: white;
+}
+li#admint-table-haeding a {
+    color: #06ff00;
+}
+.admin-dashboard-name a {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.span.admin-emil{
+    width: 20%;
+    text-align: center;
+}
+img.used-ev-new {
+    width: 350px !important;
+    height: 204px !important;
+    object-fit: cover !important;
+}
+.TABLE-ROW{
+    width: 86%;
+}
+.news-count{
+    width: 30%;
+    color: white;
+}
+table.tabledata-charge th {
+    width: 200px;
+    color: white;
+}
+.TABLE-ROW-new{
+    width: 95%;
+}
+.admin-heading{
+    text-align: center;
+    color: white;
+    font-size: 24px;
+}
+table.tabledata-charge td {
+    width: 200px;
+    text-align: left;
+    color: white;
+}
+table.tabledata-charge2 th {
+    width: 24%;
+    color: white;
+}
+table.tabledata-charge2 td {
+    width: 269px;
+    text-align: left;
+    color: white;
+}
+table.tabledata-charge3 td {
+    width: 346px;
+    text-align: left;
+    color: white;
+}
+table.tabledata-charge3 th {
+    width: 32%;
+    color: white;
+}
+.admin-dashboard-table li {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid white;
+    flex-direction: row;
+    color: white;
+    width: 93%;
+    margin: 0 auto;
+}
+.admin-title {
+    text-align: center;
+    margin-bottom: 6%;
+}
+.admin-dashboard-table-new li {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #00000045;
+    flex-direction: row;
+    color: white;
+    width: 100%;
+}
+.admin-dashboard-table span {
+    width: 20%;
+    color: white;
+}
+.admin-dashboard-table-new span {
+    width: 60%;
+    color: white;
+}
+.news-right-bar-outer-new {
+    box-shadow: 0 1px 3px rgb(36 39 44 / 15%);
+    padding: 10px;
+    color: white;
+    margin-bottom: 32px;
+    border-radius: 4px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 81%;
+    float: right;
+}
+.view-offer-new {
+    text-decoration: none !important;
+    background-color: #1c3162 !important;
+    color: #fafafc !important;
+    border: 1px solid #1c3162 !important;
+    padding: 7px 13px !important;
+    border-radius: 19px !important;
+    text-align: center !important;
+    transition: 0.3s !important;
+    font-size: 12px !important;
+    margin-top: 10px !important;
+    width: 20% !important;
+}
+.admin-offer img {
+    width: 100%;
+    height: 272px;
+    object-fit:cover
+}
+.admin-offer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+.admin-offer-img {
+    width: 60%;
+}
+.admin-offer a {
+    margin-right: 20%;
+}
+.admin-offer-text {
+    width: 40%;
+    padding-left: 52px;
+}
+.vender-approvel {
+    width: 15%;
+}
+.vender-approvel a {
+    width: 45%;
+    background: #081162;
+    margin-right: 5%;
+    padding: 4px;
+    color: white !important;
+    border-radius: 10px;
+    font-size: 10px;
+    text-align: center;
+}
+.admin-dashboard-outer select {
+    width: 90%;
+    margin: 15px auto;
+    border-bottom: 1px solid black !important;
+    border: navajowhite;
+}
+.admin-dashboard-outer label{
+    margin-left: 5%;
+    margin-top: 20px;
+    font-size: 14px;
+    color: white;
+    font-weight: 100;
+}
+
+.admin-dashboard-outer-cycle label{
+    margin-left: 5%;
+    margin-top: 20px;
+    font-size: 14px;
+    color: black;
+    font-weight: 100;
+}
+
+ul.admin-sidebar-links a {
+    padding: 19px 0px;
+}
+
+.admin-side-bar {
+    max-width: 280px;
+}
+.admin-side-bar {
+    max-width: 280px;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    z-index: 52;
+}
+.admin-side-bar-inner ul li{
+    margin: 21px 30px;
+    list-style: none;
+}
+
+div#admin-login {
+    width: 39%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #2a2a2a87;
+    padding: 29px;
+    border-radius: 24px;
+}
+
+a.admin-registraion-btn {
+    color: white;
+    font-size: 10px;
+    text-decoration: underline;
+}
+
+
+div#admin-login input {
+    width: 100% !important;
+}
+
+.adminleadform{
+    margin: 0px auto;
+    color: white;
+}
+
+
+div#share-btunss {
+    text-align: right;
+    color: #378aff;
+}
+#relave-positionfor {
+    position: relative;
+
+}
+.share-on-socialss {
+    padding: 17px 14px;
+    display: flex;
+    opacity: 0;
+    transition: .5s;
+}
+.shre-hover-btnss svg {
+    font-size: 35px;
+}
+.hover-effect-show-shre .share-on-socialss {
+    opacity: 1;
+} 
+.share-on-socialss svg {
+    margin: 4px 14px;
+    font-size: 55px;
+}
+.share-on-socialss span {
+    font-size: 20px;
+    margin-top: 7px;
+}
+
+/* dealerList */
+tr .whatsapp-share{
+    position: relative;
+    z-index: 4;
+    color:  white;
+}
+h5.admin-heading {
+    text-align: center;
+    color: #000;
+}
+@media only screen and (max-width: 500px) {
+    div#admin-login {
+        width: 89%;
+        margin-left: auto;
+        margin-right: auto;
+        background: #2a2a2a87;
+        padding: 29px;
+        border-radius: 24px;
+    }
+
+}
+
+.admin-title h2{
+    color: white;
+    font-size: 50px;
+    margin-top: 10%;
+}

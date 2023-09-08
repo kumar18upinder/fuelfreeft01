@@ -1,0 +1,70 @@
+.formcharging {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 5%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 30%;
+    /* margin-left: 35%; */
+    margin-top: 13%;
+    margin: 0 auto;
+}
+.formcharging label {
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.booking-btn {
+    margin-top: 6%;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    border: 1px solid #333;
+    background: #1c3162;
+    color: white;
+}
+.booking-btn:hover{
+ color:#1c3162;
+ background-color:white;
+
+}
+.input-type-booking{
+    width: 100%;
+    margin-top: 6%;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #333;
+}
+.charging-station-booking-slot-p {
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5%;
+    font-weight: 500;
+    margin-bottom: 5%;
+}
+form.formcharging button {
+    background: #1c3162;
+    color: white;
+    padding: 6px 23px;
+    border: navajowhite;
+    border-radius: 10px;
+}
+
+/* ==========================================mobile============================================ */
+
+@media only screen and (max-width: 600px) {
+.formcharging {
+    flex-direction: column;
+    /* gap: 1rem; */
+    margin-bottom: 5%;
+    /* padding: 1rem; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+}

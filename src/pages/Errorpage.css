@@ -1,0 +1,39 @@
+.error-page {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+.text-center {
+    text-align: center!important;
+}
+img {
+    max-width: 100%;
+    width: 500px;
+}
+.error-wrapper .error-content {
+    margin-top: 90px;
+}
+.error-wrapper .error-content .error-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #293957;
+    text-transform: uppercase;
+}
+.error-wrapper .error-content .main-btn {
+    margin-top: 50px;
+}
+.error-wrapper .error-content .main-btn i {
+    margin-left: 5px;
+}
+.main-btn i {
+    margin-right: 10px;
+}
+.ion-android-arrow-forward:before {
+    content: "\f30f";
+}
+a.main-btn {
+    width: 300px;
+}
+.main-btn:hover {
+    background-color: #fff;
+    color: #ce8339;
+}

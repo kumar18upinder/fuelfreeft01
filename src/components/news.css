@@ -1,0 +1,189 @@
+/* 
+.newsletter-popup {
+    position: fixed;
+    max-width: 830px;
+    height: auto;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 9999;
+    border-radius: 4px;
+    background-color: #edeff1;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .newsletter-popup {
+        max-width: 670px;
+    }
+}
+
+@media (max-width: 767px) {
+    .newsletter-popup {
+        max-width: 90%;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .newsletter-popup {
+        max-width: 470px;
+    }
+}
+
+.newsletter-popup .newsletter-close {
+    position: absolute;
+    top: -45px;
+    right: -35px;
+}
+
+@media (max-width: 767px) {
+    .newsletter-popup .newsletter-close {
+        right: 0;
+    }
+}
+
+.newsletter-popup .newsletter-close button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    opacity: 0.7;
+}
+
+.newsletter-popup .newsletter-close button i {
+    color: #fff;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+@media (max-width: 767px) {
+    .newsletter-popup .newsletter-close button i {
+        font-size: 22px;
+    }
+}
+
+.newsletter-popup .newsletter-content {
+    max-width: 475px;
+    padding: 55px 60px 30px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .newsletter-popup .newsletter-content {
+        padding: 45px 50px 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .newsletter-popup .newsletter-content {
+        padding: 18px 20px 20px;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .newsletter-popup .newsletter-content {
+        max-width: 375px;
+    }
+}
+
+.newsletter-popup .newsletter-content .newsletter-title .title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #293957;
+    text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+    .newsletter-popup .newsletter-content .newsletter-title .title {
+        font-size: 18px;
+    }
+}
+
+.newsletter-popup .newsletter-content .newsletter-title p {
+    margin-top: 16px;
+}
+
+.newsletter-popup .newsletter-content .newsletter-form {
+    margin-top: 35px;
+}
+
+.newsletter-popup .newsletter-content .newsletter-form input {
+    width: 100%;
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid rgba(41, 57, 87, 0.15);
+    border-radius: 3px;
+    color: #293957;
+    background-color: #fff;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    font-size: 14px;
+}
+
+.newsletter-popup .newsletter-content .newsletter-form input:focus {
+    border-color: #ce8339;
+}
+
+.newsletter-popup .newsletter-content .newsletter-form .main-btn {
+    margin-top: 20px;
+}
+
+.newsletter-popup .newsletter-content .newsletter-show {
+    margin-top: 32px;
+}
+
+.newsletter-popup .newsletter-content .newsletter-show input[type=checkbox] {
+    display: none;
+}
+
+.newsletter-popup .newsletter-content .newsletter-show input[type=checkbox]+label {
+    width: 13px;
+    height: 13px;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 1px solid rgba(41, 57, 87, 0.15);
+    position: relative;
+    margin-right: 10px;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+.newsletter-popup .newsletter-content .newsletter-show input[type=checkbox]+label::before {
+    content: "✓";
+    font-family: monospace;
+    display: inline-block;
+    font-size: 11px;
+    color: #fff;
+    position: absolute;
+    top: -2px;
+    left: 1px;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+.newsletter-popup .newsletter-content .newsletter-show input[type=checkbox]:checked+label {
+    background-color: #ce8339;
+    border-color: #ce8339;
+}
+
+.newsletter-popup .newsletter-content .newsletter-show input[type=checkbox]:checked+label::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.newsletter-popup .newsletter-content .newsletter-show span {
+    font-size: 16px;
+    font-weight: 400;
+    color: #293957;
+}
+
+.newsletter-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+} */

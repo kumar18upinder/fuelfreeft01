@@ -1,0 +1,118 @@
+#Newsletter {
+    position: relative;
+}
+.newsletter-section{
+      background-size: cover;
+      height: 550px;
+      /* position: relative; */
+}
+.Newsletter-full-page {
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+
+.written-section-newsletter p {
+    color: #737f96;
+    font-size: 13px;
+    font-weight: 500;
+    /* width: 30%; */
+    margin-top: 35px;
+}
+.newsletter-input_button input {
+    width: 90% !important;
+    /* color: white; */
+    border: 1px solid black;
+    /* background-color: #1c3162; */
+}
+.newsletter-section img{
+    position: absolute;
+    background:none;
+    height: 400px;
+    width: 40%;
+    right: 0%;
+    top: 20%;
+}
+
+#newslatter-id-outer  .img-relative{
+    position: relative;
+    padding-bottom: 288px;
+}
+
+#newslatter-id-outer .img-absolute {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+
+.written-section-newsletter{
+    /* background: -webkit-gradient(linear, left top, right top, from(#d3d9e26b), to(#06243f00)); */
+    border-radius: 5px;
+
+}
+.written-section-newsletter h1 span {
+    color: #262681;
+}
+.newsletter-input_button button {
+    color: white;
+    height: 46px;
+    background-color: #1c3162;
+}
+.written-section-newsletter h1 {
+    color: var(--dark);
+    font-size: 26px;
+    font-weight: 600;
+    text-align: left;
+    margin-top: 20px;
+}
+
+.newsletter-input_button {
+    display: flex;
+    gap: 1rem;
+    margin-top: 30px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.newsletter-input_button input{
+    width: 20%;
+    height: 46px;
+    /* border-radius: 5px; */
+    text-align: center;
+    border: 1px solid #333;
+}
+.main-btn-submit{
+    width: 91%;
+    height: 35px;
+    text-align: center;
+    border: 1px solid #333;  
+    background-color: white;
+}
+.main-btn-submit:hover{
+    color:white;
+    background-color: #1c3162;
+}
+
+.newsletter-input_button a {
+    width: 30%;
+    background-color: #ff702d;
+    /* margin: 7px; */
+    padding: 12px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    height: 40px;
+    border-radius: 5px;
+}
+.mobile-section-headfing {
+    z-index: 1;
+    position: relative;
+    margin-top: 3%;
+}
+/* section#newslatter-id-outer .mobile-section-headfing {
+    padding-top: 35px;
+} */

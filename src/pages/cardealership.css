@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+.width-percent{
+  width: 75%;
+  margin: 0px auto;
+  font-family: 'Roboto', sans-serif;
+}
+:root {
+   --blue: #3d5a80;
+   --light-blue: #98c1d9;
+   --sky-blue: #e0fbfc;
+   --orange: #ee6c4d;
+   --dark: #293241;
+ }
+ .cardealer-ship {
+    margin: 55px 0px;
+}
+
+.cardeal-head-text{
+    text-align: center;
+    color: var(--blue)
+}
+.cardeal-head-text1{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.793);
+    font-size:50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.cardeal-head-para{
+    text-align: center;
+    margin-top: 2%;
+}
+.header-page{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2%;
+}
+.single-card{
+    width: 22%;
+    height: 300px;
+    background-color: #f2f2f2;
+    box-shadow: 1px 1px 2px 3px rgb(126, 126, 126);
+    /* transform: 1s; */
+}
+
+ 
+svg.wheel {
+    display: block;
+    margin: 0px auto;
+    margin-top: 15px;
+    font-size: 50px;
+    color: rgb(16, 16, 72);
+}
+
+.definantion-section-card{
+   margin-top: 10px;
+    text-align: center;
+}
+
+.card-heading-text{
+    margin-top: 13%;
+}
+.card-heading-para{
+    margin-top: 5%;
+    font-family:"Robot";
+}
+.button-card{
+     background-color:rgba(255, 254, 253, 0.793);
+     height: 50px;
+     width: 100%;
+     margin-top:28px;
+     border:none;
+     color: rgb(16, 16, 72);
+}
+.crd{
+    border: none;
+}
+.single-card1:hover{
+    background-image: url('/public/car.webp');
+    background-size: cover;
+    
+    
+    
+}
+.single-card2:hover{
+    background-image: url('/public/OIP12.jfif');
+    background-size: cover;
+}
+.single-card3:hover{
+    background-image: url('/public/red-car.jfif');
+    background-size: cover;
+}
+.single-card4:hover{
+    background-image: url('/public/dark-mode-scooter.jpg') ;
+    background-size: cover;
+}
+    
+.single-card:hover  button.button-card {
+    color: rgb(255, 255, 255);  
+    text-shadow: 1px 1px rgb(255, 255, 255);
+    background-color:var(--blue);
+    font-size: 16px;
+    transition: .5s;
+    
+}
+
+.single-card:hover  .card-heading-para {
+    color: rgb(255, 255, 255);  
+    text-shadow: 1px 1px 2px rgb(255, 255, 255);
+    font-size: 16px;
+    transition: .5s;
+}
+
+.single-card:hover  .card-heading-text{
+    color: white;
+    text-shadow: 1px 1px rgb(255, 255, 255);
+    font-size: 16px;
+    transition: .5s;
+}
+
+.single-card:hover  svg.wheel{
+    color: white;
+    text-shadow: 1px 1px 1px  rgb(255, 255, 255);
+    font-size: 54px;
+    transition: .5s;
+}

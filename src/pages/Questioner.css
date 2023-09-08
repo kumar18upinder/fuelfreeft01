@@ -1,0 +1,26 @@
+.App {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+  
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+  input[type="radio"] {
+    accent-color: #ce8339;
+}
+  

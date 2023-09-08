@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+.login-form-new h3 {
+    font-size: 41px;
+    color: black;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+.userlogin-btn {
+    border-radius: 4px;
+    width: 28%;
+    background: #262681;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 30.5px;
+    display: block;
+    margin: 0px auto;    
+}
+.userlogin-btn:hover {
+    background-color: var(--dark);
+    /* border: var(--dark); */
+}
+input.login-name {
+    width: 40%;
+    margin-right: 5%;
+}
+.modal.in .modal-dialog {
+    margin-top: 14%;
+}
+.login-inner-contnet input {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 30.5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16px;
+}
+
+.login-form-new form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.social-login a {
+    padding: 5px 6px;
+    border-radius: 50%;
+    margin: 0px 8px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+}
+.or-login:before {
+    content: "";
+    background: #262681;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    top: 47%;
+    left: 0;
+    right: 0;
+}
+
+.or-login span {
+    background: white;
+    z-index: 1;
+}
+.or-login p {
+    color: black !important;
+}
+.or-login {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 14px;
+
+}
+
+.login-right-content h3 {
+    color: white;
+    font-weight: 600;
+    font-size: 37px;
+}
+.login-right-content p {
+    color: white;
+    width: 44%;
+    text-align: center;
+}
+.login-right-content a {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 30.5px;
+    padding: 1px 30px;
+    margin-top: 16px;
+    color: #262681;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+
+.login-right-content {
+    width: 26%;
+    background: #262681;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+div#login-page-id {
+    display: flex;
+    justify-content: space-between;
+}
+.login-form-new {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 6% 2%;
+}
+.login-inner-contnet {
+    width: 55%;
+}
+.social-login {
+    text-align: center;
+}
+.login-form-new h5 {
+    font-size: 20px;
+    color: #6e6e6e;
+}
+.social-login svg {
+    font-size: 30px;
+    color: #262681;
+}
+/* ============================meadia query start here================================= */
+@media only screen and (max-width: 768px) { 
+    .login-form-new h3 {
+        font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 7%;
+    margin-top: 4%;
+    }
+    .login-right-content {
+        width: 100%;
+    padding: 13% 0%;
+    }
+    .login-form-new {
+        width: 80%;
+    }
+    
+    .login-form-new h5 {
+        margin-bottom: 11px;
+    }
+    .login-inner-contnet {
+        width: 94%;
+    }
+    div#login-page-id {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column-reverse;
+    }
+
+}
+.forget{   
+    /* position: 
+    absolute;
+    top: 2; */
+
+}

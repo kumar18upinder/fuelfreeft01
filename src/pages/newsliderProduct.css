@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+.width-percent {
+  width: 75%;
+  margin: 0px auto;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  --blue: #3d5a80;
+  --light-blue: #98c1d9;
+  --sky-blue: #e0fbfc;
+  --orange: #ee6c4d;
+  --dark: #293241;
+}
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.heading-quick-look {
+  margin-right: 883px;
+  /* font-size: 0; */
+}
+.featured-car-section {
+  margin: 2rem 0;
+}
+.add-new-vehicle {
+  color: white;
+}
+
+.featured-car-section h2 {
+  margin-bottom: 1rem;
+}
+.Carslide {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  right: 0%;
+  left: 0%;
+}
+
+.Carcard {
+  background-color: #ffffffc2;
+  padding: 18px;
+  margin: 27px 11px;
+  border-radius: 5px;
+  display: flex;
+  border: 1px solid #0000001a;
+}
+
+.quick-look-card .Carcard {
+  margin: 7px;
+  border-radius: 29px;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.2);
+  display: flex !important;
+}
+.quick-look-card .mobile-section-headfing h3 {
+  background: white;
+}
+.Carcard img {
+  width: 45%;
+  height: auto;
+  object-fit: cover;
+}
+@media (min-width: 1200px) {
+  .h3 {
+    text-align: center;
+  }
+}
+
+.slick-slide img {
+  display: block;
+  margin-right: 0px;
+  margin-right: 6px;
+}
+
+.Cartitle {
+  text-align: left;
+  margin-top: 15px;
+  line-height: normal;
+  padding-left: 10px;
+  width: 48%;
+}
+.Cartitle h5 {
+  font-size: 17px;
+  font-weight: 800;
+  overflow: hidden;
+}
+.Cartitle h5:nth-child(3) {
+  background-color: yellow; /* Highlight color */
+}
+.Cartitle p {
+  font-size: 12px;
+}
+
+.heading-quick-look {
+  font-size: 23px;
+}
+.quick-look-card {
+  padding-bottom: 20px;
+  margin: auto;
+  background: rgba(38, 38, 129, 0.1);
+  margin-top: 83px;
+}
+
+.quick-look-card h5 {
+  font-size: 15px;
+  height: 38px;
+  overflow: hidden;
+}
+
+.quick-look-card h5::first-line {
+  color: #f08a04 !important;
+}
+
+.quick-look-button {
+  margin-top: 5px;
+  margin-right: 740px;
+  display: none;
+  /* border-bottom: 2px solid  var(--dark);   */
+}
+/* .for-bottom{
+    border-bottom: 2px solid  var(--dark);   
+    margin-top: 20px;
+ } */
+.quick-look-button a {
+  margin-inline: 10px;
+  border: none;
+  padding: 6px;
+  text-align: center;
+  font-size: 17px;
+  text-decoration: none;
+  color: var(--dark);
+  background-color: var(--orange);
+  border: none;
+}
+.quick-look-button a:hover {
+  background-color: var(--blue);
+  color: #e0fbfc;
+  border: none;
+}
+
+.App {
+  position: relative;
+}
+.App button.slick-arrow.slick-next {
+  top: 6%;
+  border: none;
+  background-color: var(--blue);
+}
+.App button.slick-arrow.slick-next:hover {
+  background-color: var(--sky-blue);
+  border: none;
+}
+.App button.slick-arrow.slick-prev {
+  background-color: var(--blue);
+  position: absolute;
+  top: 6%;
+  left: 88%;
+  z-index: 1;
+}
+.App button.slick-arrow.slick-prev:hover {
+  background-color: var(--sky-blue);
+}
+.slick-prev:hover,
+.slick-prev:focus,
+.slick-next:hover,
+.slick-next:focus {
+  /* color: transparent; */
+  outline: none;
+  /* background: transparent; */
+}
+
+.slick-next:hover,
+.slick-next:focus,
+.slick-prev:hover,
+.slick-prev:focus {
+  /* color: transparent; */
+  outline: none;
+  /* background: transparent; */
+}
+
+.view-offer-ab {
+  /* margin-left: 115px; */
+  margin: 0px auto;
+  text-decoration: none;
+  background-color: #1c3162;
+  color: #fafafc;
+  border: 1px solid #1c3162;
+  padding: 7px 13px;
+  border-radius: 19px;
+  text-align: center;
+  transition: 0.3s;
+  font-size: 12px;
+  margin-top: 10px;
+  margin-bottom: 80px;
+  width: 20%;
+}
+.view-offer-a {
+  /* margin-left: 115px; */
+  margin: 0px auto;
+  text-decoration: none;
+  background-color: white;
+  color: #1c3162;
+  border: 1px solid #1c3162;
+  padding: 7px 13px;
+  border-radius: 19px;
+  text-align: center;
+  transition: 0.3s;
+  font-size: 12px;
+  margin-top: 10px;
+  width: 100%;
+}
+.view-offer-a:hover {
+  background-color: var(--orange);
+  color: white;
+}
+.view-offer-ab:hover {
+  background-color: var(--orange);
+  color: white;
+}
+@media only screen and (max-width: 768px) {
+  .quick-look-card .Carcard {
+    margin: 7px;
+  }
+}

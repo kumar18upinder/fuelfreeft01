@@ -1,0 +1,169 @@
+Key Specs of S1
+
+Range = 128 km/charge
+Battery Capacity = 3 kWh
+Max Speed = 95 kmph
+Acceleration(0-60) = 5.9s
+Motor Power = 8500
+Motor = Mid Drive IPM
+
+
+Ola S1 Latest Update
+
+Ola S1 and S1 Pro battery pack's prices revealed! Check them out here.
+
+The Ola S1 now gets an additional variant, along with a price hike to its existing model. Know more in this story.
+
+Ola has added five more colours to the S1, as well as brought back the ‘Gerua’ colour to the S1 and S1 pro. Read more about it here 
+
+Ola Electric made its debut at EICMA 2022 and is also going to launch Ola Maps soon. Check here for more details. 
+
+Ola Electric launched its most affordable e-scooter, the S1 Air in October 2022, and has set up 50 hyperchargers across the country. Read our full story here.
+
+The company has opened ‘Experience Centres’ for potential buyers and existing customers. You can get information about the scooters, get financing options and more. Read more about it here.  We compared the S1 Pro with the Ather 450X. To know which one is the better electric scooter to invest in, catch our road test review!
+
+Ola S1 Prices:
+The Ola S1 is available in two variants -- the base S1 gets a 2kWh battery and is priced at Rs 99,999, while the top variant gets a 3kWh battery, and retails at Rs 1,09,999 (both prices ex-showroom, Bengaluru). Both variants gets the same 8.5kW motor.
+
+Ola S1 Features:
+The S1 comes equipped with an all-LED illumination, a massive 36-litre underseat storage (34 litres on the Air variant), a seven-inch TFT instrument cluster with smartphone connectivity, Bluetooth, GPS and Wifi connectivity. Other features include side-stand-down and anti-theft alert, geofencing, cruise control, reverse mode, Get Home Mode, Take Me Home Lights and a Limp Home Mode. The e-scooter also gets a reverse mode, a seven-inch touchscreen display with smartphone connectivity, multiple ride profiles, music and call control, multiple riding moods (that changes the layout of the console as well as the motor sound) and party mode, where the scooter’s speaker plays music from the connected smartphone. The MoveOS 3.0 will bring features like the faux motor sounds, hill hold, vacation mode which conserves the battery over an extended period of non-usage, proximity unlock, ride moods (Bolt, Vintage and Eclipse), regenerative braking V2 (with three modes), Hypercharging, Bluetooth calling and key sharing to the e-scooter. 
+
+Ola S1 Powertrain:
+The Ola S1 is powered by a permanent magnet motor producing a peak power of 8.5kW and a peak torque of 58Nm (at the shaft). The base S1 gets a claimed top speed of 90kmph, while the higher variant gets a claimed top speed of 95kmph. As mentioned, the motor is linked to either a 2kWh (for the base variant) or a 3Wh (for the top variant) lithium-ion battery pack with a claimed range of 91km and 141km respectively. 
+
+Ola S1 Suspension And Brakes:
+The Ola S1 is built on a tubular frame with the curved non-removable battery pack mounted on the floorboard. Its suspension features a single-sided fork and monoshock with a single-sided swingarm. For braking, it gets a 220mm front and a 180mm rear disc with standard CBS. It comes with a generous 165mm of ground clearance. It rolls on large 12-inch alloy wheels wrapped with 110-section rubber at both ends. The e-scooter is slightly heavy, tipping the scales at 121kg kerb. 
+
+Ola S1 Rivals:
+The Ola S1 competes with the TVS iQube Electric, Bajaj Chetak, Hero Vida V1 and the Ather 450 Plus. For a similar price, you could opt for the Yamaha FZ-Fi, or the Bajaj Pulsar NS125.
+
+
+Ola S1 Specifications
+
+Mileage = -
+Range = 128 km/charge
+Motor Power (w) = 8500
+Motor Type = Mid Drive IPM
+Charging Time = 5 hours
+Front Brake = Disc
+Rear Brake = Disc
+Body Type = Electric Bikes
+
+Ola S1 Features
+
+Braking Type = Combine Braking System
+Charging Point = Yes
+Boot Light = Yes
+Fast Charging = Yes
+Mobile Connectivity = Bluetooth,WiFi
+Clock = Yes
+Speedometer = Digital
+Tripmeter = Digital
+
+
+Ola S1 Specifications
+
+
+Engine and Transmission
+
+Continuous Power = 5.5 kw
+Motor Power (w) = 8500
+Range (Eco Mode) = 141 km/charge
+Starting = Remote Start,Push Button Start
+
+Features
+
+Instrument Console = Digital
+Bluetooth Connectivity = Bluetooth,WiFi
+Navigation = Yes
+Call/SMS Alerts = Yes
+Geo Fencing = Yes
+Anti Theft Alarm = Yes
+Music Control = Yes
+OTA = Yes
+External Speakers = Yes
+Speedometer = Digital
+Tripmeter = Digital
+Additional Features Of Variant = Drive Modes - Normal | Sports | Eco, Charger Capacity - 750 W, Seat Length - 738 mm, Remote Boot Lock, Predictive Maintenance, Key Sharing, 3 GB RAM, LTE Connectivity
+Seat Type = Single
+Clock = Yes
+Passenger Footrest = Yes
+Underseat storage = 36 L
+Charger Output = 750 kw
+
+Features and Safety
+
+Braking Type = Combine Braking System
+Charging Point = Yes
+Fast Charging = Yes
+Internet Connectivity = Yes
+Operating System = MoveOS 2
+Mobile Application = Yes
+Gradeability = 15°
+Speedometer = Digital
+Tripmeter = Digital 
+Clock = Yes
+Riding Modes = Yes
+Additional Features = Drive Modes - Normal | Sports | Eco, Charger Capacity - 750 W, Seat Length - 738 mm, Remote Boot Lock, Predictive Maintenance, Key Sharing, 3 GB RAM, LTE Connectivity
+Passenger Footrest = Yes
+
+Chassis and Suspension
+
+Body Type = Electric Bikes
+
+Dimensions and Capacity
+
+Boot Space = Yes
+Width = 712 mm
+Length = 1859 mm
+Height = 1160 mm 
+Saddle Height = 792 mm
+Ground Clearance = 165 mm
+Wheelbase = 1359 mm
+Kerb Weight = 121 kg
+Additional Storage = 36 L
+
+Electricals
+
+Headlight = LED
+Tail Light = LED
+Turn Signal Lamp = LED
+Low Battery Indicator = Yes
+
+Tyres and Brakes
+
+Front Brake Diameter = 220 mm
+Rear Brake Diameter = 180 mm
+
+Performance
+
+Scooter Speed = high
+0-40 Kmph (sec) = 3.8s
+Top Speed = 95 kmph
+
+Motor & Battery
+
+Motor Type = Mid Drive IPM
+Continious Power = 5.5 kw 
+Torque (Motor) = 58 Nm
+Drive Type = Belt Drive
+Battery Capacity = 3 kWh
+Water Proof Rating = IP67
+Reverse Assist = Yes
+Transmission = Automatic
+
+Range
+
+Claimed Range = 128 km/charge
+
+Underpinnings
+
+Suspension Front = Single Fork
+Suspension Rear = Mono Shock
+Brakes Front = Disc
+Brakes Rear = Disc
+Tyre Size = Front :- 110/70-12,  Rear :- 110/70-12
+Wheel Size = Front :-304.8 mm,Rear :-304.8 mm
+Wheels Type = Aluminium Alloy
+Frame = Tubular
+Tubeless Tyre = Tubeless

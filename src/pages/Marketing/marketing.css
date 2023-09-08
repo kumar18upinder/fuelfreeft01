@@ -1,0 +1,134 @@
+
+.lead-dashboard {
+    width: 100%;
+}
+#lead-page-id {
+    display: flex;
+}
+#lead-page-id h3{
+    color: #000000;
+}
+.lead-dashboard-table li {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid white;
+    flex-direction: row;
+    color: white;
+    width: 93%;
+    margin: 0 auto;
+}
+.lead-dashboard-table span {
+    width: 20%;
+    color: #000000;
+}
+.lead-dashboard-table li {
+    justify-content: space-between;
+}
+.lead-title {
+    text-align: center;
+}
+.marketing-title {
+    text-align: center;
+    background: linear-gradient(100deg,#f59b26,#26386e);
+    width: 93%;
+    margin: auto;
+    color: #000000;
+    border-radius: 14px;
+    padding: 1px 3px;
+}
+ul.marketing-sidebar-links a {
+    padding: 19px 0px;
+}
+.marketing-sidebar-links li:active{
+    color: #e8b10f;
+    scroll-behavior: unset;
+}
+.marketing-sidebar-links li:focus-visible{
+    color: #e8b10f;
+    scroll-behavior: unset;
+}
+ 
+.marketing-side {
+    float: right;
+    width: 84%;
+}
+ 
+.marketing-side-bar2 {
+    margin: 0px auto;
+    width: 84%;
+}
+.marketing-side-bar {
+    max-width: 280px;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    z-index: 52;
+    box-shadow: -9px -24px 35px 0px blue;
+    background: #000;
+}
+.marketing-side-bar-inner {
+    box-shadow: 6px -9px 12px -11px;
+    height: 100%;
+    color: black;
+}
+.marketing-topbar {
+    position: fixed;
+    top: 0;
+    box-shadow: -9px -24px 35px 0px blue;
+}
+.marketing-topbar-links {
+    display: flex;
+    justify-content: flex-end;
+    z-index: 99;
+    position: relative;
+}
+.marketing-logo img {
+    width: 230px;
+    padding: 14px;
+}
+ 
+.marketing-side-bar-inner ul li {
+    margin: 21px 30px;
+    list-style: none;
+}
+ul.marketing-sidebar-links a {
+    padding: 19px 0px;
+}
+.admin-dashboard-outer-list {
+    width: 96%;
+    float: right;
+}
+.admin-dashboard-outer-list2 {
+    width: 96%;
+    float: right;
+}
+@media only screen and (max-width: 500px) {
+    .marketing-logo img {
+        width: 113px;
+        padding: 14px;
+    }
+    .marketing-side {
+        width: 83%;
+        margin: 0px auto;
+        float: right;
+    }
+    .css-13cymwt-control {
+        margin-right: 17px;
+        width: 90%;
+    }
+    .marketing-side h2 {
+        font-size: 14px;
+    }
+    #lead-page-id h3 {
+        color: #000000;
+        font-size: 18px;
+    }
+    .lead-dashboard-table span {
+        width: 25%;
+        color: #000000;
+    }
+    .admin-dashboard-outer-list {
+        width: 77%;
+        float: right;
+    }
+}

@@ -1,0 +1,88 @@
+.deal-mail {
+  text-decoration: none;
+}
+.sidebar-deal {
+  background-color: #f5f6f6;
+  border: 1px solid #d7dce6;
+}
+.dealer-info {
+  padding: 8px 0px 0px 19px;
+}
+.travelCars {
+  text-decoration: none;
+  color: #0084c8;
+  font-size: 18px;
+  font-weight: 700;
+}
+.deal-map {
+  width: 327px;
+  height: 224px;
+  border: 0;
+  /* " allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" */
+}
+.car-logo-deal {
+  width: 93%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.dealer-location-deal {
+  width: 16px;
+  padding-top: 11px;
+  margin: 0px auto;
+  display: block;
+}
+.phone-deal {
+  margin: 0px 6px;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+  color: #676a71;
+}
+.phone-num {
+  font-weight: 700;
+  color: #ed3921;
+}
+.mail-deal {
+  text-decoration: none;
+  color: black;
+}
+.globe-deal {
+  display: block;
+  margin: 0px 6px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #695c5c;
+}
+.icon-fb {
+  background-color: #2b53b8;
+  color: #fff;
+  padding: 7px 13px;
+  border-radius: 4px;
+}
+.icon-twitter {
+  background-color: #0096ff;
+  color: #fff;
+  padding: 7px 11px;
+  border-radius: 4px;
+}
+.icon-google {
+  background-color: #bf2828;
+  color: #fff;
+  padding: 7px 8px;
+  border-radius: 4px;
+}
+.icon-tumblr {
+  background-color: #2b4873;
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 4px;
+}
+.icon-rss {
+  background-color: #f37214;
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 4px;
+}
+.anchor-decoration {
+  text-decoration: none;
+}
