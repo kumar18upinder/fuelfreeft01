@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      SSH_USER: ${{ env.SSH_USER }}
-      SSH_PASSWORD: ${{ env.SSH_PASSWORD }}
+      SSH_USER: ${{ secrets.SSH_USER }}
+      SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
       SERVER_IP: ${{ env.SERVER_IP }}
 
     steps:
