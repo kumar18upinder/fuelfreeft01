@@ -19,8 +19,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install SSH client
-        run: sudo apt-get update && sudo apt-get install -y sshpass && echo $SSH_USER
+        run: sudo apt-get update && sudo apt-get install -y sshpass
 
       - name: Deploy code to server
         run: |
+          echo $SSH_USER
           sshpass -p "$SSH_PASSWORD" ssh "$SSH_USER@$SERVER_IP" "cd /var/www/html/fuelfree.in && git pull origin main"
